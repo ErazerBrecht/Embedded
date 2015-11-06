@@ -22,3 +22,25 @@ Een pmf kan belangrijk zijn in DSP, stel je hebt een signaal. Dan kun je via de 
 Je stelt een pmf op door de histogram te nemen en elke y - waarde te delen door het aantal sampels.
 Soms zal dit niet voldoen en zijn er wiskundige technieken om de pmf te bepalen (zie volgende vraag waarom).
 
+### 3. Wat is/zijn de verschillen tussen een histogram, pmf en pdf bij digitaal signaal verwerking? Geef ook aan waarvoor ze nuttig zijn.
+
+#### 3.1 Wat is het verschil tussen een signaal en het onderliggend proces? (Extra vraag by Brecht C)
+Een signaal is wat je meet.
+Het onderligend proces is wat het signaal genereert. 
+
+Makkelijk voorbeeld: Kop of munt.
+Het proces bestaat uit 2 resultaten kop of munt. De kans dat je kop / munt hebt is de helft. Indien kop 0 voorsteld en munt 1 voorsteld heb je dus ook een gemiddelde van 0.5. </ br>
+Indien je nu 100 dit proces zou uitvoeren, heb je dus 100 sampels. De kans dat je hier perfect een gemiddelde van 0.5 zou hebben is klein. Het verschil tussen dat gemiddelde en het gemiddelde van 0.5 noemen we **statistische ruis**
+
+Indien je het nu nog niet door hebt een klein ander voorbeeld:
+Het nettoloon van een land is gemiddeld 2050 (het proces). </ br>
+Je neemt nu van 5 mensen hun loon (aka 5 sampels) 
+- 2051
+- 2053
+- 2055
+- 2050
+- 2051
+
+Het gemiddelde hiervan is 2052. Het verschil tussen 2050 n 2052 noemen we dus de statische ruis. Indien je nu de standaardeviatie berekent en je gebruikt als gemiddelde 2052 (het gemiddelde van het signaal) is dit eigenlijk fout van het feitelijke gemiddelde is 2050.Dit is ook de reden dat we door N - 1 delen om de standarddeviatie te berekenen i.p.v. door N.
+Hierdoor wordt de statische ruis gecompenseert om zo dicht mogelijk bij het correcte beeld van het proces te komen!
+
