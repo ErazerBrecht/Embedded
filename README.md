@@ -12,3 +12,9 @@ Dit brengt enkele voordelen:
   - Kleuren veranderen (filters)
   - Helderheid en etc. bewerken
   
+#### 2. Welk nut heeft het om een pmf op te stellen van een discreet signaal? Welke informatie kan je hieruit halen?
+**pmf = probability mass function**
+Een pmf is een afgeleide van een histogram (zie volgende vraag). Een pmf zegt hoeveel kans er bestaat dat die bepaalde waarde voorkomt => PROBABILITY (KANS)
+
+
+
