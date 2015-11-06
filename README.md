@@ -76,12 +76,13 @@ Wat is dat nu de helft van de LSB (Least significant bit). Dit is de kleinste st
 In ons geval is dit dus (5V / 2^12) => 5V / 4096 = 1,22mV! => De helft = 0.61mV
 Dat betekend dus de maximum afwijking 0.61mV is.
 
-Nu is de afwijing niet altijd  maximaal en volgens de statistiek is de de variatie (standaard deviatie) dat er naar boven of naar beneden afgerond wordt dezelfde als een random getal tussen 0 en 1. In dat geval is de standaarddeviatie 0,29 (Hoe die cursus aan dat getal komt, ik heb godverdomme geen idee).
+Nu is de afwijing niet altijd  maximaal en volgens de statistiek is de variatie (standaard deviatie) dat er naar boven of naar beneden afgerond wordt dezelfde als een random getal tussen 0 en 1. In dat geval is de standaarddeviatie 0,29 (Hoe die cursus aan dat getal komt, ik heb godverdomme geen idee).
 
-Dus de ruis wordt dan 0.29 LSB (leert er met leven geen vragen stellen Brecht, Let It Goooooo) => 0,29 . 1,22mV = 0,3538 mV.
+Dus de ruis wordt dan **0.29 LSB** (leert er met leven, geen vragen stellen Brecht, Let It Goooooo) => 0,29 . 1,22mV = 0,3538 mV.
 
 Owkay we zijn er bijna, nu hebben we ook nog die extra ruis op het signaal van 2mV piek. 
-Maar dat is voor vannacht nu CINEMA :)
+Ik ga er even van uit gaan dat hij 2mV RMS bedoeld :)
+LSB was 1,22mV => 2mV = 1,64 LSB. Om dit nu te bereken gebruik je Pythagoras (oorspronkelijke ruis => 0,29LSB en nieuwe ruis uitgedrukt in LSB), dus √(0,29² + 1,64²) = 1,665 LSB * 1,22mV = **2,0313mV**
 
 
 
