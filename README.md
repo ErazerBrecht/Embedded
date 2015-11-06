@@ -66,3 +66,23 @@ Stel dus dat bij 121 een kansdichtheid hoort van 0.03... </br>
 Dan is de kans dat het signaal tussen 120 en 121 ligt => (121 - 120) * 0.03 = 0.03 => 3%
 De kans dat het signaal tussen 120.5 en 120.4 ligt => (120.5 - 120.4) * 0.03 = 0.003 = 0.3% </br>
 NOOT: Dit is het geval indien de kansdichtheid constant blijft tussen de twee getallen, indien dit niet het geval is moet je de oppervlakte onder de grafiek berekenen (aka Integraal, maar dit ligt buiten de scope van dit vak!)
+
+### 4. Een signaal met piekwaarde 2 V wordt aangelegd aan een 12-bit ADC (met bereik 5 V). Indien op dit signaal een ruis van 2 mV piek aanwezig is, bepaal dan de totale hoeveelheid ruis na kwantisatie.
+Zonder een extra ruis signaal is de ruis toegevoegd door qwantisatie maximum gelijk aan de helft van de LSB (afronden naar boven of onder dus in het slechtste geval zit je er 0.5LSB naast). 
+
+TODO: Foto invoegen!!!
+
+Wat is dat nu de helft van de LSB (Least significant bit). Dit is de kleinste stap die je kunt zetten. Hoeveel spannings verschil komt overeen met een verandering van 0000 0000 0000 naar 0000 0000 00001. </br>
+In ons geval is dit dus (5V / 2^12) => 5V / 4096 = 1,22mV! => De helft = 0.61mV
+Dat betekend dus de maximum afwijking 0.61mV is.
+
+Nu is de afwijing niet altijd  maximaal en volgens de statistiek is de de variatie (standaard deviatie) dat er naar boven of naar beneden afgerond wordt dezelfde als een random getal tussen 0 en 1. In dat geval is de standaarddeviatie 0,29 (Hoe die cursus aan dat getal komt, ik heb godverdomme geen idee).
+
+Dus de ruis wordt dan 0.29 LSB (leert er met leven geen vragen stellen Brecht, Let It Goooooo) => 0,29 . 1,22mV = 0,3538 mV.
+
+Owkay we zijn er bijna, nu hebben we ook nog die extra ruis op het signaal van 2mV piek. 
+Maar dat is voor vannacht nu CINEMA :)
+
+
+
+
