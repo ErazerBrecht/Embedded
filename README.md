@@ -29,11 +29,11 @@ Een signaal is wat je meet.
 Het onderligend proces is wat het signaal genereert. 
 
 Makkelijk voorbeeld: Kop of munt.
-Het proces bestaat uit 2 resultaten kop of munt. De kans dat je kop / munt hebt is de helft. Indien kop 0 voorsteld en munt 1 voorsteld heb je dus ook een gemiddelde van 0.5. </ br>
+Het proces bestaat uit 2 resultaten kop of munt. De kans dat je kop / munt hebt is de helft. Indien kop 0 voorsteld en munt 1 voorsteld heb je dus ook een gemiddelde van 0.5. </br>
 Indien je nu 100 dit proces zou uitvoeren, heb je dus 100 sampels. De kans dat je hier perfect een gemiddelde van 0.5 zou hebben is klein. Het verschil tussen dat gemiddelde en het gemiddelde van 0.5 noemen we **statistische ruis**
 
 Indien je het nu nog niet door hebt een klein ander voorbeeld:
-Het nettoloon van een land is gemiddeld 2050 (het proces). </ br>
+Het nettoloon van een land is gemiddeld 2050 (het proces). </br>
 Je neemt nu van 5 mensen hun loon (aka 5 sampels) 
 - 2051
 - 2053
