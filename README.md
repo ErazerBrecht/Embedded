@@ -102,7 +102,19 @@ Het signaal op de linkse ADC heeft een frequentie van 0,31 keer de sample freque
 Het rechtste signaal heeft een frequentie van 0,95 keer de sample frequentie, deze zal volgens het Nyquist theorema niet correct gesampeld worde (0.95 !< 0,50). Je kunt uit de sample punten de sinus halen van het ingangssignaal. Maar je ziet duidelijk dat er nog een andere sinus ook voldoet aan de sample punten (een alias). Dit signaal was niet aanwezig in ons ingangsignaal en is daarom onwenselijk!
 
 ### 5. Hoeveel ruisvermogen levert een 8-bit ADC toe aan het signaal (na kwantisatie) als deze een bereik heeft tussen -5V en + 5V?
-Patje please?
+8 bit => 0 tot 255 </br>
+0 = -5V</br>
+255 = 5V</br>
+Delta = 10V</br>
+
+10V / 255 => 0,0392V => 39,216mV        (Kleinste stap die mogelijk is!!!) </br>
+Maximum ruis => 0,5 LSB => 39,216 * 0,5 = 19,608 mV
+ 
+Ruis => 0,29 LSB => 11,3725mV </br>
+**Ruisvermogen => σ² => 0,29² => 0,0841W**
+
+####Ben niet zeker, ik heb een mail gestuurd naar Patje
+
 
 ### 6. Leg het principe (algoritme) uit hoe je een digitale ruisgeneratie kan bekomen die een Gauscurve benadert. Geef ook aan voor welke toepassing(en) je deze digitale ruisgeneratie kan gebruiken
 Digtitale ruisgeneratie kan gegenereerd door een **random number generator**.
