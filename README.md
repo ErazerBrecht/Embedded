@@ -3,6 +3,9 @@
 Deze README bevat mijn antwoorden op de vragenlijst van de te kennen leerstof voorhet examen van Embedded.
 De 1ste 15 vragen zijn voor na de herfstvakantie, de rest volgt later.
 
+#### 0. Standaardbegrippen (Extra vraaag by Brecht C)
+TODO: Standaarddeviatie, gemiddelde, gauss curve en SNR / CV
+
 #### 1. Welk nut heeft het om een histogram-op te stellen van een discreet signaal? Welke informatie kan je hieruit halen?
 Bij een histogram kun je zien hoeveel keer bepaalde waarde voorkomt. 
 
@@ -84,6 +87,12 @@ Owkay we zijn er bijna, nu hebben we ook nog die extra ruis op het signaal van 2
 Ik ga er even van uit gaan dat hij 2mV RMS bedoeld :) </br>
 LSB was 1,22mV => 2mV = 1,64 LSB. Om dit nu te bereken gebruik je Pythagoras (oorspronkelijke ruis => 0,29LSB en nieuwe ruis uitgedrukt in LSB), dus √(0,29² + 1,64²) = 1,665 LSB * 1,22mV = **2,0313mV**
 
+### 4.1 Dither (Extra vraaag by Brecht C)
+TODO
+
+### 4.2 Sampling theorema + Aliasing (Extra vraaag by Brecht C)
+TODO
+
 ### 5. Hoeveel ruisvermogen levert een 8-bit ADC toe aan het signaal (na kwantisatie) als deze een bereik heeft tussen -5V en + 5V?
 Patje please?
 
@@ -94,6 +103,8 @@ Indien je een random getal laat genereren door je computer tussen nul en één i
 Indien je dit getal nu optelt met een nieuw random getal tussen nul en één, krijg je een standaarddeviatie van √(0.29² + 0.29²) = 0.41 (1/√6) en een gemiddelde van 1 </br>
 Indien je dit in het totaal 12 keer doet zul je dus een standard deviatie van 1 hebben en een gemiddelde van 6.
 Een gauscurve heeft een standard deviatie van 1 (zie vraag 0). 
+
+TODO: Foto C# programma
 
 We moeten random ruis kunnen genereren om zo verschillende aspecten van ons algoritme te kunnen testen in het bijzijn van ruis. Bijvoorbeeld: Ruis heeft effect op hoever een radio kan communiceren, hoeveel radiatie er nodig is om een X-ray foto te kunnen maken.
 
