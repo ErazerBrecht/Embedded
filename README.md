@@ -214,3 +214,35 @@ Peak to peak bepalen kun je door te kijken wat de maximum waarde is in je array.
 Hierna gaat je opzoek naar de kleinste waarde. Trek je nu de grootste waarde af van de kleinste heb je de piek tot piek waarde!
 
 Het vermogen van een signaal bereken je door de standaardeviatie van je signaal (array) tot de tweede te doen! Zie vraag 0!
+
+### 14. Beschrijf beknopt aan de hand van tijd- en frequentiekarakteristieken hoe je digitaal – analoog conversie bekomt 
+Eerste stap, we vormen onze gegevens in onze array om in **elektrische pulsen (impuls trein)**. Stel we hebben een 4 bit systeem. En we hebben toevallig een bereik van 0 tot 15V. Dan wordt 0000 omgezet in een korte puls van 0V, indien we 1111 hebben wordt dit omgezet in een korte puls van 15V. (Hoe IDK???).
+
+Deze impulstrein kan perfect terug omgezet worden naar het analoge signaal. Dit komt omdat onder de Nyquist frequentie (1/2 sample frequentie), de impulstrein en het analoge signaal hetzelfde frequentie spectrum hebben. D.m.v. een laagdoorlaat filter zou je dus alles boven de Nyquist frequentie kunnen wegfilteren en klaar. Of toch wiskundig klaar, in de praktrijk is het heel moeilijk dunne (maar echte dunne eh) pulsen te maken! 
+
+Grafiek (pas op andere waarden als mijn voorbeeld.)
+
+![Stap 1 DAC](http://i.imgur.com/f2zRoJM.png?1)
+
+
+Stap 2, de meeste DAC werken met een systeem dat de last waarde behouden wordt tot een nieuwe waarde is. Vergelijkbaar met sample and hold in de ADC. Maar in een DAC noemt dit **zeroth-order hold**. 
+
+Dit heeft jammer genoeg een groot gevolg, het frequentie spectrum van dit signaal is niet meer vergelijkbaar met het te bekomen analoge signaal. Alle frequenties zijn vermenigvuldigd met de sinc functie.
+
+We zouden dit kunnen negeren indien de gevolgen voor de gekozen toepassing niet belangrijk zijn. </br>
+We kunnen deze extra sinc "functie" er terug analoog uit filteren (volgende stap). </br>
+Of we zouden er software voor kunnen schrijven in onze DSP die dit probleem oplost (volgend examen).
+
+![Stap 2 DAC](http://i.imgur.com/TpOgKS6.png)
+
+Stap 3, we maken dus een analoge laag filter die alle signalen boven de Nyquist frequentie verwijderen! Daarnaast moeten de sinc functie weg corrigeren. De filter die deze twee zaken doet noemen we de reconstructie filter, deze heeft een volgend frequentiespectrum:
+
+![Stap 3 DAC](http://i.imgur.com/4n0yb1c.png)
+
+Uitendelijk hebben we dan terug ons analoog signaal:
+
+![Stap 4 DAC](http://i.imgur.com/f3q10eh.png)
+
+
+
+
