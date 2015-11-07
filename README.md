@@ -243,6 +243,18 @@ Uitendelijk hebben we dan terug ons analoog signaal:
 
 ![Stap 4 DAC](http://i.imgur.com/f3q10eh.png)
 
+### 15. Welk van onderstaande systemen zijn een lineair systeem en welke niet? Verklaar telkens je antwoord.
+![Oef 1 Linear](http://i.imgur.com/LeQKcHE.png)
 
+Dit systeem is lineair omdat dit systeem aan de additieve vereiste voldoet: Verschillende aangelegde signalen gaan door het systeem zonder interactie met elkaar. </br>
+Bijvoorbeeld: telefoneren met achtergrond geluid (beide signalen worden onafhankelijk doorgezonden).
 
+![Oef 2 Linear](http://i.imgur.com/1GRf03W.png)
+
+Ben ik nog niet 100% zeker, suggesties mogen altijd.
+
+![Oef 3 Linear](http://i.imgur.com/74qy6cc.png)
+
+Dit systeem is niet lineair! De sinusoidal fidelity vereiste is niet voldaan! (zie vraag 10.1).
+Door de clipping hebben we geen sinusoidiaal signaal meer op de uitgang!
 
