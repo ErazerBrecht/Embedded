@@ -159,3 +159,39 @@ Een makkelijke methode om dit op te losen is d.m.v. superpositie. Je kunt 2041 d
 
 Net zoals dat het voor ons simpeler was om aan superpositie te doen is het in DSP toepassing ook makkelijker om zo te werken, hierdoor kun je je algoritmes versimpelen!
 
+### 10.3 Verklaar wat stapdecompositie inhoud bij decompositie van een lineair systeem. Geef ook aan welke voordelen stapdecompositie biedt. 
+Bij stapdecompositie zul je het signaal decomposeren in evenveel subsignalen als het volledige signaal sampels heeft. Bijvoorbeeld een signaal dat bestaat uit 128 samples zal gedecomposeerd worden in 128 verschillende signalen.
+
+Dit betekend dus dat elke subsignaal maar 1 keer veranderd. **Bij stap compostie wordt elke keer gekeken hoe het signaal veranderd is t.o.v. de vorige sample.**
+
+Stel samples: 5, 3, 0, -5, 10 </br>
+**1.** Er is geen vorige sample dus beginnen bij 0 => Signaal stijgt met 5 </br>
+**2.** 3 - 5 = - 2 => Signaal daalt met 2 </br>
+**3.** 0 - 3 = -3 => Signaal daalt met 3 </br>
+**4.** -5 - 0 = -5 => Signaal daalt met 5 </br>
+**5.** 10 - (-5) = 15 => Signaal stijgt met 15 </br>
+
+**Voorbeeld met grafieken:**
+
+![Stapdecompositie](http://i.imgur.com/eWMhYHL.png)
+
+**Voordelen**
+- Signalen kunnen onderzocht worden per samplestap 
+- Beschrijft signalen aan de hand van het verschil tussen opeenvolgende samples 
+- Beschrijft hoe systemen een respons geven op een verandering van het ingangsignaal
+
+### 11. Verklaar wat impulsdecompositie inhoud bij decompositie van een lineair systeem. Geef ook aan welke voordelen impulsdecompositie biedt.
+Bij impulsdecompositie zul je het signaal decomposeren in evenveel subsignalen als het volledige signaal sampels heeft. Bijvoorbeeld een signaal dat bestaat uit 128 samples zal gedecomposeerd worden in 128 verschillende signalen.
+
+Dit betekend dus dat elke subsignaal maar 1 keer veranderd. **Bij impulsdecompositie wordt gewoon elke sample opgeslagen in een apart signaal. De rest van de samples is nul**. Je verkrijgt dus 128 signalen van 128 samples maar waarbij maar 1 sample afhankelijk is van het oorspronkelijke signaal, de rest van samples is dus nul!</br>
+Het makelijkste voorbeeld is hier terug ons hoofdrekenen:</br>
+Stel 2041: 2000, 40 en 1.
+
+**Voorbeeld DSP**:
+
+![Impulscompositie](http://i.imgur.com/agwRVBX.png)
+
+**Voordelen**
+- Signalen kunnen onderzocht worden per samplestap
+- Systemen kunnen onderzocht worden hoe ze reageren op impulsen => weten hoe systeem reageert op een bepaalde impuls => systeemoutput kan berekend worden voor een bepaalde input = **convolutie**
+
