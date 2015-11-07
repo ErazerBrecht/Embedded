@@ -128,5 +128,12 @@ TODO: Foto C# programma
 
 We moeten random ruis kunnen genereren om zo verschillende aspecten van ons algoritme te kunnen testen in het bijzijn van ruis. Bijvoorbeeld: Ruis heeft effect op hoever een radio kan communiceren, hoeveel radiatie er nodig is om een X-ray foto te kunnen maken.
 
+### 7. Oefening convolutie
+Gegeven: volgend ingangssignaal: **x[0] = 4, x[1]=-2,x[2] = 8, x[3] = -1, x[4] = -1, x[5] = -2.** </br>
+Het functiesignaal h[n] bestaat uit de samples: **h[0] = -1, h[1] = 1, h[2] = -0,5, h[3]= +0,5.** </br>
+Gevraagd: bepaal **y[n]** </br>
+
+Probleem voor morgen
+ 
 
 
