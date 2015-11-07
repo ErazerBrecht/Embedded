@@ -81,9 +81,21 @@ Nu is de afwijing niet altijd  maximaal en volgens de statistiek is de variatie 
 Dus de ruis wordt dan **0.29 LSB** (leert er met leven, geen vragen stellen Brecht, Let It Goooooo) => 0,29 . 1,22mV = 0,3538 mV.
 
 Owkay we zijn er bijna, nu hebben we ook nog die extra ruis op het signaal van 2mV piek. 
-Ik ga er even van uit gaan dat hij 2mV RMS bedoeld :)
+Ik ga er even van uit gaan dat hij 2mV RMS bedoeld :) </br>
 LSB was 1,22mV => 2mV = 1,64 LSB. Om dit nu te bereken gebruik je Pythagoras (oorspronkelijke ruis => 0,29LSB en nieuwe ruis uitgedrukt in LSB), dus √(0,29² + 1,64²) = 1,665 LSB * 1,22mV = **2,0313mV**
 
+### 5. Hoeveel ruisvermogen levert een 8-bit ADC toe aan het signaal (na kwantisatie) als deze een bereik heeft tussen -5V en + 5V?
+Patje please?
+
+### 6. Leg het principe (algoritme) uit hoe je een digitale ruisgeneratie kan bekomen die een Gauscurve benadert. Geef ook aan voor welke toepassing(en) je deze digitale ruisgeneratie kan gebruiken
+Digtitale ruisgeneratie kan gegenereerd door een **random number generator**.
+
+Indien je een random getal laat genereren door je computer tussen nul en één is de standaarddeviatie 0,29 (1/√12), en het gemiddelde 0.5.
+Indien je dit getal nu optelt met een nieuw random getal tussen nul en één, krijg je een standaarddeviatie van √(0.29² + 0.29²) = 0.41 (1/√6) en een gemiddelde van 1 </br>
+Indien je dit in het totaal 12 keer doet zul je dus een standard deviatie van 1 hebben en een gemiddelde van 6.
+Een gauscurve heeft een standard deviatie van 1 (zie vraag 0). 
+
+We moeten random ruis kunnen genereren om zo verschillende aspecten van ons algoritme te kunnen testen in het bijzijn van ruis. Bijvoorbeeld: Ruis heeft effect op hoever een radio kan communiceren, hoeveel radiatie er nodig is om een X-ray foto te kunnen maken.
 
 
 
