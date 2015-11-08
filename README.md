@@ -3,7 +3,7 @@
 Deze README bevat mijn antwoorden op de vragenlijst van de te kennen leerstof voorhet examen van Embedded.
 De 1ste 15 vragen zijn voor na de herfstvakantie, de rest volgt later.
 
-#### 0. Standaardbegrippen (Extra vraaag by Brecht C)
+#### 0. Standaardbegrippen (Extra vraaag van Brecht C)
 **Gemiddelde**
 
 Alle samples optellen en delen door het aantal samples. In de DSP wereled werken we met indexen zoals arrays. Dit betekend dus dat als we 512 sampels hebben, het van 0 tot 511 gaat (Vandaar die N-1).
@@ -60,7 +60,7 @@ Een pmf kan belangrijk zijn in DSP, stel je hebt een signaal. Dan kun je via de 
 Je stelt een pmf op door de histogram te nemen en elke y - waarde te delen door het aantal sampels.
 Soms zal dit niet voldoen en zijn er wiskundige technieken om de pmf te bepalen (zie volgende vraag waarom).
 
-### 3.1 Wat is het verschil tussen een signaal en het onderliggend proces? (Extra vraag by Brecht C)
+### 3.1 Wat is het verschil tussen een signaal en het onderliggend proces? (Extra vraag van Brecht C)
 Een signaal is wat je meet.
 Het onderligend proces is wat het signaal genereert. 
 
@@ -122,7 +122,7 @@ Owkay we zijn er bijna, nu hebben we ook nog die extra ruis op het signaal van 2
 Ik ga er even van uit gaan dat hij 2mV RMS bedoeld :) </br>
 LSB was 1,22mV => 2mV = 1,64 LSB. Om dit nu te bereken gebruik je Pythagoras (oorspronkelijke ruis => 0,29LSB en nieuwe ruis uitgedrukt in LSB), dus √(0,29² + 1,64²) = 1,665 LSB * 1,22mV = **2,0313mV**
 
-### 4.1 Dither (Extra vraaag by Brecht C)
+### 4.1 Dither (Extra vraaag van Brecht C)
 Indien je een nagenoeg constant signaal aan het kwantiseren bent heb je kans dat de extra ruis die gegeneerd wordt door kwantisatie altijd maximaal is (1 / 2 LSB). Dit heb je bijvoorbeeld als je enkel de waarde 0 of 1 kunt hebben maar je een constant signaal hebt van 0,5. Elke sample zal de digitale waarde er 0,5 naast liggen!
 
 In de praktrijk zal bij DSP het signaal nooit niet echt constant zijn (audio, ...). Toch kunnen we dit probleem voorhebben. We zeggen dan dat het digitaal signaal vast hangt.
@@ -137,7 +137,7 @@ We kunnen dit oplossen door extra random ruis te voegen. Deze ruis zal ervoor zo
 
 Dit proces noemen we **dithering**. Dit is dus eigenlijk ruis toevoegen bij het analoge signaal om ervoor te zorgen dat het digitaal signaal dichter ligt bij het oorsponkelijke analoge signaal.
 
-### 4.2 Sampling theorema + Aliasing (Extra vraaag by Brecht C)
+### 4.2 Sampling theorema + Aliasing (Extra vraaag van Brecht C)
 Indien je een signaal correct wilt sampelen, mag de frequentie van het signaal niet groter worden dan de helft van de sampel frequentie! Dit noemt het **Nyquist theorema**.
 
 Indien je dit wel doet zullen de sample waardes niet het juiste signaal voorstellen. Het signaal die je dan verkrijgd noemen we een **alias** (vermomming). 
@@ -184,7 +184,7 @@ Gevraagd: bepaal **y[n]** </br>
 
 TODO: Probleem voor morgen
 
-### 7.1 Wat is convolutie + verklaar impulsrespontie en delta functie
+### 7.1 Wat is convolutie + verklaar impulsrespontie en delta functie (Extra vraag van Brecht C)
 TODO
 
 ### 8. Verklaar met eigen woorden beknopt het begrip discrete afgeleide bij digitaal signaal verwerking. Leg ook uit hoe deze kan worden berekend (formule). Pas discrete afgeleide toe op een voorbeeld.
@@ -193,10 +193,10 @@ TODO
 ### 9. Verklaar met eigen woorden beknopt het begrip discrete integratie bij digitaal signaal verwerking. Leg ook uit hoe deze kan worden berekend (formule). Pas discrete integratie toe op onderstaand voorbeeld:
 TODO
 
-### 10.1 Wat is een linear systeem, geef enkele voorbeelden en eigenschappen (Extra vraag by Brecht)
+### 10.1 Wat is een linear systeem, geef enkele voorbeelden en eigenschappen (Extra vraag van Brecht C)
 TODO
 
-### 10.2 Verklaar wat decompositie en synthese is, waarom is het belangrijk? (Extra vraag by Brecht)
+### 10.2 Verklaar wat decompositie en synthese is, waarom is het belangrijk? (Extra vraag van Brecht C)
 Het proces van signalen met elkaar combineren noemen we **synthesis** (dankzij de vraag hierboven weten dat we enkel d.m.v. optellingen en vermenigvuldigen signalen kunnen combineren met elkaar in een linear systeem).
 
 **Decompositie** is het tegenovergestelde. Hier gaat je een signaal opslitsen is meerdere deelsignalen. Dit is moeilijker dan synthesis. </br>
