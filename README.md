@@ -123,7 +123,19 @@ Ik ga er even van uit gaan dat hij 2mV RMS bedoeld :) </br>
 LSB was 1,22mV => 2mV = 1,64 LSB. Om dit nu te bereken gebruik je Pythagoras (oorspronkelijke ruis => 0,29LSB en nieuwe ruis uitgedrukt in LSB), dus √(0,29² + 1,64²) = 1,665 LSB * 1,22mV = **2,0313mV**
 
 ### 4.1 Dither (Extra vraaag by Brecht C)
-TODO
+Indien je een nagenoeg constant signaal aan het kwantiseren bent heb je kans dat de extra ruis die gegeneerd wordt door kwantisatie altijd maximaal is (1 / 2 LSB). Dit heb je bijvoorbeeld als je enkel de waarde 0 of 1 kunt hebben maar je een constant signaal hebt van 0,5. Elke sample zal de digitale waarde er 0,5 naast liggen!
+
+In de praktrijk zal bij DSP het signaal nooit niet echt constant zijn (audio, ...). Toch kunnen we dit probleem voorhebben. We zeggen dan dat het digitaal signaal vast hangt.
+
+![Stuck](http://i.imgur.com/NC1LbjE.png)
+
+Je ziet hier duidelijk dat het analoge signaal veranderd maar dat de kwantisatie teweinig bits heeft om deze verandering te zien. Er wordt constant afgerond wat zorgt voor veel extra ruis.
+
+We kunnen dit oplossen door extra random ruis te voegen. Deze ruis zal ervoor zorgen dat de afronding niet altijd dezelfde is. Dit klink misschien contra productief maar het toevoegen van ruis zorgt uitendelijk voor een kleinere standaarddeviatie!
+
+![Dithering](http://i.imgur.com/HdYEgpX.png)
+
+Dit proces noemen we **dithering**. Dit is dus eigenlijk ruis toevoegen bij het analoge signaal om ervoor te zorgen dat het digitaal signaal dichter ligt bij het oorsponkelijke analoge signaal.
 
 ### 4.2 Sampling theorema + Aliasing (Extra vraaag by Brecht C)
 Indien je een signaal correct wilt sampelen, mag de frequentie van het signaal niet groter worden dan de helft van de sampel frequentie! Dit noemt het **Nyquist theorema**.
