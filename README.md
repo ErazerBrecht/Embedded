@@ -197,7 +197,7 @@ Aangezien we met lineare systemen (vraag 10.1) werken kunnen we dankzij de homog
 
 ![Delta functie](http://i.imgur.com/n6kcPSt.png)
 
-Waar komt nu convolutie te pas? De uitgang van een linear systeem is gelijk aan de convolutie tussen de ingang en de impulsrespontie.
+Waar komt nu convolutie te pas? De uitgang van een linear systeem is gelijk aan de convolutie tussen de ingang en de impulsrespontie. Het ster symbool in de foto hieronder is het wiskundig symbool voor convolutie (vergelijk het met + voor optellen)
 
 ![Convolutie](http://i.imgur.com/2EgfWKV.png)
 
