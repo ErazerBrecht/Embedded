@@ -184,6 +184,9 @@ Gevraagd: bepaal **y[n]** </br>
 
 TODO: Probleem voor morgen
 
+### 7.1 Wat is convolutie + verklaar impulsrespontie en delta functie
+TODO
+
 ### 8. Verklaar met eigen woorden beknopt het begrip discrete afgeleide bij digitaal signaal verwerking. Leg ook uit hoe deze kan worden berekend (formule). Pas discrete afgeleide toe op een voorbeeld.
 TODO
 
