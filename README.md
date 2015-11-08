@@ -206,7 +206,7 @@ Stel samples: 5, 3, 0, -5, 10 </br>
 **4.** -5 - 0 = -5 => Signaal daalt met 5 </br>
 **5.** 10 - (-5) = 15 => Signaal stijgt met 15 </br>
 
-**Voorbeeld met grafieken:**
+**Voorbeeld met grafieken: (Let op: niets te maken met voorbeeld hierboven!)**
 
 ![Stapdecompositie](http://i.imgur.com/eWMhYHL.png)
 
