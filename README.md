@@ -159,7 +159,9 @@ Indien je dit getal nu optelt met een nieuw random getal tussen nul en één, kr
 Indien je dit in het totaal 12 keer doet zul je dus een standard deviatie van 1 hebben en een gemiddelde van 6.
 Een gauscurve heeft een standard deviatie van 1 (zie vraag 0). 
 
-TODO: Foto C# programma
+![C# <3](http://i.imgur.com/HoB3mPH.png)
+
+Ik heb even een C# programma geschreven waarin ik 65536 keer een getal genereer. Dit getal is de optelling van 12 random getallen tussen 0 en 1. Daarna heb ik deze getallen geplot in een grafiek, en inderdaad er komt een guass curve uit met een standaarddeviatie van 1. (En nee dat in Scilab maken was te mainstream!!!)
 
 We moeten random ruis kunnen genereren om zo verschillende aspecten van ons algoritme te kunnen testen in het bijzijn van ruis. Bijvoorbeeld: Ruis heeft effect op hoever een radio kan communiceren, hoeveel radiatie er nodig is om een X-ray foto te kunnen maken.
 
