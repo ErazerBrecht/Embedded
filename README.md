@@ -114,9 +114,9 @@ Wat is dat nu de helft van de LSB (Least significant bit). Dit is de kleinste st
 In ons geval is dit dus (5V / 2^12) => 5V / 4096 = 1,22mV! => De helft = 0.61mV
 Dat betekend dus de maximum afwijking 0.61mV is.
 
-Nu is de afwijing niet altijd  maximaal en volgens de statistiek is de variatie (standaard deviatie) dat er naar boven of naar beneden afgerond wordt dezelfde als een random getal tussen 0 en 1. In dat geval is de standaarddeviatie 0,29 (Hoe die cursus aan dat getal komt, ik heb godverdomme geen idee).
+Nu is de afwijing niet altijd  maximaal en volgens de statistiek is de variatie (standaard deviatie) dat er naar boven of naar beneden afgerond wordt dezelfde als een random getal tussen 0 en 1. In dat geval is de standaarddeviatie 0,29 LSB (Hoe die cursus aan dat getal komt, ik heb godverdomme geen idee).
 
-Dus de ruis wordt dan **0.29 LSB** (leert er met leven, geen vragen stellen Brecht, Let It Goooooo) => 0,29 . 1,22mV = 0,3538 mV.
+Dus de ruis is gelijk aan de standaarddeviatie (zie vraag 0) en is dus dan gelijk aan **0.29 LSB** (leert er met leven, geen vragen stellen Brecht, Let It Goooooo) => 0,29 . 1,22mV = *0,3538 mV*.
 
 Owkay we zijn er bijna, nu hebben we ook nog die extra ruis op het signaal van 2mV piek. 
 Ik ga er even van uit gaan dat hij 2mV RMS bedoeld :) </br>
@@ -145,8 +145,8 @@ Delta = 10V</br>
 10V / 255 => 0,0392V => 39,216mV        (Kleinste stap die mogelijk is!!!) </br>
 Maximum ruis => 0,5 LSB => 39,216 * 0,5 = 19,608 mV
  
-Ruis => 0,29 LSB => 11,3725mV </br>
-**Ruisvermogen => σ² => 0,29² => 0,0841W**
+Ruis (standaarddeviatie) => 0,29 LSB => 11,3725mV </br>
+**Ruisvermogen => σ² => 11,3725mV² => 129,333 mW**
 
 ####Ben niet zeker, ik heb een mail gestuurd naar Patje
 
