@@ -4,7 +4,42 @@ Deze README bevat mijn antwoorden op de vragenlijst van de te kennen leerstof vo
 De 1ste 15 vragen zijn voor na de herfstvakantie, de rest volgt later.
 
 #### 0. Standaardbegrippen (Extra vraaag by Brecht C)
-TODO: Standaarddeviatie, gemiddelde, gauss curve en SNR / CV
+**Gemiddelde**
+
+Alle samples optellen en delen door het aantal samples. In de DSP wereled werken we met indexen zoals arrays. Dit betekend dus dat als we 512 sampels hebben, het van 0 tot 511 gaat (Vandaar die N-1).
+
+In elektronica is het gemiddelde van een signaal de DC component.
+
+![Gemiddelde](http://i.imgur.com/PHUZExK.png)
+
+**Standaarddeviatie**
+
+Beschrijft hoe hard het signaal afwijkt van zijn DC component. Het wordt ook wel de variatie genoemd.
+Een hogere standaarddeviatie betekend dus ook een hogere piek tot piek waarde!
+
+We bereken dit door van elke samplewaarde het gemiddelde af te trekken. We doen dit tot de tweede omdat we graag werken met vermogen i.p.v. spanning (de optelling van 2 ruissignalen is gelijk aan de optelling van beide hun vermogen, niet hun amplitude). Daarna nemen we de gemiddelde waarde van al deze getallen. (Let op delen door N -1, zie vraag 3.1 voor verklaring).
+
+![Standaarddeviatie](http://i.imgur.com/P2E9Dx5.png)
+
+**"Lopende" statistieken**
+
+Om de standaarddeviatie te berekenen van een signaal heb je dus het gemiddelde nodig. Met de formules die we gezien hebben kunnen we pas het gemiddelde berekenen als het volledige signaal is opgeslagen in de DSP. We zouden dus altijd het volledige signaal moeten bufferen voor we er bewerkingen op kunnen doen, dit is absoluut niet de bedoeling!
+
+We kunnen die oplossen door aan "lopende" statistieken te doen, of zogenaamd berekening doen elke keer er een nieuwe sample binnenkomt. Dit is veel efficiënter!
+
+![Loopende statistieken](http://i.imgur.com/JjBc8Oz.png)
+
+Bij deze formule kun je de gegevens elke sample "updaten", zo hoef je niet elke samplewaarde op te slagen in het geheugen!
+
+**SNR / CV**
+
+In sommige gevallen is het gemiddelde eigenlijk hetgeen je wouw meten, en is de standarddeviatie de ruis. In dit geval is het belangrijk dat je de verhouding tussen beide kent. **Signaal-to-noise verhouding** (SNR) is dus het gemiddelde gedeeld door de standarddeviatie. Hoe hoger de SNR hoe beter de kwaliteit van he signaal is (minder ruis). *Formule staat fout in de slides!*
+
+CV is de **coefficient of variation**, dit is eigenlijk het tegenovergestelde. Dus standaarddeviatie gedeeld door het gemiddelde vermenigvuldigd met 100%. </br>
+SNR = 50 => CV = 2%
+
+
+TODO: gauss curve
 
 #### 1. Welk nut heeft het om een histogram-op te stellen van een discreet signaal? Welke informatie kan je hieruit halen?
 Bij een histogram kun je zien hoeveel keer bepaalde waarde voorkomt. 
