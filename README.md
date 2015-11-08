@@ -209,6 +209,9 @@ Een makkelijk voorbeeld is een inverterende versterker / verzwakker.
 
 De uitgang is de convolutie van de ingang en de impulsrespontie. Je ziet nu duidelijk dat de uitgang indererdaad 15 samples delay heeft. Dat de uitgang geïnverteerd is, en dat het signaal een beetje verzwakt is!
 
+Laatste opmerking: Hoelang het ingangsignaal of de impulsrespontie is maakt niet uit. De lengte van het uitgangsignaal is de lengte van het ingang signaal + de lengte van de impulsrespontie - 1 </br>
+Dus 81 + 31 - 1 = 111 (van 0 tot 110).
+
 ### 8. Verklaar met eigen woorden beknopt het begrip discrete afgeleide bij digitaal signaal verwerking. Leg ook uit hoe deze kan worden berekend (formule). Pas discrete afgeleide toe op een voorbeeld.
 TODO
 
