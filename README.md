@@ -213,10 +213,61 @@ Laatste opmerking: Hoelang het ingangsignaal of de impulsrespontie is maakt niet
 Dus 81 + 31 - 1 = 111 (van 0 tot 110).
 
 ### 8. Verklaar met eigen woorden beknopt het begrip discrete afgeleide bij digitaal signaal verwerking. Leg ook uit hoe deze kan worden berekend (formule). Pas discrete afgeleide toe op een voorbeeld.
-TODO
+Discrete afgeleide, is zoals de naam zegt de afgeleide toegepast op een discreet (digitaal signaal). Er moest hier een aparte term voor komen om de verwarring tussen een afgeleide op een analoge / digitaal te voorkomen.
+
+Zoals we weten van onze Wiskunde lessen, is de afgeleide van een signaal **een maat voor hoe hard het signaal varieert**. 
+Bij analoge signalen is het moeilijk om de stijging te bepalen tussen twee punten, omdat theoretisch er oneindig veel punten zijn. (Daarom dat we bij afgeleiden in de Wiskunde gebruik maken van limitieten, delta x naar 0 => buiten de scope van dit vak). Gelukkige hebben we dit probleem niet bij digitale sampels, en is **de discrete afgeleide hier dus de huidige sample min de waarde van de vorige sample**.
+
+We kunnen dit makkelijk oplossen met volgende impulsrespontie:
+
+![Impulsrespontie discrete afgeleide](http://i.imgur.com/9Un6May.png)
+
+Indien je deze toepast op een ingangsisgnaal:
+- Waarde 0 ingangsignaal => maal 1 => Waarde 0 uitgangsignaal
+- Waarde 0 ingangsignaal => maal - 1 + waarde 1 ingangsignaal maal 1 => Waarde 1 uitgangsignaal
+- ...
+
+Je ziet het misschien al maar er zit een simpel patroon in. Namelijk dit:
+
+![Discrete afgeleide formule](http://i.imgur.com/Gegdl0X.png)
+
+Voorbeeld:
+
+![Discrete afgeleide voorbeeld](http://i.imgur.com/XAKapzT.png)
+
+Convolutie oplossing (analoog aan vraag 7):
+
+y[0] = x[0] * 1 = 0 * 1 = 0 </br>
+y[1] = (x[0] * -1) + (x[1] * 1) = 0 + 1 = 1 </br>
+y[2] = (x[1] * -1) + (x[2] * 1) = -1 + 1 = 0 </br>
+y[3] = (x[2] * -1) + (x[3] * 1) = -1 + (-2) = -3 </br>
+y[4] = (x[3] * -1) + (x[4] * 1) = 2 + 0 = 2 </br>
+y[5] = (x[4] * -1) + (x[5] * 1) = 0 + 3 = 3 </br>
+y[6] = (x[5] * -1) + (x[6] * 1) = -3 + 2 = -1 </br>
+y[7] = (x[6] * -1) + (x[7] * 1) = -2 + (-2) = -4 </br>
+y[8] = (x[7] * -1) + (x[8] * 1) = 2 + (-2) = 0 </br>
+y[9] = (x[8] * -1) + (x[9] * 1) = 2 + (-1) = 1 </br>
+y[10] = (x[9] * -1) + (x[10] * 1) = 1 + 1 = 2 </br>
+y[11] = x[10] * -1 = -1
+
+Formule oplossing:
+
+y[0] = x[0] - x[-1] = 0 - 0 = 0 </br>
+y[1] = x[1] – x[0] = 1 - 0 = 1 </br>
+y[2] = x[2] – x[1] = 1 – 1 = 0 </br>
+y[3] = x[3] – x[2] = -2 – 1 = -3 </br>
+y[4] = x[4] – x[3] = 0 – (-2) = 2 </br>
+y[5] = x[5] – x[4] = 3 – 0 = 3 </br>
+y[6] = x[6] – x[5] = 2 – 3 = -1 </br>
+y[7] = x[7] – x[6] = -2 – 2 = -4 </br>
+y[8] = x[8] – x[7] = -2 – (-2) = 0 </br>
+y[9] = x[9] – x[8] = -1 – (-2) = 1 </br>
+y[10] = x[10] – x[9] = 1 – (-1) = 2 </br>
+y[11] = x[11] – x[10] = 0 – 1 = -1
+
 
 ### 9. Verklaar met eigen woorden beknopt het begrip discrete integratie bij digitaal signaal verwerking. Leg ook uit hoe deze kan worden berekend (formule). Pas discrete integratie toe op onderstaand voorbeeld:
-TODO
+
 
 ### 10.1 Wat is een linear systeem, geef enkele voorbeelden en eigenschappen (Extra vraag van Brecht C)
 TODO
