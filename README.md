@@ -185,7 +185,29 @@ Gevraagd: bepaal **y[n]** </br>
 TODO: Probleem voor morgen
 
 ### 7.1 Wat is convolutie + verklaar impulsrespontie en delta functie (Extra vraag van Brecht C)
-TODO
+Convolutie is een wiskundige bewerking voor het combineren van signalen. Het vereist 2 signalen en produceert een derde signaal!
+
+In DSP gebruiken we decomposities om makkelijker bewerkingen te doen met signalen, de twee belangrijkste zijn **impuls decomposite** (vraag 11) en **fourieranalyse**. 
+
+Een impuls waarbij de 1ste sample één is en alle andere 0, noemen we de **delta functie (δ[n])**. We kunnen elke impuls beschrijven in functie van de delta functie. Bijvoorbeeld sample 8 heeft een waarde van -3 (de rest is uiteraard 0). Dan kunnen we zeggen dat deze impuls gelijk is aan -3δ[n-8].
+
+De **impulsrespontie** is het signaal dat uit de uitgang komt indien je de delta functie aanlegt aan de ingang van je systeem (vaak aangeduid door h[n]). 
+
+Aangezien we met lineare systemen (vraag 10.1) werken kunnen we dankzij de homogenity eigenschap en de shift invariance eigenschap aantonen dat wanneer de deltafunctie (δ[n]) resulteert in de impulsrespontie (h[n]), dat dan -3δ[n-8] gelijk zal zijn aan -3h[n-8]. **Dit betekend dus dat als je de impulsrespontie kent, je de uitgang van elke impuls kunt bepalen!**
+
+![Delta functie](http://i.imgur.com/n6kcPSt.png)
+
+Waar komt nu convolutie te pas? De uitgang van een linear systeem is gelijk aan de convolutie tussen de ingang en de impulsrespontie.
+
+![Convolutie](http://i.imgur.com/2EgfWKV.png)
+
+Een makkelijk voorbeeld is een inverterende versterker / verzwakker.
+
+![Convolutie voorbeeld](http://i.imgur.com/RAPXZ7A.png)
+
+  De middelste grafiek is de impulsrespontie. Dit is dus het resultaat van de delta functie. Je ziet als resultaat dat de sample 15 stappen delay heeft, de amplitude verzwakt is (kleiner als 1) en dat deze geïnverteerd is (onder de nul).
+
+De uitgang is de convolutie van de ingang en de impulsrespontie. Je ziet nu duidelijk dat de uitgang indererdaad 15 samples delay heeft. Dat de uitgang geïnverteerd is, en dat het signaal een beetje verzwakt is!
 
 ### 8. Verklaar met eigen woorden beknopt het begrip discrete afgeleide bij digitaal signaal verwerking. Leg ook uit hoe deze kan worden berekend (formule). Pas discrete afgeleide toe op een voorbeeld.
 TODO
