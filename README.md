@@ -443,7 +443,7 @@ Je moet kijken naar de symetrie van het signaal!
 
 
 ### 17. Hoe kan je de faseverschuiving 0° maken in een lineair systeem.
-Dit kun je enkel als het syteem een lineare faseverschijving heeft. Indien je hier een faseverschijving wilt bereiken van 0° moet je het symetriepunt naar sample 0 verschijven (naar links of rechts shiften).
+Dit kun je enkel als het syteem een lineare faseverschuiving heeft. Indien je hier een faseverschuiving wilt bereiken van 0° moet je het symetriepunt naar sample 0 verschuiven (naar links of rechts shiften).
 
 ### 18. Wat is een casual systeem.
 Indien we een impuls sturen in het signaal zullen we een uitgang (reactie) krijgen op de uitgang. Indien de reactie pas gebeurd nadat er een ingang is geweest spreken we van een **causal** systeem. Bijvoorbeeld de 8ste sample in het signaal beïnvloedt enkel sample nummer acht of hoger in het uitgangsignaal.
