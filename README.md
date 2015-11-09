@@ -329,7 +329,42 @@ In de analoge Wiskunde zijn een integraal en een afgeleide het "omgekeerde" van 
 ![Discrete integraal vs Discrete afgeleide](http://i.imgur.com/JBKJVlS.png)
 
 ### 10.1 Wat is een linear systeem, geef enkele voorbeelden en eigenschappen (Extra vraag van Brecht C)
-TODO
+Een linear systeem is een systeem dat aan bepaalde voorwaarde moet voldoen. 
+
+#####Homogeniteit:
+1.	Verandering in amplitude in het ingangssignaal veroorzaakt een overeenkomstige verandering in amplitude van het uitgangssignaal. Bijvoorbeeld de relatie tussen de spanning over een weerstand en de stroom door de weerstand. Als het één een factor 5 stijgt, stijgt het ander ook een factor 5. Een voorbeeld van een niet homogeen systeem is de verhouding tussen de spanning over een weerstand en het vermogen dat gedissipeerd wordt in de weerstand. Als het ene met 5 stijgt, stijgt het andere met een factor 25.
+
+#####Addiviteit:
+1.	Signalen opgeteld aan de ingang produceren signalen opgeteld aan de uitgang.
+2.	Formule vorm: X1[n]+ X2[n]=> Y1[n]+ Y2[n]
+3.	Verschillende aangelegde signalen gaan door het system zonder interactie met elkaar. Bijvoorbeeld een telefoongesprek met achtergrond geluid. Indien je het gesprek afzonderlijk zou door zenden en het achtergrond geluid zou klinkt dit eigenlijk hetzelfde als samen. De signalen zijn niet in elkaar gemengd!
+
+#####Shift invariantie (Geen Wiskundige eis, wel een DSP eis): 
+1.	Een verschuiving van hetingangssignaal resulteert in een identieke verandering in het uitgangssignaal. Dit betekend dus dat het systeem niet veranderd in de tijd. 
+2.	If X[n]=>Y[n] then X[n+s]=>Y[n+s] for any input signal and any constant s. Dit betekend dus als je eens signaal (array)  later nog eens terug komt dat deze dezelfde uitgang zal genereren. 
+
+Deze voorwaarden zijn vrij wiskundig, je kunt het ook op een andere manier bekijken. Meer intuitief gericht, wij engineers vinden dat leuker, dan die Wiskunde :) !
+
+
+#####Static linearity
+Hoe varieert een signaal als het niet veranderd (statisch, zoals DC spanning). Bij een linear systeem is de uitgang gelijk aan de ingang vermenigvuldig met een constante. Bijvoorbeeld weerstand => stroom ifv spanning. Bij een niet linear systeem kun je dit niet doen, zoals bijvoorbeeld de stroom ifv spanning bij een diode. Er zit daar geen constant verband in! 
+
+Wiskundige uitgelegd, indien de verhouding een eerste graadsvergelijking is => linear </br>
+Anders => niet linear (exponentiële, logartimtes, tweedegraadsvergelijking, derdegraadsvergelijking, ...
+
+#####Sinusoidal fidelity
+Als de ingang bij een linear systeem sinusoidaal is, moet de uitang dit ook zijn! Dit betekend dus als er storing op je uitgang hebt en hierdoor je uitgang niet meer sinusoidaal is je een niet linear systeem hebt. Bijvoorbeeld bij clipping in een versterkerschakling (saturatie).
+
+####Eigenschappen
+Lineare systemen bevaten ook bepaalde eigenschappen die handig kunnen zijn om te weten, zodanig je deze in je voordeel kunt gebruiken!
+
+#####Commutativiteit
+Indien je twee lineare systemen hebt maakt het niet uit in welke volgorde deze systemen staan, deze uitgang zal dezelfde zijn.
+
+#####Vermenigvuldigen
+Je mag een signaal in een linear systemen vermenigvuldingen met een constante, het uigangssignaal zal nog steeds linear zijn. </br>
+Je mag echter geen signaal vermenigvuldigen met een andere varieert signaal, indien je dit doet is het uitgangssignaal niet meer linear. Dit komt omdat het signaal niet meer voldoet aan de static linearity voorwaarde!
+
 
 ### 10.2 Verklaar wat decompositie en synthese is, waarom is het belangrijk? (Extra vraag van Brecht C)
 Het proces van signalen met elkaar combineren noemen we **synthesis** (dankzij de vraag hierboven weten dat we enkel d.m.v. optellingen en vermenigvuldigen signalen kunnen combineren met elkaar in een linear systeem).
