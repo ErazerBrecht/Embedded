@@ -3,7 +3,7 @@
 Deze README bevat mijn antwoorden op de vragenlijst van de te kennen leerstof voorhet examen van Embedded.
 De 1ste 15 vragen zijn voor na de herfstvakantie, de rest volgt later.
 
-#### 0. Standaardbegrippen (Extra vraaag van Brecht C)
+#### 0. Standaardbegrippen (Extra vraag van Brecht C)
 **Gemiddelde**
 
 Alle samples optellen en delen door het aantal samples. In de DSP wereled werken we met indexen zoals arrays. Dit betekend dus dat als we 512 sampels hebben, het van 0 tot 511 gaat (Vandaar die N-1).
