@@ -77,7 +77,7 @@ Je neemt nu van 5 mensen hun loon (aka 5 sampels)
 - 2050
 - 2051
 
-Het gemiddelde hiervan is 2052. Het verschil tussen 2050 n 2052 noemen we dus de statische ruis. Indien je nu de standaardeviatie berekent en je gebruikt als gemiddelde 2052 (het gemiddelde van het signaal) is dit eigenlijk fout van het feitelijke gemiddelde is 2050.Dit is ook de reden dat we door N - 1 delen om de standarddeviatie te berekenen i.p.v. door N.
+Het gemiddelde hiervan is 2052. Het verschil tussen 2050 n 2052 noemen we dus de statische ruis. Indien je nu de standaardeviatie berekent en je gebruikt als gemiddelde 2052 (het gemiddelde van het signaal) is dit eigenlijk fout want het feitelijke gemiddelde is 2050. Dit is ook de reden dat we door N - 1 delen om de standarddeviatie te berekenen i.p.v. door N.
 Hierdoor wordt de statische ruis gecompenseert om zo dicht mogelijk bij het correcte beeld van het proces te komen!
 
 ### 3.2 Wat is/zijn de verschillen tussen een histogram, pmf en pdf bij digitaal signaal verwerking? Geef ook aan waarvoor ze nuttig zijn.
@@ -473,7 +473,7 @@ Bijvoorbeeld: telefoneren met achtergrond geluid (beide signalen worden onafhank
 
 ![Oef 2 Linear](http://i.imgur.com/1GRf03W.png)
 
-Ben ik nog niet 100% zeker, suggesties mogen altijd.
+Linear.
 
 ![Oef 3 Linear](http://i.imgur.com/74qy6cc.png)
 
