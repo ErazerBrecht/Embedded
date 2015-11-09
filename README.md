@@ -180,11 +180,20 @@ Ik heb even een C# programma geschreven waarin ik 65536 keer een getal genereer.
 We moeten random ruis kunnen genereren om zo verschillende aspecten van ons algoritme te kunnen testen in het bijzijn van ruis. Bijvoorbeeld: Ruis heeft effect op hoever een radio kan communiceren, hoeveel radiatie er nodig is om een X-ray foto te kunnen maken.
 
 ### 7. Oefening convolutie
-Gegeven: volgend ingangssignaal: **x[0] = 4, x[1]=-2,x[2] = 8, x[3] = -1, x[4] = -1, x[5] = -2.** </br>
+Gegeven: volgend ingangssignaal: **x[0] = 4, x[1]=-2, x[2] = 8, x[3] = -1, x[4] = -1, x[5] = -2.** </br>
 Het functiesignaal h[n] bestaat uit de samples: **h[0] = -1, h[1] = 1, h[2] = -0,5, h[3]= +0,5.** </br>
 Gevraagd: bepaal **y[n]** </br>
 
-TODO: Probleem voor morgen
+y[0] = x[0] * -1 = 4 * -1 = **-4** </br>
+y[1] = (x[0] * 1) + (x[1] * -1) =  4 + 2 = **6** </br>
+y[2] = (x[0] * (-0,5)) + (x[1] * 1) + (x[2] * -1) = -2 + (-2) + (-8) = **-12** </br>
+y[3] = (x[0] * 0,5) + (x[1] * (-0.5)) + (x[2] * 1) + (x[3] * -1) = 2 + 1 + 8 + 1 = **12** </br>
+y[4] = (x[1] * 0,5) + (x[2] * (-0.5)) + (x[3] * 1) + (x[4] * -1) = -1 + (-4) + (-1) + 1 = **-5** </br>
+y[5] = (x[2] * 0,5) + (x[3] * (-0.5)) + (x[4] * 1) + (x[5] * -1) = 4 + 0,5 + (-1) + 2 = **5.5** </br>
+y[6] = (x[3] * 0,5) + (x[4] * (-0.5)) + (x[5] * 1) = -0,5 + 0,5 + (-2) = **-2** </br>
+y[7] = (x[4] * 0,5) + (x[5] * (-0.5)) = -0,5 + 0,5 + 1 = **0.5** </br>
+y[8] = (x[5] * 0,5) = -2 * 0,5 = **-1**  </br>
+
 
 ### 7.1 Wat is convolutie + verklaar impulsrespontie en delta functie (Extra vraag van Brecht C)
 Convolutie is een wiskundige bewerking voor het combineren van signalen. Het vereist 2 signalen en produceert een derde signaal!
