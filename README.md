@@ -437,8 +437,13 @@ Dit systeem is niet lineair! De sinusoidal fidelity vereiste is niet voldaan! (z
 Door de clipping hebben we geen sinusoidiaal signaal meer op de uitgang!
 
 ### 16. Hoe kan je zien of een dicreet signaal een bepaalde faseverschuiving heeft of niet.
+Je moet kijken naar de symetrie van het signaal!
+
+![Phase](http://i.imgur.com/TOzRqvP.png)
+
 
 ### 17. Hoe kan je de faseverschuiving 0° maken in een lineair systeem.
+Dit kun je enkel als het syteem een lineare faseverschijving heeft. Indien je hier een faseverschijving wilt bereiken van 0° moet je het symetriepunt naar sample 0 verschijven (naar links of rechts shiften).
 
 ### 18. Wat is een casual systeem.
 Indien we een impuls sturen in het signaal zullen we een uitgang (reactie) krijgen op de uitgang. Indien de reactie pas gebeurd nadat er een ingang is geweest spreken we van een **causal** systeem. Bijvoorbeeld de 8ste sample in het signaal beïnvloedt enkel sample nummer acht of hoger in het uitgangsignaal.
