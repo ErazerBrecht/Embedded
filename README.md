@@ -148,6 +148,8 @@ Het signaal op de linkse ADC heeft een frequentie van 0,31 keer de sample freque
 
 Het rechtste signaal heeft een frequentie van 0,95 keer de sample frequentie, deze zal volgens het Nyquist theorema niet correct gesampeld worde (0.95 !< 0,50). Je kunt uit de sample punten de sinus halen van het ingangssignaal. Maar je ziet duidelijk dat er nog een andere sinus ook voldoet aan de sample punten (een alias). Dit signaal was niet aanwezig in ons ingangsignaal en is daarom onwenselijk!
 
+Je vermijd aliasing door altijd het signaal door een laagdoorlaatfilter te laten gaan. De cut - off frequentie (-3db punt) moet gelijk zijn aan minstens de helft van de sample frequentie. Zo zijn we zeker dat er geen aliasing kan ontstaant door te sampelen!
+
 ### 5. Hoeveel ruisvermogen levert een 8-bit ADC toe aan het signaal (na kwantisatie) als deze een bereik heeft tussen -5V en + 5V?
 8 bit => 0 tot 255 </br>
 0 = -5V</br>
@@ -433,4 +435,11 @@ Ben ik nog niet 100% zeker, suggesties mogen altijd.
 
 Dit systeem is niet lineair! De sinusoidal fidelity vereiste is niet voldaan! (zie vraag 10.1).
 Door de clipping hebben we geen sinusoidiaal signaal meer op de uitgang!
+
+### 16. Hoe kan je zien of een dicreet signaal een bepaalde faseverschuiving heeft of niet.
+
+### 17. Hoe kan je de faseverschuiving 0° maken in een lineair systeem.
+
+### 18. Wat is een casual systeem.
+
 
