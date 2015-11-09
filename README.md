@@ -265,9 +265,57 @@ y[9] = x[9] – x[8] = -1 – (-2) = 1 </br>
 y[10] = x[10] – x[9] = 1 – (-1) = 2 </br>
 y[11] = x[11] – x[10] = 0 – 1 = -1
 
+Zie ook nog voorbeeld bij de volgende vraag!
+
 
 ### 9. Verklaar met eigen woorden beknopt het begrip discrete integratie bij digitaal signaal verwerking. Leg ook uit hoe deze kan worden berekend (formule). Pas discrete integratie toe op onderstaand voorbeeld:
+Discrete integratie (running sum), is de digitale variant van de integraal berekening de we kennen van Wiskunde. 
 
+De integraal van een signaal is eigenlijk de oppervlakte berekenen van dit signaal. In analoge signalen is dit best moeilijk omdat er oneindig veel getallen tussen 2 getallen liggen! We hebben dit probleem niet bij digitale metingen. Bij een digitaal systeem kunnen we zeggen dat **de oppervlakte van één sample gelijk is aan een breedte van 1 maal de waarde van de sample (hoogte). Uitendelijk komt het er dus op neer dat de digitale integraal dus de som is van alle voorige samples + de huidige sample**. Dus de uitgang van sample 0, is 0. De uitgang van sample 1, is 0 + waarde sample 1. De uitgang van sample 2, is 0 + waarde sample 1 + waarde sample 3, ...
+
+![Impulsresponsie discrete integratie](http://i.imgur.com/bzboYy0.png)
+
+Deze spreekt nu eigenlijk voor zich. De sample waarde van de uitgang is gelijk aan de optelling van alle voorgaande samplewaarden. Indien je deze impulsresponsie toepast op een ingangsisgnaal:
+- Waarde 0 ingangsignaal => maal 1 => Waarde 0 uitgangsignaal
+- Waarde 0 ingangsignaal => maal 1 + waarde 1 ingangsignaal maal 1 => Waarde 1 uitgangsignaal
+- Waarde 0 ingangsignaal => maal 1 + waarde 1 ingangsignaal maal 1 + waade 2 ingangsignaal => Waarde 2 uitgangsignaal
+- ...
+
+Je ziet het misschien al maar er zit een simpel patroon in. Namelijk dit:
+
+![Discrete integratie formule](http://i.imgur.com/hd59k7W.png)
+
+Voorbeeld:
+
+![Discrete afgeleide voorbeeld](http://i.imgur.com/XAKapzT.png)
+
+Convolutie oplossing (analoog aan vraag 7):
+
+y[0] = x[0] * 1 = 0 * 1 = 0 </br>
+y[1] = x[0] * 1 + x[1] * 1 = 0 + 1 = 1 </br>
+y[2] = x[0] * 1 + x[1] * 1 + x[2] * 1 = 0 + 1 + 1 = 2 </br>
+y[3] = x[0] * 1 + x[1] * 1 + x[2] * 1 + x[3] * 1 = 0 + 1 + 1 - 2 = 0 </br>
+... (Hier ben ik echt te tam voor...)
+
+Formule oplossing:
+
+y[0[ = x[0] + y[-1] = 0 + 0 = 0 </br>
+y[1] = x[1] + y[0] = 1 + 0 = 1 </br>
+y[2] = x[2] + y[1] = 1 + 1 = 2 </br>
+y[3] = x[3] + y[2] = -2 + 2 = 0 </br>
+y[4] = x[4] + y[3] = 0 + 0 = 0 </br>
+y[5] = x[5] + y[4] = 3 + 0 = 3 </br>
+y[6] = x[6] + y[5] = 2 + 3 = 5 </br>
+y[7] = x[7] + y[6] = -2 + 5 = 3 </br>
+y[8] = x[8] + y[7] = -2 + 3 = 1 </br>
+y[9] = x[9] + y[8]  = -1 + 1 = 0 </br>
+y[10] = x[10] + y[9]  = 1 + 0 = 1 </br>
+y[11] = x[11] + y[10] = 0 + 1 = 1 </br>
+...
+
+In de analoge Wiskunde zijn een integraal en een afgeleide het "omgekeerde" van elkaar (zoals een vermenigvuldiging en een deling). Indien je dus van een functie de afgeleide neemt er daarna de integraal kom je terug op de oorspronkelijke functie uit. In de digitale wereld is dit niet anders, als je de discrete afgeleide neemt van een signaal en daarna de discrete integraal kom je terug op het oorspronkelijke signaal.
+
+![Discrete integraal vs Discrete afgeleide](http://i.imgur.com/JBKJVlS.png)
 
 ### 10.1 Wat is een linear systeem, geef enkele voorbeelden en eigenschappen (Extra vraag van Brecht C)
 TODO
