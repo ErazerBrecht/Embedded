@@ -441,5 +441,11 @@ Door de clipping hebben we geen sinusoidiaal signaal meer op de uitgang!
 ### 17. Hoe kan je de faseverschuiving 0° maken in een lineair systeem.
 
 ### 18. Wat is een casual systeem.
+Indien we een impuls sturen in het signaal zullen we een uitgang (reactie) krijgen op de uitgang. Indien de reactie pas gebeurd nadat er een ingang is geweest spreken we van een **causal** systeem. Bijvoorbeeld de 8ste sample in het signaal beïnvloedt enkel sample nummer acht of hoger in het uitgangsignaal.
 
+Dit klinkt logisch maar aangezien we in DSP werken met array's (geheugen) zouden we perfect in staat zijn om nog vorige samples aan te passen, in dit geval spreken we van een **non-causal** systeem.
+
+Je kunt dit makkelijk herkennen indien je de impulsrespontie kent van een systeem. Als de impulsrespontie waardes heeft voor kleiner dan 0, dan is het *non-causel* anders is het *causel*. Je kunt door gewoon alle samples te shiften naar rechts van elk *non-causel* systeem een *causel* systeem maken.
+
+![causel vs non-causel](http://i.imgur.com/V6cIOfm.png)
 
