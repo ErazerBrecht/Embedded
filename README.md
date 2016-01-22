@@ -1,7 +1,9 @@
 # Embedded 5
 
-Deze README bevat mijn antwoorden op de vragenlijst van de te kennen leerstof voorhet examen van Embedded.
-De 1ste 15 vragen zijn voor na de herfstvakantie, de rest volgt later.
+Deze README bevat mijn antwoorden op de vragenlijst van de te kennen leerstof voor het examen van Embedded.
+De 1ste 18 vragen zijn voor na de herfstvakantie, de rest volgt later.
+
+## Module 1
 
 #### 0. Standaardbegrippen (Extra vraag van Brecht C)
 **Gemiddelde**
@@ -498,3 +500,41 @@ Je kunt dit makkelijk herkennen indien je de impulsrespontie kent van een systee
 
 ![causel vs non-causel](http://i.imgur.com/V6cIOfm.png)
 
+## Module 2
+
+### 19. Hoe gebeurt Fourierontbinding en kan je daar een voorbeeld van geven?
+
+
+### 20. In welke categorieën, die voortvloeien uit de vier basistypen van signalen, kan je de term Fourier-transformatie in onderverdelen?
+
+
+### 21. Hoe kan je Fouriertransformatie gebruiken voor een eindig aantal samples?
+
+
+### 22. Hoe kan je een aperiodiek signaal syntheseren?
+
+
+### 23. Wat wordt verstaan onder een transformatie?
+
+
+### 24. Wat houdt een voorwaartse discrete fouriertransformatie in?
+
+
+### 25. Wat houdt een inverse discrete fouriertransformatie in?
+
+
+### 26. Stel een 128 punts tijdsdomeinsignaal opgenomen in x[ ]. Hoe verloopt het tijdsmoment van dit signaal en hoe verloopt het frequentiedomein?
+
+
+### 27. Welk zijn de DFT-basisfuncties? Geef deze en benoem de verschillende delen hierin.
+
+
+### 28. Gegeven volgende vergelijking voor de synthesevergelijking:
+
+### 29. Een DFT kan bepaald worden op drie verschillende manieren. Welke zijn deze manieren en beschrijf deze beknopt.
+
+
+### 29.2 Welke manier is het meest geschikt als de DFT minder dan 32 punten bevat?
+
+
+### 29.3 Welke manier geniet de voorkeur als de DFT meer dan 32 punten bevat?
