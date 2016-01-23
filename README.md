@@ -529,10 +529,14 @@ Discreet: Digitaal, eindige precisie.
 - Discrete Fourier Transform (DFT): Signalen die discreet en periodiek zijn  </br>
   TODO: Foto
 
-
-
 ### 21. Hoe kan je Fouriertransformatie gebruiken voor een eindig aantal samples?
+Theoretisch gaat dit niet. Sinusoïdale signalen (sinus, cosinus) gaan oneindig lang verder.
 
+Bij een DFT (periodiek), gaan we ervan uit dat ons aantal samples oneindig lang gerepeteerd wordt!
+
+Bij een DTFT (aperiodiek), gaan we de rest opvullen met oneindig veel nullen! 
+
+Een DTFT kan niet opgelost worden met behulp van een computer, de DFT daarentegen wel. Daarom dat we voor DSP de DFT gebruiken! 
 
 ### 22. Hoe kan je een aperiodiek signaal syntheseren?
 
