@@ -563,21 +563,35 @@ Tijdsdomein: van 0 tot 127 (128 sampels)
 
 Frequentiedomein: </br>
 - Reëel (cosinusen): Van 0 tot 64 (65 sampels) 
-  - Onder verdeeld in 33 verschillende cosinussen (1ste is DC, dan 32 cosinussen met steeds dubbele frequentie)
+  - Onder verdeeld in 33 verschillende cosinussen (1ste is DC, dan 32 cosinussen met steeds hogere frequentie)
 - Imaginair (sinussen): Van 0 tot 64 (65 sampels)
-  - Onder verdeeld 33 verschillende sinussen (1ste en laatste zijn nul, de rest steeds verdubbeling van frequentie)
+  - Onder verdeeld 33 verschillende sinussen (1ste en laatste zijn nul, de rest steeds verhoging van frequentie)
 
 TODO: Foto  
 
 ### 27. Welk zijn de DFT-basisfuncties? Geef deze en benoem de verschillende delen hierin.
+TODO: Foto
 
+k = Zoals hierboven verteld. Indien je frequentie domein uit 65 sampels bestaat heb je 33 verschillende cosinussen. k begint bij 0 (DC) en wordt dan verhoogd met stappen van 1 tot en met 32. 
+
+i = Sample. Elke cosinus / sinus bestaat uit x aantal sampels! Dit is i, in het geval hierboven gaat i dus van 0 tot 64!
+
+N = Totaal aantal sampels, in het geval hierboven dus 128!
 
 ### 28. Gegeven volgende vergelijking voor de synthesevergelijking:
 
-### 29. Een DFT kan bepaald worden op drie verschillende manieren. Welke zijn deze manieren en beschrijf deze beknopt.
+In words, any N point signal, x[i], can be created by adding N/2% 1 cosine waves and N/2% 1 sine waves. The amplitudes of the cosine and sine waves are held in the arrays Im X¯[k] and Re X¯[k], respectively. The synthesis equation multiplies these amplitudes by the basis functions to create a set of scaled sine and cosine waves. Adding the scaled sine and cosine waves produces the time domain signal, x[i].
 
+### 29. Een DFT kan bepaald worden op drie verschillende manieren. Welke zijn deze manieren en beschrijf deze beknopt.
+- Simultane vergelijkingen </br>
+  De optelling van sample X van alle frequentiedomeinen moet gelijk zijn aan sample X van het tijdomein. Dit geld voor elke sample, je   kunt dus een stelsel vergelijking oplossen. Dit zijn echter veel berekeningen en worden in DSP nooit gebruikt, het is wel nuttig      voor het begrijpen van DFT!
+- Correlatie </br>
+Om een bekende golfvorm te detecteren in een ander signaal worden beide signalen met elkaar vermenigvuldigd en worden alle punten samengevoegd in het resulterende signaal. Indien de optelling van al deze punten gelijk is aan het aantal sampels dan zijn beide signalen gelijk, indien de optelling van deze punten gelijk is aan nul komt het signaal niet voor in het andere signaal!
+- FFT </br>
+Fast Fourier Transform (FFT), is een slim algoritme dat een DFT met N aantal punten decomposeert in N aantal DFTs elk met maar één punt. Hierdoor zijn de berekingen veel makkelijk en sneller. Een FFT is (meer dan) 100 keer sneller dan correlatie!
 
 ### 29.2 Welke manier is het meest geschikt als de DFT minder dan 32 punten bevat?
-
+Correlatie
 
 ### 29.3 Welke manier geniet de voorkeur als de DFT meer dan 32 punten bevat?
+FFT
