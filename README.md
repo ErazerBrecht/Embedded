@@ -505,9 +505,30 @@ Je kunt dit makkelijk herkennen indien je de impulsrespontie kent van een systee
 ## Module 2
 
 ### 19. Hoe gebeurt Fourierontbinding en kan je daar een voorbeeld van geven?
+Fourier analyse is een familie van wiskundige technieken. Het heeft als doel om een signaal te ontbinden in verschillende sinusoïdale signalen.
 
+We gebruiken sinusoïdale signalen wegens de *sinus fidelity* eigenschap bij lineare systemen. Dit wilt zeggen indien de ingang een sinusoïdaal signaal is, de uitgang dit ook zal zijn.
+
+HOE? IDK, dat is heel dieje boek typen...
+
+TODO: Voorbeeld blokgolf
 
 ### 20. In welke categorieën, die voortvloeien uit de vier basistypen van signalen, kan je de term Fourier-transformatie in onderverdelen?
+
+**Reminder:**</br>
+Continu: Analoog, oneindige precisie. </br>
+Discreet: Digitaal, eindige precisie.
+
+
+- Fourier transformatie: Signalen die continu en aperiodiek zijn </br>
+  TODO: Foto
+- Fourier series: Signalen die continu en periodiek zijn </br>
+  TODO: Foto
+- Discrete Time Fourier Transform (DTFT): Signalen die discreet en aperiodiek zijn </br>
+  TODO: Foto
+- Discrete Fourier Transform (DFT): Signalen die discreet en periodiek zijn  </br>
+  TODO: Foto
+
 
 
 ### 21. Hoe kan je Fouriertransformatie gebruiken voor een eindig aantal samples?
