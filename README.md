@@ -1,6 +1,6 @@
 # Embedded 5
 
-Gelieve niet the pushen naar de master branch! Fout gevonden? Open aub een pull-request! Commits in de master die niet van mezelf zijn worden gereset!
+***Gelieve niet the pushen naar de master branch! Fout gevonden? Open aub een pull-request! Commits in de master die niet van mezelf zijn worden gereset!***
 
 Deze README bevat mijn antwoorden op de vragenlijst van de te kennen leerstof voor het examen van Embedded.
 De 1ste 18 vragen zijn voor na de herfstvakantie, de rest volgt later.
