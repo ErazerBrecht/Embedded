@@ -539,19 +539,35 @@ Bij een DTFT (aperiodiek), gaan we de rest opvullen met oneindig veel nullen!
 Een DTFT kan niet opgelost worden met behulp van een computer, de DFT daarentegen wel. Daarom dat we voor DSP de DFT gebruiken! 
 
 ### 22. Hoe kan je een aperiodiek signaal syntheseren?
-
+Zie vorige vraag, je gebruikt hier DTFT voor. Dit is echter niet mogelijk met een computer (algoritme)!
 
 ### 23. Wat wordt verstaan onder een transformatie?
+Een transformatie is het uitvoeren van een functie op meerdere waarden tegelijk. De in- en uitgang kunnen bestaan uit meerdere waarden.
 
+Functie: </br>
+y = 2 . x </br>
+De uitgang is afhankelijk van de ingang
+
+Transformatie: </br>
+Signaal opgebouwd uit 100 samples het omzetten van deze 100 samples in een andere set van 100 samples is een transformatie!
 
 ### 24. Wat houdt een voorwaartse discrete fouriertransformatie in?
-
-
+Voorwaarste discrete fouriertransformatie houdt in dat je van je tijddomein (oorspronkelijke signaal) naar het frequentie domein gaat. 
 ### 25. Wat houdt een inverse discrete fouriertransformatie in?
+Het tijdsdomein opslitsen in het fequency domein. Het frequentie domein bestaat uit een reëel gedeelte (cosinussen) en een imaginiair gedeelte (sinussen). 
 
+Dit is veel moeilijker! Er zijn immers meerdere combinaties (5 = 2 + 3, 5 = 4 + 1). Er is immers maar één correcte. Alles tesamen moet kloppen!
 
 ### 26. Stel een 128 punts tijdsdomeinsignaal opgenomen in x[ ]. Hoe verloopt het tijdsmoment van dit signaal en hoe verloopt het frequentiedomein?
+Tijdsdomein: van 0 tot 127 (128 sampels)
 
+Frequentiedomein: </br>
+- Reëel (cosinusen): Van 0 tot 64 (65 sampels) 
+  - Onder verdeeld in 33 verschillende cosinussen (1ste is DC, dan 32 cosinussen met steeds dubbele frequentie)
+- Imaginair (sinussen): Van 0 tot 64 (65 sampels)
+  - Onder verdeeld 33 verschillende sinussen (1ste en laatste zijn nul, de rest steeds verdubbeling van frequentie)
+
+TODO: Foto  
 
 ### 27. Welk zijn de DFT-basisfuncties? Geef deze en benoem de verschillende delen hierin.
 
