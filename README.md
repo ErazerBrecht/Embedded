@@ -597,12 +597,13 @@ Correlatie
 FFT
 
 ### 30. Gegeven een analoog sinusvormig signaal met frequentie 2 kHz, bestaande uit 800 samples met een samplefrequentie van 16 kHz.
-Gevraagd:
-a) creëer de tijdsvector (sampletijdvector) hiervoor om dit signaal binnen scilab te kunnen
-weergeven.
-b) Geef weer hoe je dit signaal in scilab kan plotten
 
-TODO (oplossen A, B is de oef hieronder al gezet)
+*Gevraagd:*</br>
+- Creëer de tijdsvector (sampletijdvector) hiervoor om dit signaal binnen scilab te kunnen
+weergeven.
+- Geef weer hoe je dit signaal in scilab kan plotten
+
+TODO
 
 ### 31. Hoe kan je een DC-component toevoegen bij een sinusvormig signaal in scilab?
 ```c
@@ -615,18 +616,24 @@ plot(t, signal);
 ```
 
 ### 32. Waarom heb je een antialias filter nodig om een analoog signaal te samplen?
-Uit sampling rate kan de sample frequentie worden afgeleid. Om aliasing te voorkomen moet het analoog signaal gefilterd worden op de Nyquist frequentie. Voorbeeld bij een samplefrequenite van 100 Hz is dit maximaal 50 Hz. Deze filter wordt antialias filter genoemd
+Volgens het "Nyquist sampling theorem" moet de sample frequentie minstens twee keer de max freq van het signaal zijn. Indien dit niet het geval is, heb je last van aliasing (vervormingen door verkeerd samplen, zie module 1).
+
+Voorbeeld bij een samplefrequenite van 100 Hz is dit maximaal 50 Hz. 
+
+Deze filter wordt antialias filter genoemd. Dit is een laagdoorlaatfilter met dus een cut off rate van de helft van de sample frequentie. Hierdoor kunnen er geen 'verboden' frequenties is het te samplen signaal zitten!
 
 
-### 33. A) Hoe kan je ASCII data in scilab binnenbrengen in de console via knippen en plakken (geef hiervan een voorbeeld) en hoe kan je ASCII data rechtstreeks van een bestand inlezen in scilab?
-A) 
+### 33. Hoe kan je ASCII data in scilab binnenbrengen in de console via knippen en plakken (geef hiervan een voorbeeld)
 ```
 d = [ //hier je data plakken ctrl v
 1,1
 1,2
 ]; //deze haak sluiten wanneer data is geplakt
 ```
-B)
+
+1,1 en 1,2 zijn de geplakte waardes
+
+### 34. Hoe kan je ASCII data rechtstreeks van een bestand inlezen in scilab?
 ```
 y = read('testASCII.txt', 10, 3)
 ```
@@ -641,7 +648,7 @@ kolommen data
 ### 35. Hoe kan je interne variabelen opslaan en oproepen binnen scilab?
 Interne variabelen in scilab kunnen bewaard worden in binary
 formaat dat space-optimaal is.
-*  Alle huidige variabelen kunnen opgeslagen worden met SAVE
+* Alle huidige variabelen kunnen opgeslagen worden met SAVE
 * Via LOAD kan de variabele terug opgeroepen worden
 * Via CLEAR kan je alle variabelen verwijderen
 ```
