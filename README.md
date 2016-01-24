@@ -595,3 +595,59 @@ Correlatie
 
 ### 29.3 Welke manier geniet de voorkeur als de DFT meer dan 32 punten bevat?
 FFT
+
+### 30. Gegeven een analoog sinusvormig signaal met frequentie 2 kHz, bestaande uit 800 samples met een samplefrequentie van 16 kHz.
+Gevraagd:
+a) creëer de tijdsvector (sampletijdvector) hiervoor om dit signaal binnen scilab te kunnen
+weergeven.
+b) Geef weer hoe je dit signaal in scilab kan plotten
+
+TODO (oplossen A, B is de oef hieronder al gezet)
+
+### 31. Hoe kan je een DC-component toevoegen bij een sinusvormig signaal in scilab?
+```c
+t = 0.0:0.01:5.0;
+sin_30Hz = 1*sin(2*%pi*30*t);
+sin_10Hz = 1*sin(2*%pi*10*t);
+DC = 5; //DC signaal maken
+signal = DC + sin_30Hz + sin_10Hz; //signaal toevoegen
+plot(t, signal);
+```
+
+### 32. Waarom heb je een antialias filter nodig om een analoog signaal te samplen?
+Uit sampling rate kan de sample frequentie worden afgeleid. Om aliasing te voorkomen moet het analoog signaal gefilterd worden op de Nyquist frequentie. Voorbeeld bij een samplefrequenite van 100 Hz is dit maximaal 50 Hz. Deze filter wordt antialias filter genoemd
+
+
+### 33. A) Hoe kan je ASCII data in scilab binnenbrengen in de console via knippen en plakken (geef hiervan een voorbeeld) en hoe kan je ASCII data rechtstreeks van een bestand inlezen in scilab?
+A) 
+```
+d = [ //hier je data plakken ctrl v
+1,1
+1,2
+]; //deze haak sluiten wanneer data is geplakt
+```
+B)
+```
+y = read('testASCII.txt', 10, 3)
+```
+In de scilab instructie staat “… 10,3)” op 10 rijen en 3
+kolommen data
+
+#### 34. Hoe kan je een WAV-file inlezen in scilab?
+```
+[y, f, bit] = wavread('test.wav')
+```
+
+### 35. Hoe kan je interne variabelen opslaan en oproepen binnen scilab?
+Interne variabelen in scilab kunnen bewaard worden in binary
+formaat dat space-optimaal is.
+*  Alle huidige variabelen kunnen opgeslagen worden met SAVE
+* Via LOAD kan de variabele terug opgeroepen worden
+* Via CLEAR kan je alle variabelen verwijderen
+```
+save('sin_lowFreq', sin_10Hz)
+clear
+load('sin_lowFreq')
+```
+
+
