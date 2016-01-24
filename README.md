@@ -762,7 +762,9 @@ Moving Average Filter is vooral geschikt voor onderdrukking van witte ruis terwi
 ![Moving average filter](http://i.imgur.com/vShBMpr.png)
 
 ### 43.2 Wat is stapresponsie (Extra vraag door Brecht C)
-TODO
+Stapresponsie is hoe een de uitgang van een systeem reageert op een ingang die bestaat uit een stap (van 0V naar 5V bijvoorbeeld). Bij filters is kan dit belangrijk zijn. Bepaalde filters vertragen het signaal (delay). Dit is dan zichtbaar in de stapresponsie.
+
+Bij een moving average filter zal hoe groter het 'venster' (aantal sampels waar je het gemiddelde van berekend), hoe slechter de stap responsie worden. Dit kun je ook duidelijk zien in de bovenstaande foto, de rand is minder scherp bij 51 dan bij 11!
 
 ### 44. Welke stappen (gebruik maken van functies) moet je doorlopen binnen scilab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
 TODO kan heel uitgebreid of heel kort
