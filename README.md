@@ -713,9 +713,13 @@ Uitleg: De ' vormt een rijvecotor om in een kolomvector en omgekeerd!
 *Gevraagd:*</br>
 Stel dat men de samples niet wil weergeven in hun DIGIT-vorm (tussen 0 en 1024), maar in de fysieke waarde van de spanning (0 V tot 10 V), hoe kan je dan deze schaling uitvoeren? Geef hiervoor voorbeeldcode.
 
-![digToanalog](http://i.imgur.com/evnLJ5M.png)
+```
+clf()
+signal = 1024 * rand(100,1,'uniform')
+plot(signal * 10 / 1024, 'r')
+```
 
-TODO: Uitleg
+Elke sample maal je maximum sample spanning (10V) delen door het bereik in bits (1024)
 
 ### 40. Wat is de pricipiële werking van een moving average filter?
 - Iedere sample in het uitgangssignaal is het resultaat van het bepalen van het gemiddelde van een aantal samples aan de ingang. 
@@ -744,6 +748,8 @@ Je kunt bij een moving average filter ook gebruik maken van factoren (gewichten)
 
 Er zijn nog geen waarde in het verleden. We kunnen deze zien als 0 maar hierdoor zullen we een grote fout genereren. Beter is voor de onbekende dezelfde waarde te nemen als de eerste gekende waarde. Hoeveel is afhankelijk van je totale rekenkracht. Hoe meer hoe beter voor offline filters is dit geen probleem maar voor online moet dit in realtime gebeuren.
 
+![IDK7](http://i.imgur.com/4nLfXug.png)
+
 ### 42. Hoe bouw je een 5-punts (gewichten/factoren) moving average filter op?
 
 De optelling van alle gewichten moet gelijk zijn aan 5 (indien niet doen we aan versterking/verzwakking)
@@ -759,15 +765,41 @@ De optelling van alle gewichten moet gelijk zijn aan 5 (indien niet doen we aan 
 ### 43. Waarvoor kan je een moving average filter het best voor gebruiken? Geef ook aan waarom de moving average filter hiervoor een goede oplossing is.
 Moving Average Filter is vooral geschikt voor onderdrukking van witte ruis terwijl de scherpste stapresponsie behouden blijft.
 
+De hoeveelheid ruisonderdrukking is gelijk aan de vierkantswortel van het aantal punten in het gemiddelde
+Vb: 100 punt Moving Average Fiilter vermindert de ruis met een factor 10
+
 ![Moving average filter](http://i.imgur.com/vShBMpr.png)
+
+Geschikt: Voor tijdsdomein gecodeerde signalen. Ruis wegwerken, Signaal smoother maken, ...
+Niet geschikt: Voor frequentiedomein gecodeerde signalen. Niet geschikt om bepaalde frequenties weg te filteren!
+
 
 ### 43.2 Wat is stapresponsie (Extra vraag door Brecht C)
 Stapresponsie is hoe een de uitgang van een systeem reageert op een ingang die bestaat uit een stap (van 0V naar 5V bijvoorbeeld). Bij filters is kan dit belangrijk zijn. Bepaalde filters vertragen het signaal (delay). Dit is dan zichtbaar in de stapresponsie.
 
 Bij een moving average filter zal hoe groter het 'venster' (aantal sampels waar je het gemiddelde van berekend), hoe slechter de stap responsie worden. Dit kun je ook duidelijk zien in de bovenstaande foto, de rand is minder scherp bij 51 dan bij 11!
 
-### 44. Welke stappen (gebruik maken van functies) moet je doorlopen binnen scilab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
-TODO kan heel uitgebreid of heel kort
+### 44. Welke stappen (gebruik maken van functies) moet je doorlopen binnen SciLab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
+```
+clf()
+signal = rand(50,1,'normal')
+output = zeros(50,1)
+plot(signal, 'g')
+
+for i = 1:length(signal)
+    if(i > 2)
+        output(i) = (signal(i) + signal(i - 1) + signal(i - 2)) / 3
+    elseif (i == 2)
+        output(i) = (signal(i) + signal(i - 1) + signal(i - 1)) / 3
+    else
+        output(i) = signal(i)
+    end
+end
+
+plot(output, 'r')
+```
+
+Spreekt voor zich...
 
 ### 43. Vergelijk een FIR-filter met een IIR-filter. Wat zijn de voornaamste verschilpunten?
 ![firvsiir](http://i.imgur.com/0frYSwy.png)
