@@ -658,3 +658,28 @@ load('sin_lowFreq')
 ```
 
 
+### 36. Wat zijn de verschillen tussen offline signal processing en online signal processing?
+offline: 
+* Alle data is reeds aanwezig en beschikbaar voor de dataprocessing
+* Je hebt alle data beschikbaar vanaf het begin tot het einde van de meting.
+* Tijdens het analyseren van de data heb je op ieder moment, vanaf het begin tot het einde van het proces, toegang tot alle samples die reeds in het verleden aan bod zijn geweest of nog moeten verwerkt worden.
+* Met bovenstaande gegevens in acht genomen kan je dus heel verschillende algoritmen opbouwen dan bij online signal processing
+
+online:
+* Een bepaalde sample wordt ingelezen en dan onmiddellijk verwerkt.
+* De dataprocessing van een op dat moment beschikbare sample moet beëindigd zijn vooraleer de volgende sample wordt ingelezen.
+* Het inlezen van de samples en de dataprocessing gebeurt cyclisch met constante intervallen.  Zulke intervalperioden zijn afhankelijk van het proces en kunnen seconden duren maar ook in de orde van ms of µs.
+* Samples die reeds verwerkt zijn en de huidige sample zijn enkel beschikbaar voor signaalverwerking
+* We kunnen niet in de toekomst kijken vermits we (nog) niet weten welke samplewaarde aanwezig zal zijn wanneer de volgende sample wordt verwerkt.
+
+### 37. Hoe kan je een rijvector met een klomvector samenstellen? Geef hierbij een voorbeeld.
+We doen dit door gebruik te maken van de apostrof (afkappingsteken), Zie foto
+![rijkolom](http://i.imgur.com/3p62oxq.png)
+
+### Gegeven : Een ADC levert een numerieke waarde in functie van het aantal bits. Stel een 10-bit ADC. Deze heeft een quantisatiebereik tussen 0 en 1024 (2^10 ) Stel dat de quantisatiegetallen tussen 0 en 1024 overeenstemmen met de fysieke spanning tussen 0 V en 10 V.
+*Gevraagd:*</br>Stel dat men de samples niet wil weergeven in hun DIGIT-vorm (tussen 0 en 1024),
+maar in de fysieke waarde van de spanning (0 V tot 10 V), hoe kan je dan deze schaling
+uitvoeren? Geef hiervoor voorbeeldcode.
+
+![digToanalog](http://i.imgur.com/evnLJ5M.png)
+
