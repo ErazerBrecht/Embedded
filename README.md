@@ -511,7 +511,7 @@ We gebruiken sinusoïdale signalen wegens de *sinus fidelity* eigenschap bij lin
 
 HOE? IDK, dat is heel dieje boek typen...
 
-TODO: Voorbeeld blokgolf
+![Fourier blok](http://www.brains-minds-media.org/archive/289/dippArticle-18.png)
 
 ### 20. In welke categorieën, die voortvloeien uit de vier basistypen van signalen, kan je de term Fourier-transformatie in onderverdelen?
 
@@ -521,13 +521,13 @@ Discreet: Digitaal, eindige precisie.
 
 
 - Fourier transformatie: Signalen die continu en aperiodiek zijn </br>
-  TODO: Foto
+  ![IDK](http://i.imgur.com/QFMn76P.png)
 - Fourier series: Signalen die continu en periodiek zijn </br>
-  TODO: Foto
+  ![IDK2](http://i.imgur.com/5xSye3U.png)
 - Discrete Time Fourier Transform (DTFT): Signalen die discreet en aperiodiek zijn </br>
-  TODO: Foto
+  ![IDK3](http://i.imgur.com/5xSye3U.png)
 - Discrete Fourier Transform (DFT): Signalen die discreet en periodiek zijn  </br>
-  TODO: Foto
+  ![IDK4](http://i.imgur.com/cQ73nHA.png)
 
 ### 21. Hoe kan je Fouriertransformatie gebruiken voor een eindig aantal samples?
 Theoretisch gaat dit niet. Sinusoïdale signalen (sinus, cosinus) gaan oneindig lang verder.
@@ -563,14 +563,20 @@ Tijdsdomein: van 0 tot 127 (128 sampels)
 
 Frequentiedomein: </br>
 - Reëel (cosinusen): Van 0 tot 64 (65 sampels) 
-  - Onder verdeeld in 33 verschillende cosinussen (1ste is DC, dan 32 cosinussen met steeds hogere frequentie)
+  - Onderverdeeld in 33 verschillende cosinussen (1ste is DC, dan 32 cosinussen met steeds hogere frequentie)
 - Imaginair (sinussen): Van 0 tot 64 (65 sampels)
-  - Onder verdeeld 33 verschillende sinussen (1ste en laatste zijn nul, de rest steeds verhoging van frequentie)
+  - Onderverdeeld 33 verschillende sinussen (1ste en laatste zijn nul, de rest steeds verhoging van frequentie)
 
-TODO: Foto  
+![DFT](http://i.imgur.com/FSfOxf4.png)  
+
+NOOT: </br> 
+- De optelling van alle cosinusen => Re X[] => Reëel
+- De optelling van alle sonussen => Im X[] => Imaginair
+
+![IDK5](http://i.imgur.com/cwm6OcE.png)
 
 ### 27. Welk zijn de DFT-basisfuncties? Geef deze en benoem de verschillende delen hierin.
-TODO: Foto
+![IDK6](http://i.imgur.com/rLa8xYv.png)
 
 k = Zoals hierboven verteld. Indien je frequentie domein uit 65 sampels bestaat heb je 33 verschillende cosinussen. k begint bij 0 (DC) en wordt dan verhoogd met stappen van 1 tot en met 32. 
 
@@ -614,7 +620,7 @@ signal = DC + sin_30Hz + sin_10Hz; //signaal toevoegen
 plot(t, signal);
 ```
 
-Uitlg: constante waarde (5) gewoon optellen met je bepaalde signalen/signaal.
+Uitleg: constante waarde (5) gewoon optellen met je bepaalde signalen/signaal.
 
 ### 32. Waarom heb je een antialias filter nodig om een analoog signaal te samplen?
 Volgens het "Nyquist sampling theorem" moet de sample frequentie minstens twee keer de max freq van het signaal zijn. Indien dit niet het geval is, heb je last van aliasing (vervormingen door verkeerd samplen, zie module 1).
@@ -700,7 +706,7 @@ We doen dit door gebruik te maken van de apostrof (afkappingsteken), Zie foto
 
 Uitleg: De ' vormt een rijvecotor om in een kolomvector en omgekeerd!
 
-> rij' + kolum => resultaat = kolom
+> rij' + kolum => resultaat = kolom </br>
 > rij + kolum' => resultaat = rij
 
 ### 39. Gegeven: Een ADC levert een numerieke waarde in functie van het aantal bits. Stel een 10-bit ADC. Deze heeft een quantisatiebereik tussen 0 en 1024 (2^10 ) Stel dat de quantisatiegetallen tussen 0 en 1024 overeenstemmen met de fysieke spanning tussen 0 V en 10 V.
