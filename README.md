@@ -578,11 +578,11 @@ NOOT: </br>
 ### 27. Welk zijn de DFT-basisfuncties? Geef deze en benoem de verschillende delen hierin.
 ![IDK6](http://i.imgur.com/rLa8xYv.png)
 
-k = Zoals hierboven verteld. Indien je frequentie domein uit 65 sampels bestaat heb je 33 verschillende cosinussen. k begint bij 0 (DC) en wordt dan verhoogd met stappen van 1 tot en met 32. 
+k = Zie afbeedling hierboven (met al die sinussen / cossinussen). Indien je frequentie domein uit 17 sampels bestaat heb je 9 verschillende cosinussen. k begint bij 0 (DC) en wordt dan verhoogd met stappen van 1 tot en met 8 (32 / 2) / 2). 
 
-i = Sample. Elke cosinus / sinus bestaat uit x aantal sampels! Dit is i, in het geval hierboven gaat i dus van 0 tot 64!
+i = Sample. Elke cosinus / sinus bestaat uit x aantal sampels! Dit is i, in het geval hierboven gaat i dus van 0 tot 16!
 
-N = Totaal aantal sampels, in het geval hierboven dus 128!
+N = Totaal aantal sampels, in het geval hierboven dus 32!
 
 ### 28. Gegeven volgende vergelijking voor de synthesevergelijking:
 
