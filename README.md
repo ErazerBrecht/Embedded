@@ -714,7 +714,7 @@ TODO: Uitleg
 ### 40. Wat is de pricipiële werking van een moving average filter?
 - Iedere sample in het uitgangssignaal is het resultaat van het bepalen van het gemiddelde van een aantal samples aan de ingang. 
 Het neemt M samples van de input tegelijk en neemt het gemiddelde van die M-samples en levert een enkel uitgangspunt. Het 'venster' aan de ingang schijft steeds op hierdoor de term 'moving'
-- Bij het bepalen van het gemiddelde (avarage) worden enkel de berekeningen in het verleden en de huidige berekening in rekening gebracht.
+- Bij het bepalen van het gemiddelde (avarage) realtime (online) worden enkel de berekeningen in het verleden en de huidige berekening in rekening gebracht. Bij offline kunnen we ook de sampels in de toekomst gebruiken...
 
 Voorbeeld:
 - Venster grote van 3 sampels
@@ -728,20 +728,35 @@ Voorbeeld:
 - Uitgang [6] = (6 + 3 + 3) / 3 = 12
 - Uitgang [7] = (3 + 3 + 0) / 3 = 2
 
-De filter is optimaal voor het verwijderen van random ruis terwijl een scherpe stap-response behouden blijft. 
+De filter is optimaal voor het verwijderen van rando m ruis terwijl een scherpe stap-response behouden blijft. 
+
+Je kunt bij een moving average filter ook gebruik maken van factoren (gewichten). Hiermee kun je zeggen dat je meer prioriteit geeft aan een bepaalde sample. Zo kun je de vorige sampels meer laten doorwegen dan de huidige of andersom
+
+> Uitgang [3] = (0.5 * 3 + 1 * 6 + 1.5 * 21) / 3 = 1.5 + 6 + 31.5 = 13
 
 ### 41. Voor de eerste berekening(en) van een moving average filter zijn er geen waarden uit het verleden. Hoe vermijd je best grote fouten tijdens het startmoment van de filter? Verklaar je antwoord.
 
 Er zijn nog geen waarde in het verleden. We kunnen deze zien als 0 maar hierdoor zullen we een grote fout genereren. Beter is voor de onbekende dezelfde waarde te nemen als de eerste gekende waarde. Hoeveel is afhankelijk van je totale rekenkracht. Hoe meer hoe beter voor offline filters is dit geen probleem maar voor online moet dit in realtime gebeuren.
 
 ### 42. Hoe bouw je een 5-punts (gewichten/factoren) moving average filter op?
-TODO snap ik (Arne) niet
+
+De optelling van alle gewichten moet gelijk zijn aan 5 (indien niet doen we aan versterking/verzwakking)
+
+##### Alle gewichten gelijk:
+
+> (X1 + X2 + X3 + X4 + X5) / 5
+
+##### Verschillende factoren:
+
+> (0.5 * X1 + 1 * X2 + 1 * X3 + 1 * X4 + 1.5 *  X5) / 5
 
 ### 43. Waarvoor kan je een moving average filter het best voor gebruiken? Geef ook aan waarom de moving average filter hiervoor een goede oplossing is.
 Moving Average Filter is vooral geschikt voor onderdrukking van witte ruis terwijl de scherpste stapresponsie behouden blijft.
 
-TODO Foto
+![Moving average filter](http://i.imgur.com/vShBMpr.png)
 
+### 43.2 Wat is stapresponsie (Extra vraag door Brecht C)
+TODO
 
 ### 44. Welke stappen (gebruik maken van functies) moet je doorlopen binnen scilab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
 TODO kan heel uitgebreid of heel kort
