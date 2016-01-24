@@ -683,3 +683,39 @@ uitvoeren? Geef hiervoor voorbeeldcode.
 
 ![digToanalog](http://i.imgur.com/evnLJ5M.png)
 
+### 39. Wat is de pricipiële werking van een moving average filter?
+* “Moving processing” over data is het belangrijkste proces voor
+een digitale filter.
+* In dit voorbeeld wordt een gemiddelde waarde bepaald aan de
+hand van een bewegend venster.
+* Van de data binnen het venster wordt de gemiddelde waarde
+bepaald en deze wordt weergeven als output voor bv. de centrale
+positie binnen dit venster.
+* Bij het bepalen van het gemiddelde (avarage) worden enkel de
+berekeningen in het verleden en de huidige berekening in rekening
+gebracht.
+![movAVG](http://i.imgur.com/ImNPhte.png)
+
+### 40. Voor de eerste berekening(en) van een moving average filter zijn er geen waarden uit het verleden. Hoe vermijd je best grote fouten tijdens het startmoment van de filter? Verklaar je antwoord.
+Er zijn nog geen waarde in het verleden. We kunnen deze zien als 0 maar hierdoor zullen we een grote fout genereren. Beter is voor de onbekende dezelfde waarde te nemen als de eerste gekende waarde. Hoeveel is afhankelijk van je totale rekenkracht. Hoe meer hoe beter voor offline fitlers is dit geen probleem maar voor online moet dit in realtime gebeuren.
+
+### 41. Hoe bouw je een 5-punts (gewichten/factoren) moving average filter op?
+TODO snap ik niet
+### 42. Waarvoor kan je een moving average filter het best voor gebruiken? Geef ook aan waarom de moving average filter hiervoor een goede oplossing is.
+Moving Average Filter is vooral geschikt voor onderdrukking
+van witte ruis terwijl de scherpste stapresponsie behouden
+blijft.
+
+Waarom Moving Average is een goede oplossing?
+Stel dat we een filter willen ontwerpen, met naast ruisonderdrukking ook verscherping van de
+randscherpte (flanken)
+Stel dat we de randscherpte versterken door te specificeren dat er elf punten zijn in het stijgen van de
+stapresponse .
+Hoe kiezen we deze 11 punten zodat de ruis in het uitgangssignaal zo klein mogelijk wordt?
+De ruis op het signaal dat we proberen te verminderen is willekeurig => geen zin om speciale
+gewichten op bepaalde plaatsen toe te passen. Beste ruisonderdrukking bekomen door alle samples
+gelijkwaardig te behandelen (dus moving average filter)
+
+
+### 43. Welke stappen (gebruik maken van functies) moet je doorlopen binnen scilab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
+TODO kan heel uitgebreid of heel kort
