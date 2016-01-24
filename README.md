@@ -766,3 +766,77 @@ TODO
 
 ### 44. Welke stappen (gebruik maken van functies) moet je doorlopen binnen scilab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
 TODO kan heel uitgebreid of heel kort
+
+### 43. Vergelijk een FIR-filter met een IIR-filter. Wat zijn de voornaamste verschilpunten?
+![firvsiir](http://i.imgur.com/0frYSwy.png)
+
+### 44. Hoe wordt de transfertkarakteristiek van een digitaal systeem beschreven?
+* Transferkarakteristiek van een analoog systeem wordt door differentiaalvergelijkingen beschreven.
+* Transferkarakteristiek van een digitaal systeem wordt beschreven aan de hand van verschilvergelijkingen (difference-equations)
+
+### 45. Geef een voorbeeld van een FIR-verschilvergelijking.
+Een FIR verschilvergelijking bevat enkel de inputsignalen xk en de coëfficiënten bn.
+![firvgl](http://i.imgur.com/YNcZ5mI.png)
+
+### 46. Geef een voorbeeld van een IIR-verschilvergelijking
+Een IIR verschilvergelijking bevat de inputsignalen xk en de outputsignalen yk en de coëfficiënten bn en an
+![iirvgl](http://i.imgur.com/WhR5RwS.png)
+
+### 47. Welk zijn de eigenschappen van een digitale filter en omschrijf deze beknopt.
+* Afsnijfrequentie (cutoff frequency) : Frequentie waarbij de amplitude -3 dB
+(0,707) lager ligt dan maximale amplitude in doorlaatband. Dit komt overeen
+met nog de helft van het vermogen
+* Doorlaatband (pass band) : zou vlak moeten zijn om zo weinig mogelijk
+vervorming te bekomen (verschillende versterking van de frequenties die deel
+uit maken van het signaal)
+* Transition band (overgang tussen doorlaat en sper) Deze zou zo klein mogelijk
+moeten zijn.
+* Sperband (stop band) moet een zo hoog mogelijke dempings verhouding (hoge
+–dB-waarden) bevatten en eveneens vlak.
+* Filterorde : hoe hoger de orde, hoe beter het filter
+* Filtertype : LD, HD, bandoorlaat, bandsper
+* Filter design procedure : butterworth, bessel , chebycheff, …
+![banden](http://i.imgur.com/ed7eE5Y.png)
+
+### 48. Welke parameters heeft de wfir() – functie nodig om de filterparameters te kunnen bepalen van een digitale filter? Noem deze en omschrijf deze beknopt.
+`[coefficients, amplitude, frequency] = wfir(filter-type, filter-order, [fg1 fg2], windowtype, [par1 par2])`
+Wfir heeft volgende parameters nodig
+* filter-type : lp,hp,bp,sb (laagdoorlaat hoogdoorlaat, banddoorlaat, bandsper)
+* Filter-order : minimum 2 (2de orde)
+* [fg1 fg2] : vector met twee afsnijfrequenties in het gebied tussen 0 en 0,5. Bij hoog- en laagdoorlaatfilter wordt enkel de eerste waarde fg1 gebruikt.
+* window-type : re, tr, hm, kr, ch (rectangular, triangular, hamming, kaiser, chebyshev)
+* [par1 par2] : vector met parameter voor het window-type
+
+### 49. Wat zijn de return-waarden van de functie wfir()? Noem deze om omschrijf deze beknopt.
+`[coefficients, amplitude, frequency] = wfir(filter-type, filter-order, [fg1 fg2], windowtype, [par1 par2])`
+* coefficients : filtercoëfficiënten
+* amplitude : vector met lengte 256 met de amplitudewaarden
+* frequency : vector met lengte 256 met de frequenties in het gebied tussen 0 tot 0,5
+
+### 50. Geef en verklaar de kenmerken (voor/nadelen) van een rectangular window om te gebruiken als window voor een window-sync digitale filter.
+Rectangular window (ook boxcar of Dirichiet genoemd)
+* Eenvoudigste window-equivalent om alle waarden op nul te plaatsen behalve de waarden n die doorgelaten worden.
+* 𝑤 𝑛 = 1 met w(n) de windowfunctie
+* Nadeel van deze filter zijn de plotselinge veranderingen tussen niet doorgelaten en wel doorgelaten waarden waardoor er ongewenste effecten in de discrete time Fourier transformatie (DTFT) ontstaan
+![rectangle](http://i.imgur.com/xCSqeNE.png)
+
+### 51. Geef en verklaar de kenmerken van een triangular window om te gebruiken als window voor een window-sync digitale filter.
+Triangular Window
+* Windowfunctie : ![triangle](http://i.imgur.com/42c0PlB.png?1)
+* Hierin kan L gelijk zijn aan N, N+1 of N-1
+* Kan gezien worden als de convolutie van twee N/2 brede rectangular windows.
+
+![tri](http://i.imgur.com/1y386Qu.png)
+
+### 52. Geef en verklaar de kenmerken van een hamming window om te gebruiken als window voor een window-sync digitale filter.
+* Windowfunctie : ![hamming](http://i.imgur.com/oEgJPou.png?1)
+* Met α = 0,54 en β= α -1 = 0,46
+* Het window is zodanig geoptimaliseerd dat het maximum van de dicht bijzijnde zijlob een amplitude heeft van 1/5 van dat van het Hamming window
+
+![hamming](http://i.imgur.com/n8kKdvV.png)
+
+### 53. Geef en verklaar de kenmerken van een Dolph Chebyshev om te gebruiken als window voor een window-sync digitale filter.
+* Minimaliseert de chebyshev norm van de zijlobes voor een gegeven hoofdlobebreedte.
+* De window-functie is meestal gedefinieerd in termen van real-valued discrete Fouriertransformatie W0(k).
+
+![dolbCheb](http://i.imgur.com/NhEOUQy.png)
