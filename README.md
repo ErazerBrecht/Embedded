@@ -676,7 +676,7 @@ online:
 We doen dit door gebruik te maken van de apostrof (afkappingsteken), Zie foto
 ![rijkolom](http://i.imgur.com/3p62oxq.png)
 
-### Gegeven : Een ADC levert een numerieke waarde in functie van het aantal bits. Stel een 10-bit ADC. Deze heeft een quantisatiebereik tussen 0 en 1024 (2^10 ) Stel dat de quantisatiegetallen tussen 0 en 1024 overeenstemmen met de fysieke spanning tussen 0 V en 10 V.
+### 38. Gegeven : Een ADC levert een numerieke waarde in functie van het aantal bits. Stel een 10-bit ADC. Deze heeft een quantisatiebereik tussen 0 en 1024 (2^10 ) Stel dat de quantisatiegetallen tussen 0 en 1024 overeenstemmen met de fysieke spanning tussen 0 V en 10 V.
 *Gevraagd:*</br>Stel dat men de samples niet wil weergeven in hun DIGIT-vorm (tussen 0 en 1024),
 maar in de fysieke waarde van de spanning (0 V tot 10 V), hoe kan je dan deze schaling
 uitvoeren? Geef hiervoor voorbeeldcode.
