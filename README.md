@@ -658,3 +658,64 @@ load('sin_lowFreq')
 ```
 
 
+### 36. Wat zijn de verschillen tussen offline signal processing en online signal processing?
+offline: 
+* Alle data is reeds aanwezig en beschikbaar voor de dataprocessing
+* Je hebt alle data beschikbaar vanaf het begin tot het einde van de meting.
+* Tijdens het analyseren van de data heb je op ieder moment, vanaf het begin tot het einde van het proces, toegang tot alle samples die reeds in het verleden aan bod zijn geweest of nog moeten verwerkt worden.
+* Met bovenstaande gegevens in acht genomen kan je dus heel verschillende algoritmen opbouwen dan bij online signal processing
+
+online:
+* Een bepaalde sample wordt ingelezen en dan onmiddellijk verwerkt.
+* De dataprocessing van een op dat moment beschikbare sample moet beëindigd zijn vooraleer de volgende sample wordt ingelezen.
+* Het inlezen van de samples en de dataprocessing gebeurt cyclisch met constante intervallen.  Zulke intervalperioden zijn afhankelijk van het proces en kunnen seconden duren maar ook in de orde van ms of µs.
+* Samples die reeds verwerkt zijn en de huidige sample zijn enkel beschikbaar voor signaalverwerking
+* We kunnen niet in de toekomst kijken vermits we (nog) niet weten welke samplewaarde aanwezig zal zijn wanneer de volgende sample wordt verwerkt.
+
+### 37. Hoe kan je een rijvector met een klomvector samenstellen? Geef hierbij een voorbeeld.
+We doen dit door gebruik te maken van de apostrof (afkappingsteken), Zie foto
+![rijkolom](http://i.imgur.com/3p62oxq.png)
+
+### 38. Gegeven : Een ADC levert een numerieke waarde in functie van het aantal bits. Stel een 10-bit ADC. Deze heeft een quantisatiebereik tussen 0 en 1024 (2^10 ) Stel dat de quantisatiegetallen tussen 0 en 1024 overeenstemmen met de fysieke spanning tussen 0 V en 10 V.
+*Gevraagd:*</br>Stel dat men de samples niet wil weergeven in hun DIGIT-vorm (tussen 0 en 1024),
+maar in de fysieke waarde van de spanning (0 V tot 10 V), hoe kan je dan deze schaling
+uitvoeren? Geef hiervoor voorbeeldcode.
+
+![digToanalog](http://i.imgur.com/evnLJ5M.png)
+
+### 39. Wat is de pricipiële werking van een moving average filter?
+* “Moving processing” over data is het belangrijkste proces voor
+een digitale filter.
+* In dit voorbeeld wordt een gemiddelde waarde bepaald aan de
+hand van een bewegend venster.
+* Van de data binnen het venster wordt de gemiddelde waarde
+bepaald en deze wordt weergeven als output voor bv. de centrale
+positie binnen dit venster.
+* Bij het bepalen van het gemiddelde (avarage) worden enkel de
+berekeningen in het verleden en de huidige berekening in rekening
+gebracht.
+![movAVG](http://i.imgur.com/ImNPhte.png)
+
+### 40. Voor de eerste berekening(en) van een moving average filter zijn er geen waarden uit het verleden. Hoe vermijd je best grote fouten tijdens het startmoment van de filter? Verklaar je antwoord.
+Er zijn nog geen waarde in het verleden. We kunnen deze zien als 0 maar hierdoor zullen we een grote fout genereren. Beter is voor de onbekende dezelfde waarde te nemen als de eerste gekende waarde. Hoeveel is afhankelijk van je totale rekenkracht. Hoe meer hoe beter voor offline fitlers is dit geen probleem maar voor online moet dit in realtime gebeuren.
+
+### 41. Hoe bouw je een 5-punts (gewichten/factoren) moving average filter op?
+TODO snap ik niet
+### 42. Waarvoor kan je een moving average filter het best voor gebruiken? Geef ook aan waarom de moving average filter hiervoor een goede oplossing is.
+Moving Average Filter is vooral geschikt voor onderdrukking
+van witte ruis terwijl de scherpste stapresponsie behouden
+blijft.
+
+Waarom Moving Average is een goede oplossing?
+Stel dat we een filter willen ontwerpen, met naast ruisonderdrukking ook verscherping van de
+randscherpte (flanken)
+Stel dat we de randscherpte versterken door te specificeren dat er elf punten zijn in het stijgen van de
+stapresponse .
+Hoe kiezen we deze 11 punten zodat de ruis in het uitgangssignaal zo klein mogelijk wordt?
+De ruis op het signaal dat we proberen te verminderen is willekeurig => geen zin om speciale
+gewichten op bepaalde plaatsen toe te passen. Beste ruisonderdrukking bekomen door alle samples
+gelijkwaardig te behandelen (dus moving average filter)
+
+
+### 43. Welke stappen (gebruik maken van functies) moet je doorlopen binnen scilab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
+TODO kan heel uitgebreid of heel kort
