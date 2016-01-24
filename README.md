@@ -599,8 +599,7 @@ FFT
 ### 30. Gegeven een analoog sinusvormig signaal met frequentie 2 kHz, bestaande uit 800 samples met een samplefrequentie van 16 kHz.
 
 *Gevraagd:*</br>
-- Creëer de tijdsvector (sampletijdvector) hiervoor om dit signaal binnen scilab te kunnen
-weergeven.
+- Creëer de tijdsvector (sampletijdvector) hiervoor om dit signaal binnen scilab te kunnen weergeven.
 - Geef weer hoe je dit signaal in scilab kan plotten
 
 TODO
@@ -615,6 +614,8 @@ signal = DC + sin_30Hz + sin_10Hz; //signaal toevoegen
 plot(t, signal);
 ```
 
+Uitlg: constante waarde (5) gewoon optellen met je bepaalde signalen/signaal.
+
 ### 32. Waarom heb je een antialias filter nodig om een analoog signaal te samplen?
 Volgens het "Nyquist sampling theorem" moet de sample frequentie minstens twee keer de max freq van het signaal zijn. Indien dit niet het geval is, heb je last van aliasing (vervormingen door verkeerd samplen, zie module 1).
 
@@ -625,40 +626,60 @@ Deze filter wordt antialias filter genoemd. Dit is een laagdoorlaatfilter met du
 
 ### 33. Hoe kan je ASCII data in scilab binnenbrengen in de console via knippen en plakken (geef hiervan een voorbeeld)
 ```
-d = [ //hier je data plakken ctrl v
-1,1
-1,2
+d = [ //hier je data plakken (ctrl v)
+1.1
+1.2
 ]; //deze haak sluiten wanneer data is geplakt
 ```
 
-1,1 en 1,2 zijn de geplakte waardes
+1.1 en 1.2 zijn de geplakte waardes. d is nu een array met 2 waardes (1,1 en 1,2)!
 
 ### 34. Hoe kan je ASCII data rechtstreeks van een bestand inlezen in scilab?
 ```
 y = read('testASCII.txt', 10, 3)
 ```
-In de scilab instructie staat “… 10,3)” op 10 rijen en 3
-kolommen data
 
-#### 34. Hoe kan je een WAV-file inlezen in scilab?
+10, 3 => Staat voor groote matrix dat aangemaakt wordt </br>
+- 10 rijen (enter)
+- 3 kolomen (spatie)
+
+**Probleem:**</br>
+Tekst wordt ook beschouwd als data! Indien je dit niet wilt dat je begintekst meegenomen wordt als data (zoals bijvoorbeeld commentaar):
+
+> fscanMat('data naam')
+
+Tekst tussen getallen / na de getallen wordt niet verwijderd!
+
+### 35. Hoe kan je een WAV-file inlezen in scilab?
 ```
 [y, f, bit] = wavread('test.wav')
 ```
 
-### 35. Hoe kan je interne variabelen opslaan en oproepen binnen scilab?
-Interne variabelen in scilab kunnen bewaard worden in binary
-formaat dat space-optimaal is.
-* Alle huidige variabelen kunnen opgeslagen worden met SAVE
-* Via LOAD kan de variabele terug opgeroepen worden
-* Via CLEAR kan je alle variabelen verwijderen
+y = Variabele waar data in wordt geplaatst (sampels)
+f = De sample rate van deze bepaalde .wav file
+bit = Het aantal bits per sample van deze bepaalde .wav file
+
+De variable zijn niet bedoeld om zaken in te stellen, maar om zaken te weten te komen van de .wav file! </br>
+Als voorbeeld: hier kun je de sample rate niet instellen!
+
+### 36. Hoe kan je interne variabelen opslaan en oproepen binnen SciLab?
+Interne variabelen in SciLab kunnen bewaard worden in bestand! Dit is een binary file!
+
+- Alle huidige variabelen kunnen opgeslagen worden met SAVE in het apart bestand
+- Via LOAD kan je die variabele terug opgeroepen (uit het bestand halen).
+- Via CLEAR kan je alle normale variabelen verwijderen! (geen effect op bestand)
+
+Zo kun je je variable opslaan in het apart bestand en volgende sessie verder doen met die waarden!
+
 ```
 save('sin_lowFreq', sin_10Hz)
 clear
 load('sin_lowFreq')
 ```
 
+Uitleg: *sin10_Hz* is je lokale variable, je slaat deze op in de binary file onder de naam *sin_lowFreq*. Je verwijderd hierna alle lokale variabelen! Indien je nu sin_10Hz zou plotten zou dit niet gaan deze variable is verwijderd (undefined). Je kunt nu echter wel *sin_lowFreq* terug halen uit het bestand en dit plotten. Zo kun je dus verder werken!
 
-### 36. Wat zijn de verschillen tussen offline signal processing en online signal processing?
+### 37. Wat zijn de verschillen tussen offline signal processing en online signal processing?
 offline: 
 * Alle data is reeds aanwezig en beschikbaar voor de dataprocessing
 * Je hebt alle data beschikbaar vanaf het begin tot het einde van de meting.
@@ -672,18 +693,18 @@ online:
 * Samples die reeds verwerkt zijn en de huidige sample zijn enkel beschikbaar voor signaalverwerking
 * We kunnen niet in de toekomst kijken vermits we (nog) niet weten welke samplewaarde aanwezig zal zijn wanneer de volgende sample wordt verwerkt.
 
-### 37. Hoe kan je een rijvector met een klomvector samenstellen? Geef hierbij een voorbeeld.
+### 38. Hoe kan je een rijvector met een klomvector samenstellen? Geef hierbij een voorbeeld.
 We doen dit door gebruik te maken van de apostrof (afkappingsteken), Zie foto
 ![rijkolom](http://i.imgur.com/3p62oxq.png)
 
-### 38. Gegeven : Een ADC levert een numerieke waarde in functie van het aantal bits. Stel een 10-bit ADC. Deze heeft een quantisatiebereik tussen 0 en 1024 (2^10 ) Stel dat de quantisatiegetallen tussen 0 en 1024 overeenstemmen met de fysieke spanning tussen 0 V en 10 V.
+### 39. Gegeven: Een ADC levert een numerieke waarde in functie van het aantal bits. Stel een 10-bit ADC. Deze heeft een quantisatiebereik tussen 0 en 1024 (2^10 ) Stel dat de quantisatiegetallen tussen 0 en 1024 overeenstemmen met de fysieke spanning tussen 0 V en 10 V.
 *Gevraagd:*</br>Stel dat men de samples niet wil weergeven in hun DIGIT-vorm (tussen 0 en 1024),
 maar in de fysieke waarde van de spanning (0 V tot 10 V), hoe kan je dan deze schaling
 uitvoeren? Geef hiervoor voorbeeldcode.
 
 ![digToanalog](http://i.imgur.com/evnLJ5M.png)
 
-### 39. Wat is de pricipiële werking van een moving average filter?
+### 40. Wat is de pricipiële werking van een moving average filter?
 * “Moving processing” over data is het belangrijkste proces voor
 een digitale filter.
 * In dit voorbeeld wordt een gemiddelde waarde bepaald aan de
@@ -696,12 +717,13 @@ berekeningen in het verleden en de huidige berekening in rekening
 gebracht.
 ![movAVG](http://i.imgur.com/ImNPhte.png)
 
-### 40. Voor de eerste berekening(en) van een moving average filter zijn er geen waarden uit het verleden. Hoe vermijd je best grote fouten tijdens het startmoment van de filter? Verklaar je antwoord.
+### 41. Voor de eerste berekening(en) van een moving average filter zijn er geen waarden uit het verleden. Hoe vermijd je best grote fouten tijdens het startmoment van de filter? Verklaar je antwoord.
 Er zijn nog geen waarde in het verleden. We kunnen deze zien als 0 maar hierdoor zullen we een grote fout genereren. Beter is voor de onbekende dezelfde waarde te nemen als de eerste gekende waarde. Hoeveel is afhankelijk van je totale rekenkracht. Hoe meer hoe beter voor offline fitlers is dit geen probleem maar voor online moet dit in realtime gebeuren.
 
-### 41. Hoe bouw je een 5-punts (gewichten/factoren) moving average filter op?
-TODO snap ik niet
-### 42. Waarvoor kan je een moving average filter het best voor gebruiken? Geef ook aan waarom de moving average filter hiervoor een goede oplossing is.
+### 42. Hoe bouw je een 5-punts (gewichten/factoren) moving average filter op?
+TODO snap ik (Arne) niet
+
+### 43. Waarvoor kan je een moving average filter het best voor gebruiken? Geef ook aan waarom de moving average filter hiervoor een goede oplossing is.
 Moving Average Filter is vooral geschikt voor onderdrukking
 van witte ruis terwijl de scherpste stapresponsie behouden
 blijft.
@@ -717,5 +739,5 @@ gewichten op bepaalde plaatsen toe te passen. Beste ruisonderdrukking bekomen do
 gelijkwaardig te behandelen (dus moving average filter)
 
 
-### 43. Welke stappen (gebruik maken van functies) moet je doorlopen binnen scilab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
+### 44. Welke stappen (gebruik maken van functies) moet je doorlopen binnen scilab om een moving average filter te kunnen simuleren. Noem deze stappen/functies en verklaar beknopt hun doel.
 TODO kan heel uitgebreid of heel kort
