@@ -525,7 +525,7 @@ Discreet: Digitaal, eindige precisie.
 - Fourier series: Signalen die continu en periodiek zijn </br>
   ![IDK2](http://i.imgur.com/5xSye3U.png)
 - Discrete Time Fourier Transform (DTFT): Signalen die discreet en aperiodiek zijn </br>
-  ![IDK3](http://i.imgur.com/5xSye3U.png)
+  ![IDK3](http://i.imgur.com/3MmRH5Q.png)
 - Discrete Fourier Transform (DFT): Signalen die discreet en periodiek zijn  </br>
   ![IDK4](http://i.imgur.com/cQ73nHA.png)
 
