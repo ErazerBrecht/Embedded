@@ -840,15 +840,21 @@ Spreekt voor zich...
 
 **Vb: Moving average filter** </br>
 
-FIR: Zoals we gewend zijn </br>
+*FIR: Zoals we gewend zijn* </br>
 Output[X] = Input[X] + Input[X - 1] + Input[X - 2] + Input[X - 3] + Input[X - 4] + Input[X - 5] + Input[X - 6] + Input[X - 7] / 8
 
-IIR: Terugkoppeling </br>
+*IIR: Terugkoppeling* </br>
 Output[X] = Output[X-1] + (Input[X] / 8) - (Input[X - 7] / 8)
 
 ### 46. Hoe wordt de transfertkarakteristiek van een digitaal systeem beschreven?
 * Transferkarakteristiek van een analoog systeem wordt door differentiaalvergelijkingen beschreven.
 * Transferkarakteristiek van een digitaal systeem wordt beschreven aan de hand van verschilvergelijkingen (difference-equations)
+
+### 46.2 Wat is een verschil vergelijking? (Extra)
+
+Een verschilvergelijking is een rekenregel waarbij de huidige waarde van de outputsequence yk, en de huidige waarde van de input xk en alle vorige waarden van de input- en output sequence worden gebruikt.
+
+\#vaag
 
 ### 47. Geef een voorbeeld van een FIR-verschilvergelijking.
 Een FIR verschilvergelijking bevat enkel de inputsignalen xk en de coëfficiënten bn.
@@ -859,53 +865,54 @@ Een IIR verschilvergelijking bevat de inputsignalen xk en de outputsignalen yk e
 ![iirvgl](http://i.imgur.com/WhR5RwS.png)
 
 ### 49. Welk zijn de eigenschappen van een digitale filter en omschrijf deze beknopt.
-* Afsnijfrequentie (cutoff frequency) : Frequentie waarbij de amplitude -3 dB
-(0,707) lager ligt dan maximale amplitude in doorlaatband. Dit komt overeen
-met nog de helft van het vermogen
-* Doorlaatband (pass band) : zou vlak moeten zijn om zo weinig mogelijk
-vervorming te bekomen (verschillende versterking van de frequenties die deel
-uit maken van het signaal)
-* Transition band (overgang tussen doorlaat en sper) Deze zou zo klein mogelijk
-moeten zijn.
-* Sperband (stop band) moet een zo hoog mogelijke dempings verhouding (hoge
-–dB-waarden) bevatten en eveneens vlak.
-* Filterorde : hoe hoger de orde, hoe beter het filter
-* Filtertype : LD, HD, bandoorlaat, bandsper
-* Filter design procedure : butterworth, bessel , chebycheff, …
+* **Afsnijfrequentie (cutoff frequency)**: Frequentie waarbij de amplitude -3 dB (0,707) lager ligt dan maximale amplitude in doorlaatband. Dit komt overeen met nog de helft van het vermogen.
+* **Doorlaatband (pass band)**: zou vlak moeten zijn om zo weinig mogelijk vervorming te bekomen (verschillende versterking van de frequenties die deel uit maken van het signaal)
+* **Transition band (overgang tussen doorlaat en sper)**: Deze zou zo klein mogelijk moeten zijn.
+* **Sperband (stop band)**: moet een zo hoog mogelijke dempings verhouding (hoge –dB-waarden) bevatten en eveneens vlak.
+* **Filterorde**: hoe hoger de orde, hoe beter het filter
+* **Filtertype**: LD, HD, bandoorlaat, bandsper
+* **Filter design procedure**: butterworth, bessel , chebycheff, …
+
 ![banden](http://i.imgur.com/ed7eE5Y.png)
 
 ### 50. Welke parameters heeft de wfir() – functie nodig om de filterparameters te kunnen bepalen van een digitale filter? Noem deze en omschrijf deze beknopt.
 `[coefficients, amplitude, frequency] = wfir(filter-type, filter-order, [fg1 fg2], windowtype, [par1 par2])`
-Wfir heeft volgende parameters nodig
-* filter-type : lp,hp,bp,sb (laagdoorlaat hoogdoorlaat, banddoorlaat, bandsper)
-* Filter-order : minimum 2 (2de orde)
-* [fg1 fg2] : vector met twee afsnijfrequenties in het gebied tussen 0 en 0,5. Bij hoog- en laagdoorlaatfilter wordt enkel de eerste waarde fg1 gebruikt.
-* window-type : re, tr, hm, kr, ch (rectangular, triangular, hamming, kaiser, chebyshev)
-* [par1 par2] : vector met parameter voor het window-type
+
+Wfir heeft volgende parameters nodig: </br>
+* **Filter-type**: lp,hp,bp,sb (laagdoorlaat hoogdoorlaat, banddoorlaat, bandsper)
+* **Filter-order**: minimum 2 (2de orde)
+* **[fg1 fg2]**: vector met twee afsnijfrequenties in het gebied tussen 0 en 0,5. Bij hoog- en laagdoorlaatfilter wordt enkel de eerste waarde fg1 gebruikt.
+* **window-type**: re, tr, hm, kr, ch (rectangular, triangular, hamming, kaiser, chebyshev)
+* **[par1 par2]** : vector met parameter voor het window-type
+
+Voorbeeld: 
+`[LD_coeff, amplitude, frequentie] = wfir('lp', 40, [0.04 0], 'hm', [0 0]);`
+
+Laag doorlaat wfir filer (40ste order), cutoff-frequentie (0.04 keer de samplefrequentie) en hamming window
 
 ### 51. Wat zijn de return-waarden van de functie wfir()? Noem deze om omschrijf deze beknopt.
 `[coefficients, amplitude, frequency] = wfir(filter-type, filter-order, [fg1 fg2], windowtype, [par1 par2])`
-* coefficients : filtercoëfficiënten
-* amplitude : vector met lengte 256 met de amplitudewaarden
-* frequency : vector met lengte 256 met de frequenties in het gebied tussen 0 tot 0,5
+* **coefficients**: filtercoëfficiënten
+* **amplitude**: vector met lengte 256 met de amplitudewaarden
+* **frequency**: vector met lengte 256 met de frequenties in het gebied tussen 0 tot 0,5
 
 ### 52. Geef en verklaar de kenmerken (voor/nadelen) van een rectangular window om te gebruiken als window voor een window-sync digitale filter.
-Rectangular window (ook boxcar of Dirichiet genoemd)
+##### Rectangular window (ook boxcar of Dirichiet genoemd)
 * Eenvoudigste window-equivalent om alle waarden op nul te plaatsen behalve de waarden n die doorgelaten worden.
-* 𝑤 𝑛 = 1 met w(n) de windowfunctie
+* 𝑤( 𝑛)  = 1 met w(n) de windowfunctie
 * Nadeel van deze filter zijn de plotselinge veranderingen tussen niet doorgelaten en wel doorgelaten waarden waardoor er ongewenste effecten in de discrete time Fourier transformatie (DTFT) ontstaan
 ![rectangle](http://i.imgur.com/xCSqeNE.png)
 
 ### 53. Geef en verklaar de kenmerken van een triangular window om te gebruiken als window voor een window-sync digitale filter.
 Triangular Window
-* Windowfunctie : ![triangle](http://i.imgur.com/42c0PlB.png?1)
+* Windowfunctie: ![triangle](http://i.imgur.com/42c0PlB.png?1)
 * Hierin kan L gelijk zijn aan N, N+1 of N-1
 * Kan gezien worden als de convolutie van twee N/2 brede rectangular windows.
 
 ![tri](http://i.imgur.com/1y386Qu.png)
 
 ### 54. Geef en verklaar de kenmerken van een hamming window om te gebruiken als window voor een window-sync digitale filter.
-* Windowfunctie : ![hamming](http://i.imgur.com/oEgJPou.png?1)
+* Windowfunctie: ![hamming](http://i.imgur.com/oEgJPou.png?1)
 * Met α = 0,54 en β= α -1 = 0,46
 * Het window is zodanig geoptimaliseerd dat het maximum van de dicht bijzijnde zijlob een amplitude heeft van 1/5 van dat van het Hamming window
 
@@ -918,11 +925,12 @@ Triangular Window
 ![dolbCheb](http://i.imgur.com/NhEOUQy.png)
 
 ### 56. Welke responses bevat iedere lineaire filter? 
-Ieder lineaire filter heeft een impulsresponse, stapresponse en een
-frequentieresponse. Ieder van deze responsies bevat complete informatie over de filter maar in een verschillende vorm.
+Ieder lineaire filter heeft een impulsresponse, stapresponse en een frequentieresponse. Ieder van deze responsies bevat complete informatie over de filter maar in een verschillende vorm.
 
 ### 57. Wat is een recursieve filter?
-In een filter die wordt uitgevoerd door convolutie wordt iedere sample in de output berekend door samples van de ingang op te tellen </br> Recursieve filters zijn een uitbreiding van dit principe door, naast punten van de ingang, ook gebruik te maken van eerder berekende waarden van de output.
+In een filter die wordt uitgevoerd door convolutie wordt iedere sample in de output berekend door de ingang te convolueren met de impulsresponsie. In dit specifieke geval (filteren) noemen we de impulsresponsie ok de **filter kernel**.
+
+Recursieve filters zijn een uitbreiding van dit principe door, naast punten van de ingang, ook gebruik te maken van eerder berekende waarden van de output!
 
 Vanwege dit kenmerk worden recursieve filters ook Infinite Impulse Filters genoemd of IIR filters </br>
 Ter vergelijking, de filters die door convolutie worden uitgevoerd zijn Finite Impuls Response filters of FIR filters
@@ -930,7 +938,7 @@ Ter vergelijking, de filters die door convolutie worden uitgevoerd zijn Finite I
 ### 58. Hoe kan je de impulsresponsie van een recursieve filter vinden?
 * Filter gewoon voeden met een impuls en zien wat er uit komt
 * De impulsresponsies van recursieve filters zijn samengesteld uit sinusoïden die exponentieel uitsterven in amplitude
-* In principe is de impulsrespontie oneindig lang maar de amplitude komt op een gegeven moment lager dan het ruisniveau en de samples die daarin vallen kunnen worden verwaarloosd
+* In principe is de impulsrespontie oneindig lang maar de amplitude komt op een gegeven moment lager dan het ruisniveau en de samples die daarin vallen kunnen worden verwaarloosd+
 
 ### 59. Hoe kan informatie vervat zitten in het tijdsdomein?
 1. Beschreven wanneer iets plaatsvindt en welke amplitude hetgeen voorvalt heeft
@@ -950,14 +958,11 @@ periodieke trilling zijn afhankelijk van de massa en elasticiteit van het materi
 ### 61. Wat is het belang van stap- en frequentieresponsies?
 * Stapresponsie beschrijft hoe gegevens, weergegeven in het tijdsdomein, worden gewijzigd door het systeem
 * Frequentieresponsie toont hoe informatie, die weergegeven wordt in het frequentiedomein, wordt gewijzigd.
-* Dit onderscheid is essentieel in het filterontwerp omdat het niet mogelijk is om de filter te optimaliseren voor beide toepassingen: goede prestaties in
-het tijdsdomein en in het frequentiedomein.
+* Dit onderscheid is essentieel in het filterontwerp omdat het niet mogelijk is om de filter te optimaliseren voor beide toepassingen: goede prestaties in het tijdsdomein en in het frequentiedomein.
 
-Voorbeeld: stel dat je een filter moet ontwerpen om het geluid van een ECG-signaal te verwijderen, is de stap de belangrijke parameter en is de
-frequentierespons van weinig belang
+Voorbeeld: stel dat je een filter moet ontwerpen om het geluid van een ECG-signaal te verwijderen, is de stap de belangrijke parameter en is de frequentierespons van weinig belang
 
-Voorbeeld: stel dat je een digitaal filter moet ontwerpen voor een hoortoestel (informatie in het frequentiedomein) dan is de frequentierespons belangrijk
-en maakt de stapresponsie niets uit.
+Voorbeeld: stel dat je een digitaal filter moet ontwerpen voor een hoortoestel (informatie in het frequentiedomein) dan is de frequentierespons belangrijk en maakt de stapresponsie niets uit.
 
 ### 62. Welke stapresponse parameters zijn belangrijk voor digitaal filterontwerp? Noem deze en verklaar hun betekenis (verduidelijk telkens met een figuur)
 **Stijgtijd**</br> Om evenementen in een signaal te onderscheiden, moet de duur
@@ -999,12 +1004,12 @@ in (e) en (f).
 ### 64. Waarom is de faseparameter van minder belang bij frequentiedomeintoepassingen?
 * Ten eerste, de fase is niet belangrijk in de meeste frequentiedomein toepassingen
 ..* Bijvoorbeeld, de fase van een audiosignaal is nagenoeg volledig willekeurig en bevat weinig nuttige gegevens. 
-* Ten tweede, als de fase van belang is, is het zeer gemakkelijk om digitale filters te bouwen met een perfecte fase respons, dwz alle frequenties door een bandfilter sturen met een nul faseverschuiving. Als je dit vergelijkt met analoge filters, zal je merken dat deze afschuwelijk zijn in dit opzicht
+* Ten tweede, als de fase van belang is, is het zeer gemakkelijk om digitale filters te bouwen met een perfecte fase respons, dwz alle frequenties door een bandfilter sturen met een nul faseverschuiving. Als je dit vergelijkt met analoge filters, zal je merken dat deze afschuwelijk zijn in dit opzicht.
 
 ### 65. Stel dat je een frequentieresponse voor een filter hebt opgebouwd met 80 punten. Wat moet je doen opdat je hierop een FFT kan uitvoeren?
 Omdat de FFT werkt alleen met signalen die een macht van twee zijn => 48 nullen toevoegen aan het signaal zodat je een lengte van 128 samples bekomt.
 
-opvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde nullen verdwijnen gewoon in de convolutie, en hebben geen invloed op de uitkomst.
+Ppvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde nullen verdwijnen gewoon in de convolutie, en hebben geen invloed op de uitkomst.
 
 ### 66. Beschrijf hoe je een digitale HD-filter kan opbouwen vanuit LD-filter
 **Spectrale inversie**
@@ -1033,81 +1038,83 @@ frequentierespons (d)
 ![spectralreversal](http://i.imgur.com/rPIyuq4.png)
 
 ### 67. Beschrijf hoe je met een combinatie van LDF en HDF een bandsperfilter kan maken
+Door de filterkernels samen te tellen wordt een bandsperfilter gemaakt.
+
 ![bandsper](http://i.imgur.com/9eSioEU.png)
 
 ### 68. Beschrijf hoe je een digitale banddoorlaatfilter (band pass) kan maken vanuit een bandsperfilter.
-vertrekkend vanuit bandsperfilter en daarop spectrale inversie of spectrale reversal toepassen levert een banddoorlaatfilter op.
+Vertrekkend vanuit banddoorlaatfilter en daarop spectrale inversie toe te passen levert een bandsperfilter op.
 
 ### 69. Wat zijn de kenmerken van windowed-sinc filters? (gebruik – nadeel – voordeel)
-* Gebruik: scheiden van een band van frequenties van elkaar, Zijn erg stabiel en leveren goede tot zeer goede prestaties
-* Nadeel : slechte prestaties in het tijdsdomein: overmatige rimpel en overschrijding van de staprespons
+* Gebruik: scheiden van een band van frequenties van elkaar, zijn erg stabiel en leveren goede tot zeer goede prestaties
+* Nadeel: slechte prestaties in het tijdsdomein: overmatige rimpel en overschrijding van de staprespons
 * Zijn eenvoudig te programmeren indien ze uitgevoerd worden met een standaard convolutie maar zijn langzaam in uitvoering. Met FFT verbeteren deze filters drastisch in rekensnelheid
 
 ### 70. Wat is de strategie van Windowed-sinc?
-Fig(a) Frequentierespons van ideale LDF
-* Alle f’s < fc worden doorgelaten met eenheidsamplitude
+
+Bij het gebruik van de sinc functie (sin(x) / x) als impulsresponsie (filter kernel) heb je de ideale filter om bepaalde frequenties weg te filteren! Als je de formule wat aanpast kun je ook 'instellen' welke frequentie de cutt of is:
+
+![sinc](http://i.imgur.com/xtvSiLp.png)
+
+Deze impulsresponsie levert dus de perfecte filter op:
+
+* Alle f’s < fc worden doorgelaten met eenheidsamplitude (geen verzwakking / versterking)
 * Alle f’s > fc worden geblokkeerd
 * Doorlaatband perfect plat en de verzwakking in de stopband is oneindig groot
 * De overgang tussen de twee is oneindig klein
 
 ![strategie](http://i.imgur.com/i5gSQrS.png)
 
-Inverse Fourier Transformatie van deze ideale
-frequentieresponse levert de ideale filterkernel
-op (zie fig (b) => sinc functie gegeven
-door : ![pic](http://i.imgur.com/ZGcgRLK.png?1)
+Indien je dus je ingangsignaal convuleert met deze filter kernel, verkrijg je een perfecte laagdoorlaatfilter!
 
-Convolving een ingangssignaal met deze filter-kernel levert een perfect laagdoorlaatfilter op. **Probleem**: sinc-functie loopt door naar plus en min
-oneindig => computerprobleem
+##### Probleem
 
-* **1ste aanpassing:** sinc-functie van (b) aanpassen aan sinc-functie van (c).
-  * Hoe? Sinc-functie afkappen op M+1 punten (met M een even
-getal) (alles buiten M+1 wordt vervangen door nullen)
-* **2de aanpassing:** hetgeen overblijft van de sinc-functie
-verplaatsen naar rechts zodat deze loopt van 0 tot M
-  * Voordeel: filter-kernel bestaat enkel uit positieve indexen
-  * Nadeel : wijzigingen zorgen voor slechts benadering van
-ideale filter-kernel => geen ideale frequentieresponse hebben
-  * Vinden frequentie via Fourier Transformatie van signaal (c)
-naar (d) => rimpel in doorlaatband (nadeel) en slechtere
-demping in stopband
-* Er is een eenvoudige methode om deze situatie te verbeteren (windows, blackmann and hamming)
+De sinc functie loopt oneindig door! Je kunt deze dus niet opslagen in je geheugen. Op een gegeven moment zul je moeten stoppen. Hierdoor zullen we niet de perfecte filter kunnen bouwen!
+
+Hoe meer punten je neemt van de sinc functie hoe beter! De hoeveelheid van deze punten wordt M genoemd. Indien je een M van 200 hebt. Heb je 201 getallen in je impulsresponsie zitten (van 0 tot en met 200).
+
+En ander probleem is dat de sinc functie negatief doorloopt. In meeste programeertalen kun je geen negatieve indexen gebruiken voor je array. Dit kunnen we oplossen door de functie op te schuiven met M/2. Hierdoor begint je functie dus bij nul en zal op M/2 de symetrieas liggen!
+
+Groot nadeel is dat we onze perfecte filter kwijt zijn!
+
+![IDK8](http://i.imgur.com/tLQ2wPN.png)
+
+We kunnen dit wel compenseren door gebruik te maken ven een *window*
 
 ### 69. Wat is een Blackman en Hamming window? Waarvoor worden ze gebruikt en wat zijn hun onderlinge verschillen?
 Ze worden beide gebruikt om de situatie die we in de vorige vraag gecreeërd hebben. Te verbeteren/oplossen. Het platter maken van de doorlaatband en sterk verbeterde stopbanddemping.
 
-**vergelijking**
+![ID9](http://i.imgur.com/ONxE02G.png)
+
+**Vergelijking**
 * Hammingwindow is 20% snellere roll-of dan Blackman
-*  Blackman heeft een betere stopbandverzwakking (fig (c) (-74 dB (-0,02%) tegen -53 dB (-0,2%)
+* Blackman heeft een betere stopbandverzwakking (fig (c) (-74 dB (-0,02%) tegen -53 dB (-0,2%)
 * Blackman heeft een rimpel in de doorlaatband (niet zichtbaar van ongeveer 0,02% terwijl Hamming een rimpel heeft van typisch 0,2%
-* In het algemeen verdient Blackman de voorkeur op Hamming (trage roll-of is beter aanpasbaar dan een zwakke stopbandverzwakking
+* In het algemeen Blackman de voorkeur op Hamming (trage roll-of is beter aanpasbaar (grotere M) dan een zwakke stopbandverzwakking)
 
 ![windows](http://i.imgur.com/ajQzPqo.png)
 
 ### 71. Waarom wordt bij een windowed-sinc filter het afsnijpunt bepaald op het halve amplitudepunt in plaats van bij het -3dB punt?
-* Waarom? Omdat de window-sinc frequentieresponse symmetrisch ligt tussen de doorlaatband en stopband
-  * Vb. Hamming-window heeft een doorlaatrimpel van 0,2% en een
-identieke stopbandrimpel van 0,2% 
+Omdat de window-sinc frequentieresponse symmetrisch ligt tussen de doorlaatband en stopband
+  * Vb. Hamming-window heeft een doorlaatrimpel van 0,2% en een identieke stopbandrimpel van 0,2% 
 
 ### 72. Een signaal is gesampled met een frequentie van 16 kHz. Uit dit signaal wil men een frequentieband filteren met frequenties tussen 0 Hz en 800 Hz. Men wenst een volledige onderdrukking voor frequenties die hoger zijn dan 1 kHz.
 **Gevraagd:** bereken het aantal punten dat deze windowed-sinc kernel nodig heeft om deze filter te realiseren
 
-De afnijfrequentie is 1000hz na normalisatie komt dit op: 1000hz/16000hz = 0,0625
-De bandbreedte is (1000hz - 800hz) 200hz na normalistie komt dit op: 0.0125
-M = 4/0.0125 = 320 ==> 321 punten nodig voor filterkernel.
+BW = 200Hz => 0,0125 fs </br>
+M = 4 / 0.0125 = 320 ==> 321 geheugenplaatsen (0 tot en met 320)
 
 We hebben dus 321 punten nodig om deze filter te realiseren.
 
-TODO brecht kijkt da is na want ik zen ni zeker
-
 ### 73. Stel dat je een signaal hebt dat is gedigitaliseerd met een samplefrequentie van 8 kHz en dat je frequenties rond 1 kHz wil isoleren met een band tussen 940 Hz en 1060 Hz. Beschrijf hoe je deze filter moet opbouwen.
 
+Brecht: Oefening is niet oplosbaar. Gegegeven transistion band BW is niet aanwezig!
+
+Arne:
 * De band dat we willen isoleren is 120Hz (BW) na normalisatie (120 / 8000 = 0.015)
 * Genormaliseerde afsnijfrequenties (940 / 8000 = 0.1175 en 1060 / 8000 = 0.1325)
 * We hebben M = 4/0,015 = 266,666666 ==> of 267 punten nodig.
 *  Opbouw filter: LDF fc = 0,1175; LDF fc = 0,1325 daarna spectraal omgekeerd HDF;
 * 2 filters optellen => bandsperfilter => terug spectrale inversie => banddoorlaatfilter
-
-TODO zelfde als vorige vraag niet 100% zeker dat da klopt?
 
 
