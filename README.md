@@ -1016,6 +1016,76 @@ frequentierespons (d)
 ### 68. Beschrijf hoe je een digitale banddoorlaatfilter (band pass) kan maken vanuit een bandsperfilter.
 vertrekkend vanuit bandsperfilter en daarop spectrale inversie of spectrale reversal toepassen levert een banddoorlaatfilter op.
 
+### 67. Wat zijn de kenmerken van windowed-sinc filters? (gebruik – nadeel – voordeel)
+* Gebruik: scheiden van een band van frequenties van elkaar, Zijn erg stabiel en leveren goede tot zeer goede prestaties
+* Nadeel : slechte prestaties in het tijdsdomein: overmatige rimpel en overschrijding van de staprespons
+* Zijn eenvoudig te programmeren indien ze uitgevoerd worden met een standaard convolutie maar zijn langzaam in uitvoering. Met FFT verbeteren deze filters drastisch in rekensnelheid
 
+### 68. Wat is de strategie van Windowed-sinc?
+Fig(a) Frequentierespons van ideale LDF
+* Alle f’s < fc worden doorgelaten met eenheidsamplitude
+* Alle f’s > fc worden geblokkeerd
+* Doorlaatband perfect plat en de verzwakking in de stopband is oneindig groot
+* De overgang tussen de twee is oneindig klein
+
+![strategie](http://i.imgur.com/i5gSQrS.png)
+
+Inverse Fourier Transformatie van deze ideale
+frequentieresponse levert de ideale filterkernel
+op (zie fig (b) => sinc functie gegeven
+door : ![pic](http://i.imgur.com/ZGcgRLK.png?1)
+
+Convolving een ingangssignaal met deze filter-kernel levert een perfect laagdoorlaatfilter op. **Probleem**: sinc-functie loopt door naar plus en min
+oneindig => computerprobleem
+
+* **1ste aanpassing:** sinc-functie van (b) aanpassen aan sinc-functie van (c).
+  * Hoe? Sinc-functie afkappen op M+1 punten (met M een even
+getal) (alles buiten M+1 wordt vervangen door nullen)
+* **2de aanpassing:** hetgeen overblijft van de sinc-functie
+verplaatsen naar rechts zodat deze loopt van 0 tot M
+  * Voordeel: filter-kernel bestaat enkel uit positieve indexen
+  * Nadeel : wijzigingen zorgen voor slechts benadering van
+ideale filter-kernel => geen ideale frequentieresponse hebben
+  * Vinden frequentie via Fourier Transformatie van signaal (c)
+naar (d) => rimpel in doorlaatband (nadeel) en slechtere
+demping in stopband
+* Er is een eenvoudige methode om deze situatie te verbeteren (windows, blackmann and hamming)
+
+### 69. Wat is een Blackman en Hamming window? Waarvoor worden ze gebruikt en wat zijn hun onderlinge verschillen?
+Ze worden beide gebruikt om de situatie die we in de vorige vraag gecreeërd hebben. Te verbeteren/oplossen. Het platter maken van de doorlaatband en sterk verbeterde stopbanddemping.
+
+**vergelijking**
+* Hammingwindow is 20% snellere roll-of dan Blackman
+*  Blackman heeft een betere stopbandverzwakking (fig (c) (-74 dB (-0,02%) tegen -53 dB (-0,2%)
+* Blackman heeft een rimpel in de doorlaatband (niet zichtbaar van ongeveer 0,02% terwijl Hamming een rimpel heeft van typisch 0,2%
+* In het algemeen verdient Blackman de voorkeur op Hamming (trage roll-of is beter aanpasbaar dan een zwakke stopbandverzwakking
+
+![windows](http://i.imgur.com/ajQzPqo.png)
+
+### 70. Waarom wordt bij een windowed-sinc filter het afsnijpunt bepaald op het halve amplitudepunt in plaats van bij het -3dB punt?
+* Waarom? Omdat de window-sinc frequentieresponse symmetrisch ligt tussen de doorlaatband en stopband
+  * Vb. Hamming-window heeft een doorlaatrimpel van 0,2% en een
+identieke stopbandrimpel van 0,2% 
+
+### 71. Een signaal is gesampled met een frequentie van 16 kHz. Uit dit signaal wil men een frequentieband filteren met frequenties tussen 0 Hz en 800 Hz. Men wenst een volledige onderdrukking voor frequenties die hoger zijn dan 1 kHz.
+**Gevraagd:** bereken het aantal punten dat deze windowed-sinc kernel nodig heeft om deze filter te realiseren
+
+De afnijfrequentie is 1000hz na normalisatie komt dit op: 1000hz/16000hz = 0,0625
+De bandbreedte is (1000hz - 800hz) 200hz na normalistie komt dit op: 0.0125
+M = 4/0.0125 = 320 ==> 321 punten nodig voor filterkernel.
+
+We hebben dus 321 punten nodig om deze filter te realiseren.
+
+TODO brecht kijkt da is na want ik zen ni zeker
+
+### 72. Stel dat je een signaal hebt dat is gedigitaliseerd met een samplefrequentie van 8 kHz en dat je frequenties rond 1 kHz wil isoleren met een band tussen 940 Hz en 1060 Hz. Beschrijf hoe je deze filter moet opbouwen.
+
+* De band dat we willen isoleren is 120Hz (BW) na normalisatie (120 / 8000 = 0.015)
+* Genormaliseerde afsnijfrequenties (940 / 8000 = 0.1175 en 1060 / 8000 = 0.1325)
+* We hebben M = 4/0,015 = 266,666666 ==> of 267 punten nodig.
+*  Opbouw filter: LDF fc = 0,1175; LDF fc = 0,1325 daarna spectraal omgekeerd HDF;
+* 2 filters optellen => bandsperfilter => terug spectrale inversie => banddoorlaatfilter
+
+TODO zelfde als vorige vraag niet 100% zeker dat da klopt?
 
 
