@@ -581,6 +581,7 @@ i = Sample. i is het sample nummer van het tijdsdomein, in het geval hierboven g
 N = Totaal aantal sampels, in het geval hierboven dus 16!
 
 ### 28. Gegeven volgende vergelijking voor de synthesevergelijking:
+![synthesevergelijking](http://i.imgur.com/Ezwudyi.png)
 
 Elk signaal met N aantal punten (tijdsdomein) kan gecreeërd worden met N / 2 + 1 aantal cosinusen en N / 2 + 1 aantal sinussen. De amplitudes van deze sinusoïdale signalen worden opgeslaan in Re X[] (cosinus) & Im X[] (sinus).
 
