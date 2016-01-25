@@ -893,3 +893,128 @@ Triangular Window
 * De window-functie is meestal gedefinieerd in termen van real-valued discrete Fouriertransformatie W0(k).
 
 ![dolbCheb](http://i.imgur.com/NhEOUQy.png)
+
+### 54. Welke responses bevat iedere lineaire filter? 
+Ieder lineaire filter heeft een impulsresponse, stapresponse en een
+frequentieresponse. Ieder van deze responsies bevat complete informatie over de filter maar in een verschillende vorm.
+
+### 55. Wat is een recursieve filter?
+In een filter die wordt uitgevoerd door convolutie wordt iedere sample in de output berekend door samples van de ingang op te tellen </br> Recursieve filters zijn een uitbreiding van dit principe door, naast punten van de ingang, ook gebruik te maken van eerder berekende waarden van de output.
+
+Vanwege dit kenmerk worden recursieve filters ook Infinite Impulse Filters genoemd of IIR filters </br>
+Ter vergelijking, de filters die door convolutie worden uitgevoerd zijn Finite Impuls Response filters of FIR filters
+
+### 56. Hoe kan je de impulsresponsie van een recursieve filter vinden?
+* Filter gewoon voeden met een impuls en zien wat er uit komt
+* De impulsresponsies van recursieve filters zijn samengesteld uit sinusoïden die exponentieel uitsterven in amplitude
+* In principe is de impulsrespontie oneindig lang maar de amplitude komt op een gegeven moment lager dan het ruisniveau en de samples die daarin vallen kunnen worden verwaarloosd
+
+### 57. Hoe kan informatie vervat zitten in het tijdsdomein?
+1. Beschreven wanneer iets plaatsvindt en welke amplitude hetgeen voorvalt heeft
+  * Voorbeeld: experiment om lichtopbrengst van de zon te bestuderen => lichtopbrengst bv. Eenmaal per seconde gemeten en elke sample geeft aan wat er op dat moment plaatsvind, en het niveau van de lichtsterkte
+2. Elke sample bevat informatie die interpreteerbaar is zonder verwijzing naar enig andere sample
+3. Zelfs al heb je slechts één sample, je weet toch wat je meet
+4. Dit is de eenvoudigste manier om informatie op te nemen in een signaal
+
+### 58. Hoe kan informatie vervat zitten in het frequentiedomein?
+* Deze informatie is indirect
+* Veel dingen in ons universum tonen periodieke beweging : bv het aanslagen van een wijnglas met een lepel trilt, slinger staande klok, sterren en planeten die rond hun eigen as draaien, …
+* Door het meten van frequentie, fase en amplitude van de periodieke beweging kan informatie worden verkregen over het systeem dat de beweging produceert
+* Voorbeeld: stel dat we proeven doen op het rinkelend geluid van het aantikken van een glas wijn : de grondfrequentie en de harmonischen van de
+periodieke trilling zijn afhankelijk van de massa en elasticiteit van het materiaal
+* Elke sample op zichzelf bevat geen informatie over het wijnglas. De informatie is opgenomen in de relatie tussen een groot aantal punten in het signaal
+
+### 59. Wat is het belang van stap- en frequentieresponsies?
+* Stapresponsie beschrijft hoe gegevens, weergegeven in het tijdsdomein, worden gewijzigd door het systeem
+* Frequentieresponsie toont hoe informatie, die weergegeven wordt in het frequentiedomein, wordt gewijzigd.
+* Dit onderscheid is essentieel in het filterontwerp omdat het niet mogelijk is om de filter te optimaliseren voor beide toepassingen: goede prestaties in
+het tijdsdomein en in het frequentiedomein.
+
+Voorbeeld: stel dat je een filter moet ontwerpen om het geluid van een ECG-signaal te verwijderen, is de stap de belangrijke parameter en is de
+frequentierespons van weinig belang
+
+Voorbeeld: stel dat je een digitaal filter moet ontwerpen voor een hoortoestel (informatie in het frequentiedomein) dan is de frequentierespons belangrijk
+en maakt de stapresponsie niets uit.
+
+### 60. Welke stapresponse parameters zijn belangrijk voor digitaal filterontwerp? Noem deze en verklaar hun betekenis (verduidelijk telkens met een figuur)
+**Stijgtijd**</br> Om evenementen in een signaal te onderscheiden, moet de duur
+van de stapresponsie korter zijn dan de afstand van de gebeurtenissen. 
+
+![stapresponsie](http://i.imgur.com/wbxVYnM.png)
+
+**Waarom is een zeer snelle stijgtijd niet altijd mogelijk?**</br>
+Er zijn vele redenen hiervoor: ruisonderdrukking, inherente
+beperkingen van het data-acquisitiesysteem, het vermijden van
+aliasing, etc.
+
+**Overshoot**
+* Overshoot moet algemeen worden uitgesloten, omdat het de amplitude van de samples verandert in het signaal;
+* Dit is een fundamentele vertekening van de informatie in het tijdsdomein
+
+![overshoot](http://i.imgur.com/ullt9TR.png)
+
+**Lineaire fase**
+* Het is vaak gewenst dat de bovenste helft van de stap respons symmetrisch is met de onderste helft, zoals in (e) en (f).
+* Deze symmetrie is noodzakelijk om de stijgende flanken er uit te laten zien als de dalende flanken.
+* Deze symmetrie wordt lineaire fase genoemd, omdat de frequentie response een fase heeft die er uit ziet als een rechte lijn.
+
+![lineaire](http://i.imgur.com/1HLEn3B.png)
+
+### 61. Welke parameters in het frequentiedomein geven weer hoe goed een filter is in het frequentiedomein? Noem deze en verklaar deze beknopt.
+* Om dicht bij elkaar gelegen frequenties te scheiden, de filter moet een **snelle roll-off** hebben, zoals geïllustreerd in (a) en (b).
+
+* Om de frequenties zo goed mogelijk door te laten in de
+doorlaatband van de filter, mag er **geen rimpel aanwezig** zijn in deze
+**doorlaatband** zie (c) en (d). 
+
+* Ten slotte, om adequaat de frequenties in de stopband te blokkeren,
+moet de **stopband een sterke demping** hebben. Dit is weergegeven
+in (e) en (f).
+
+![freqparameters](http://i.imgur.com/trazlQ4.png)
+
+### 62. Waarom is de faseparameter van minder belang bij frequentiedomeintoepassingen?
+* Ten eerste, de fase is niet belangrijk in de meeste frequentiedomein toepassingen
+..* Bijvoorbeeld, de fase van een audiosignaal is nagenoeg volledig willekeurig en bevat weinig nuttige gegevens. 
+* Ten tweede, als de fase van belang is, is het zeer gemakkelijk om digitale filters te bouwen met een perfecte fase respons, dwz alle frequenties door een bandfilter sturen met een nul faseverschuiving. Als je dit vergelijkt met analoge filters, zal je merken dat deze afschuwelijk zijn in dit opzicht
+
+### 63. Stel dat je een frequentieresponse voor een filter hebt opgebouwd met 80 punten. Wat moet je doen opdat je hierop een FFT kan uitvoeren?
+Omdat de FFT werkt alleen met signalen die een macht van twee zijn => 48 nullen toevoegen aan het signaal zodat je een lengte van 128 samples bekomt.
+
+opvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde nullen verdwijnen gewoon in de convolutie, en hebben geen invloed op de uitkomst.
+
+### 64. Beschrijf hoe je een digitale HD-filter kan opbouwen vanuit LD-filter
+**Spectrale inversie**
+1. Teken veranderen van iedere sample in de filterkernel (zie c)
+2. Eenheidspuls δ[n] bijtellen in het midden van de symmetrie.
+
+![spectralinversion](http://i.imgur.com/QCZgVVO.png)
+
+**Spectrale omkering (spectral reversal)**
+TODO fantsoenlijke uitleg. Ik snap dat er gespiegeld van links naar rechts maar ik snap niet hoe je aan de tijdsdomein komt (Arne)
+
+(a) LDF-kernel en (b) overeenstemmende frequentierespons
+HDF-kernel (c ) wordt gevormd door het teken te veranderen
+van iedere sample van (a) => levert een frequentierespons (d)
+waarbij ieder punt is gedraaid van links naar rechts (0 wordt 0,5)
+Als de afsnijfrequente van LDF is 0,15 => afsnijfrequentie van
+HDF is 0,35
+Veranderen van het teken van ieder sample komt overeen met
+de filterkernel te vermenigvuldigen met 0,5 => heeft als effect
+dat het frequentiedomein verschoven wordt met 0,5
+Kijk naar (b) en beschouw de negatieve frequenties tussen -0,5
+en 0 (spiegelbeeld van (b) met 0 als scharnierpunt)
+Schuif deze negatieve frequenties op met 0,5 => verschijnt
+frequentierespons (d)
+
+![spectralreversal](http://i.imgur.com/rPIyuq4.png)
+
+### 65. Beschrijf hoe je met een combinatie van LDF en HDF een bandsperfilter kan maken
+![bandsper](http://i.imgur.com/9eSioEU.png)
+
+### 66. Beschrijf hoe je een digitale banddoorlaatfilter (band pass) kan maken vanuit een bandsperfilter.
+vertrekkend vanuit bandsperfilter en daarop spectrale inversie of spectrale reversal toepassen levert een banddoorlaatfilter op.
+
+
+
+
