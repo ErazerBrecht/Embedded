@@ -628,8 +628,15 @@ FFT
 - Creëer de tijdsvector (sampletijdvector) hiervoor om dit signaal binnen scilab te kunnen weergeven.
 - Geef weer hoe je dit signaal in scilab kan plotten
 
-TODO
+16kHz = 16000 samples per seconde -> 1/16000= 0.0000625 -> 0.0000625 seconde voor 1 sample </br>
+0.0000625 * 800 = 0.05 seconde om 800 samples te doen!
 
+```
+t = [0:0.0000625: 0.05]
+signaal = sin(2 * %pi * 2000 * t)
+plot(t, signaal)
+```
+ 
 ### 31. Hoe kan je een DC-component toevoegen bij een sinusvormig signaal in scilab?
 ```c
 t = 0.0:0.01:5.0;
