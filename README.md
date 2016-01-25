@@ -1026,11 +1026,14 @@ Ppvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde null
 ![spectralinversion2](http://i.imgur.com/3HFcxmx.png)
 
 **Spectrale omkering (spectral reversal)**
-Je kunt ook een andere manier gebruiken. Afbeedlingen in boek en slide kloppen niet! Kan ik dus niet uitleggen!
+Je kunt ook een andere manier gebruiken. Door om te beurt het teken om te draaien (positief <-> negatief) verkrijg je een spiegeling van het frequentiedomein.
+
+Je neemt dus je oorspronkelijke filterkernel, sample [0] = - sample [0], sample [1] = sample 1, sample [2] = - sample [2], ...
+
+Het frequentiedomein dat je verkrijgt is de spiegeling van het oorsronkelijke frequentiedomein met een offset naar rechts met evenveel waarden als je frequentiedomein. (Zonder deze offset zijn al je samples op negatieve indexen)
 
 ![spectralreversal](http://i.imgur.com/rPIyuq4.png)
 
-Blijkbaar is grafiek d gelijk aan grafiek a maar dan elke sample het teken omgedraaid (mij kunde dat toch niet wijs maken)
 
 ### 67. Beschrijf hoe je met een combinatie van LDF en HDF een bandsperfilter kan maken
 Door de filterkernels samen te tellen wordt een bandsperfilter gemaakt (spectrale omkering).
