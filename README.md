@@ -1026,17 +1026,19 @@ Ppvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde null
 ![spectralinversion2](http://i.imgur.com/3HFcxmx.png)
 
 **Spectrale omkering (spectral reversal)**
-Je kunt ook een andere manier gebruiken (TOD0)
+Je kunt ook een andere manier gebruiken. Afbeedlingen in boek en slide kloppen niet! Kan ik dus niet uitleggen!
 
 ![spectralreversal](http://i.imgur.com/rPIyuq4.png)
 
+Blijkbaar is grafiek d gelijk aan grafiek a maar dan elke sample het teken omgedraaid (mij kunde dat toch niet wijs maken)
+
 ### 67. Beschrijf hoe je met een combinatie van LDF en HDF een bandsperfilter kan maken
-Door de filterkernels samen te tellen wordt een bandsperfilter gemaakt (spectrale omkering) 
+Door de filterkernels samen te tellen wordt een bandsperfilter gemaakt (spectrale omkering).
 
 ![bandsper](http://i.imgur.com/9eSioEU.png)
 
 ### 68. Beschrijf hoe je een digitale banddoorlaatfilter (band pass) kan maken vanuit een bandsperfilter.
-Vertrekkend vanuit banddoorlaatfilter en daarop spectrale inversie toe te passen levert een bandsperfilter op.
+Vertrekkend vanuit bandsperfilter en daarop spectrale inversie toe te passen levert een bandsperfilter op.
 
 ### 69. Wat zijn de kenmerken van windowed-sinc filters? (gebruik – nadeel – voordeel)
 * Gebruik: scheiden van een band van frequenties van elkaar, zijn erg stabiel en leveren goede tot zeer goede prestaties
