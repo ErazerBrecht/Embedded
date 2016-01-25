@@ -553,19 +553,20 @@ Signaal opgebouwd uit 100 samples het omzetten van deze 100 samples in een ander
 
 ### 24. Wat houdt een voorwaartse discrete fouriertransformatie in?
 Voorwaarste discrete fouriertransformatie houdt in dat je van je tijddomein (oorspronkelijke signaal) naar het frequentie domein gaat. 
-### 25. Wat houdt een inverse discrete fouriertransformatie in?
-Het tijdsdomein opslitsen in het fequency domein. Het frequentie domein bestaat uit een reëel gedeelte (cosinussen) en een imaginiair gedeelte (sinussen). 
 
-Dit is veel moeilijker! Er zijn immers meerdere combinaties (5 = 2 + 3, 5 = 4 + 1). Er is immers maar één correcte. Alles tesamen moet kloppen!
+Dit is de moeilijkste van de twee. Je moet hier echter bepalen uit welke sinusoïdale ons inkomende signaal bestaat. Er zijn immers meerdere combinaties (5 = 2 + 3, 5 = 4 + 1). Er is immers maar één correcte. Alles tesamen moet kloppen! 
+
+### 25. Wat houdt een inverse discrete fouriertransformatie in?
+Van je frequentie domein naar je tijddomein gaan. Dit doet je door *synthese*. Dit is makelijker dat voorwaarste. Simpel algoritme waar je optelling van cosinusen en sinusen doet.
 
 ### 26. Stel een 128 punts tijdsdomeinsignaal opgenomen in x[ ]. Hoe verloopt het tijdsmoment van dit signaal en hoe verloopt het frequentiedomein?
 Tijdsdomein: van 0 tot 127 (128 sampels)
 
 Frequentiedomein: </br>
-- Reëel (cosinusen): Van 0 tot 64 (65 sampels) 
-  - Onderverdeeld in 33 verschillende cosinussen (1ste is DC, dan 32 cosinussen met steeds hogere frequentie)
-- Imaginair (sinussen): Van 0 tot 64 (65 sampels)
-  - Onderverdeeld 33 verschillende sinussen (1ste en laatste zijn nul, de rest steeds verhoging van frequentie)
+- Reëel (cosinusen): Van 0 tot 64 (65 sampels) -> Amplitude waarden van DFT basisfunctie (cosinus)
+  - Kun je onderverdelen in 65 verschillende cosinussen (1ste is DC, dan 64 cosinussen met steeds hogere frequentie)
+- Imaginair (sinussen): Van 0 tot 64 (65 sampels) -> Amplitude waarden van DFT basisfunctie (sinus)
+  - Kun je onderverdelen in 65 verschillende sinussen (1ste en laatste zijn nul, de rest steeds verhoging van frequentie)
 
 ![DFT](http://i.imgur.com/FSfOxf4.png)  
 
@@ -692,7 +693,7 @@ Interne variabelen in SciLab kunnen bewaard worden in bestand! Dit is een binary
 
 - Alle huidige variabelen kunnen opgeslagen worden met SAVE in het apart bestand
 - Via LOAD kan je die variabele terug opgeroepen (uit het bestand halen).
-- Via CLEAR kan je alle normale variabelen verwijderen! (geen effect op bestand)
+- Via CLEAR kan je alle normale variabelen verwijderen! Zelfde effect als SciLab aflsuiten (geen effect op de binary file)
 
 Zo kun je je variable opslaan in het apart bestand en volgende sessie verder doen met die waarden!
 
