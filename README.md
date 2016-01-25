@@ -820,22 +820,22 @@ plot(output, 'r')
 
 Spreekt voor zich...
 
-### 43. Vergelijk een FIR-filter met een IIR-filter. Wat zijn de voornaamste verschilpunten?
+### 45. Vergelijk een FIR-filter met een IIR-filter. Wat zijn de voornaamste verschilpunten?
 ![firvsiir](http://i.imgur.com/0frYSwy.png)
 
-### 44. Hoe wordt de transfertkarakteristiek van een digitaal systeem beschreven?
+### 46. Hoe wordt de transfertkarakteristiek van een digitaal systeem beschreven?
 * Transferkarakteristiek van een analoog systeem wordt door differentiaalvergelijkingen beschreven.
 * Transferkarakteristiek van een digitaal systeem wordt beschreven aan de hand van verschilvergelijkingen (difference-equations)
 
-### 45. Geef een voorbeeld van een FIR-verschilvergelijking.
+### 47. Geef een voorbeeld van een FIR-verschilvergelijking.
 Een FIR verschilvergelijking bevat enkel de inputsignalen xk en de coëfficiënten bn.
 ![firvgl](http://i.imgur.com/YNcZ5mI.png)
 
-### 46. Geef een voorbeeld van een IIR-verschilvergelijking
+### 48. Geef een voorbeeld van een IIR-verschilvergelijking
 Een IIR verschilvergelijking bevat de inputsignalen xk en de outputsignalen yk en de coëfficiënten bn en an
 ![iirvgl](http://i.imgur.com/WhR5RwS.png)
 
-### 47. Welk zijn de eigenschappen van een digitale filter en omschrijf deze beknopt.
+### 49. Welk zijn de eigenschappen van een digitale filter en omschrijf deze beknopt.
 * Afsnijfrequentie (cutoff frequency) : Frequentie waarbij de amplitude -3 dB
 (0,707) lager ligt dan maximale amplitude in doorlaatband. Dit komt overeen
 met nog de helft van het vermogen
@@ -851,7 +851,7 @@ moeten zijn.
 * Filter design procedure : butterworth, bessel , chebycheff, …
 ![banden](http://i.imgur.com/ed7eE5Y.png)
 
-### 48. Welke parameters heeft de wfir() – functie nodig om de filterparameters te kunnen bepalen van een digitale filter? Noem deze en omschrijf deze beknopt.
+### 50. Welke parameters heeft de wfir() – functie nodig om de filterparameters te kunnen bepalen van een digitale filter? Noem deze en omschrijf deze beknopt.
 `[coefficients, amplitude, frequency] = wfir(filter-type, filter-order, [fg1 fg2], windowtype, [par1 par2])`
 Wfir heeft volgende parameters nodig
 * filter-type : lp,hp,bp,sb (laagdoorlaat hoogdoorlaat, banddoorlaat, bandsper)
@@ -860,20 +860,20 @@ Wfir heeft volgende parameters nodig
 * window-type : re, tr, hm, kr, ch (rectangular, triangular, hamming, kaiser, chebyshev)
 * [par1 par2] : vector met parameter voor het window-type
 
-### 49. Wat zijn de return-waarden van de functie wfir()? Noem deze om omschrijf deze beknopt.
+### 51. Wat zijn de return-waarden van de functie wfir()? Noem deze om omschrijf deze beknopt.
 `[coefficients, amplitude, frequency] = wfir(filter-type, filter-order, [fg1 fg2], windowtype, [par1 par2])`
 * coefficients : filtercoëfficiënten
 * amplitude : vector met lengte 256 met de amplitudewaarden
 * frequency : vector met lengte 256 met de frequenties in het gebied tussen 0 tot 0,5
 
-### 50. Geef en verklaar de kenmerken (voor/nadelen) van een rectangular window om te gebruiken als window voor een window-sync digitale filter.
+### 52. Geef en verklaar de kenmerken (voor/nadelen) van een rectangular window om te gebruiken als window voor een window-sync digitale filter.
 Rectangular window (ook boxcar of Dirichiet genoemd)
 * Eenvoudigste window-equivalent om alle waarden op nul te plaatsen behalve de waarden n die doorgelaten worden.
 * 𝑤 𝑛 = 1 met w(n) de windowfunctie
 * Nadeel van deze filter zijn de plotselinge veranderingen tussen niet doorgelaten en wel doorgelaten waarden waardoor er ongewenste effecten in de discrete time Fourier transformatie (DTFT) ontstaan
 ![rectangle](http://i.imgur.com/xCSqeNE.png)
 
-### 51. Geef en verklaar de kenmerken van een triangular window om te gebruiken als window voor een window-sync digitale filter.
+### 53. Geef en verklaar de kenmerken van een triangular window om te gebruiken als window voor een window-sync digitale filter.
 Triangular Window
 * Windowfunctie : ![triangle](http://i.imgur.com/42c0PlB.png?1)
 * Hierin kan L gelijk zijn aan N, N+1 of N-1
@@ -881,42 +881,42 @@ Triangular Window
 
 ![tri](http://i.imgur.com/1y386Qu.png)
 
-### 52. Geef en verklaar de kenmerken van een hamming window om te gebruiken als window voor een window-sync digitale filter.
+### 54. Geef en verklaar de kenmerken van een hamming window om te gebruiken als window voor een window-sync digitale filter.
 * Windowfunctie : ![hamming](http://i.imgur.com/oEgJPou.png?1)
 * Met α = 0,54 en β= α -1 = 0,46
 * Het window is zodanig geoptimaliseerd dat het maximum van de dicht bijzijnde zijlob een amplitude heeft van 1/5 van dat van het Hamming window
 
 ![hamming](http://i.imgur.com/n8kKdvV.png)
 
-### 53. Geef en verklaar de kenmerken van een Dolph Chebyshev om te gebruiken als window voor een window-sync digitale filter.
+### 55. Geef en verklaar de kenmerken van een Dolph Chebyshev om te gebruiken als window voor een window-sync digitale filter.
 * Minimaliseert de chebyshev norm van de zijlobes voor een gegeven hoofdlobebreedte.
 * De window-functie is meestal gedefinieerd in termen van real-valued discrete Fouriertransformatie W0(k).
 
 ![dolbCheb](http://i.imgur.com/NhEOUQy.png)
 
-### 54. Welke responses bevat iedere lineaire filter? 
+### 56. Welke responses bevat iedere lineaire filter? 
 Ieder lineaire filter heeft een impulsresponse, stapresponse en een
 frequentieresponse. Ieder van deze responsies bevat complete informatie over de filter maar in een verschillende vorm.
 
-### 55. Wat is een recursieve filter?
+### 57. Wat is een recursieve filter?
 In een filter die wordt uitgevoerd door convolutie wordt iedere sample in de output berekend door samples van de ingang op te tellen </br> Recursieve filters zijn een uitbreiding van dit principe door, naast punten van de ingang, ook gebruik te maken van eerder berekende waarden van de output.
 
 Vanwege dit kenmerk worden recursieve filters ook Infinite Impulse Filters genoemd of IIR filters </br>
 Ter vergelijking, de filters die door convolutie worden uitgevoerd zijn Finite Impuls Response filters of FIR filters
 
-### 56. Hoe kan je de impulsresponsie van een recursieve filter vinden?
+### 58. Hoe kan je de impulsresponsie van een recursieve filter vinden?
 * Filter gewoon voeden met een impuls en zien wat er uit komt
 * De impulsresponsies van recursieve filters zijn samengesteld uit sinusoïden die exponentieel uitsterven in amplitude
 * In principe is de impulsrespontie oneindig lang maar de amplitude komt op een gegeven moment lager dan het ruisniveau en de samples die daarin vallen kunnen worden verwaarloosd
 
-### 57. Hoe kan informatie vervat zitten in het tijdsdomein?
+### 59. Hoe kan informatie vervat zitten in het tijdsdomein?
 1. Beschreven wanneer iets plaatsvindt en welke amplitude hetgeen voorvalt heeft
   * Voorbeeld: experiment om lichtopbrengst van de zon te bestuderen => lichtopbrengst bv. Eenmaal per seconde gemeten en elke sample geeft aan wat er op dat moment plaatsvind, en het niveau van de lichtsterkte
 2. Elke sample bevat informatie die interpreteerbaar is zonder verwijzing naar enig andere sample
 3. Zelfs al heb je slechts één sample, je weet toch wat je meet
 4. Dit is de eenvoudigste manier om informatie op te nemen in een signaal
 
-### 58. Hoe kan informatie vervat zitten in het frequentiedomein?
+### 60. Hoe kan informatie vervat zitten in het frequentiedomein?
 * Deze informatie is indirect
 * Veel dingen in ons universum tonen periodieke beweging : bv het aanslagen van een wijnglas met een lepel trilt, slinger staande klok, sterren en planeten die rond hun eigen as draaien, …
 * Door het meten van frequentie, fase en amplitude van de periodieke beweging kan informatie worden verkregen over het systeem dat de beweging produceert
@@ -924,7 +924,7 @@ Ter vergelijking, de filters die door convolutie worden uitgevoerd zijn Finite I
 periodieke trilling zijn afhankelijk van de massa en elasticiteit van het materiaal
 * Elke sample op zichzelf bevat geen informatie over het wijnglas. De informatie is opgenomen in de relatie tussen een groot aantal punten in het signaal
 
-### 59. Wat is het belang van stap- en frequentieresponsies?
+### 61. Wat is het belang van stap- en frequentieresponsies?
 * Stapresponsie beschrijft hoe gegevens, weergegeven in het tijdsdomein, worden gewijzigd door het systeem
 * Frequentieresponsie toont hoe informatie, die weergegeven wordt in het frequentiedomein, wordt gewijzigd.
 * Dit onderscheid is essentieel in het filterontwerp omdat het niet mogelijk is om de filter te optimaliseren voor beide toepassingen: goede prestaties in
@@ -936,7 +936,7 @@ frequentierespons van weinig belang
 Voorbeeld: stel dat je een digitaal filter moet ontwerpen voor een hoortoestel (informatie in het frequentiedomein) dan is de frequentierespons belangrijk
 en maakt de stapresponsie niets uit.
 
-### 60. Welke stapresponse parameters zijn belangrijk voor digitaal filterontwerp? Noem deze en verklaar hun betekenis (verduidelijk telkens met een figuur)
+### 62. Welke stapresponse parameters zijn belangrijk voor digitaal filterontwerp? Noem deze en verklaar hun betekenis (verduidelijk telkens met een figuur)
 **Stijgtijd**</br> Om evenementen in een signaal te onderscheiden, moet de duur
 van de stapresponsie korter zijn dan de afstand van de gebeurtenissen. 
 
@@ -960,7 +960,7 @@ aliasing, etc.
 
 ![lineaire](http://i.imgur.com/1HLEn3B.png)
 
-### 61. Welke parameters in het frequentiedomein geven weer hoe goed een filter is in het frequentiedomein? Noem deze en verklaar deze beknopt.
+### 63. Welke parameters in het frequentiedomein geven weer hoe goed een filter is in het frequentiedomein? Noem deze en verklaar deze beknopt.
 * Om dicht bij elkaar gelegen frequenties te scheiden, de filter moet een **snelle roll-off** hebben, zoals geïllustreerd in (a) en (b).
 
 * Om de frequenties zo goed mogelijk door te laten in de
@@ -973,17 +973,17 @@ in (e) en (f).
 
 ![freqparameters](http://i.imgur.com/trazlQ4.png)
 
-### 62. Waarom is de faseparameter van minder belang bij frequentiedomeintoepassingen?
+### 64. Waarom is de faseparameter van minder belang bij frequentiedomeintoepassingen?
 * Ten eerste, de fase is niet belangrijk in de meeste frequentiedomein toepassingen
 ..* Bijvoorbeeld, de fase van een audiosignaal is nagenoeg volledig willekeurig en bevat weinig nuttige gegevens. 
 * Ten tweede, als de fase van belang is, is het zeer gemakkelijk om digitale filters te bouwen met een perfecte fase respons, dwz alle frequenties door een bandfilter sturen met een nul faseverschuiving. Als je dit vergelijkt met analoge filters, zal je merken dat deze afschuwelijk zijn in dit opzicht
 
-### 63. Stel dat je een frequentieresponse voor een filter hebt opgebouwd met 80 punten. Wat moet je doen opdat je hierop een FFT kan uitvoeren?
+### 65. Stel dat je een frequentieresponse voor een filter hebt opgebouwd met 80 punten. Wat moet je doen opdat je hierop een FFT kan uitvoeren?
 Omdat de FFT werkt alleen met signalen die een macht van twee zijn => 48 nullen toevoegen aan het signaal zodat je een lengte van 128 samples bekomt.
 
 opvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde nullen verdwijnen gewoon in de convolutie, en hebben geen invloed op de uitkomst.
 
-### 64. Beschrijf hoe je een digitale HD-filter kan opbouwen vanuit LD-filter
+### 66. Beschrijf hoe je een digitale HD-filter kan opbouwen vanuit LD-filter
 **Spectrale inversie**
 1. Teken veranderen van iedere sample in de filterkernel (zie c)
 2. Eenheidspuls δ[n] bijtellen in het midden van de symmetrie.
@@ -1009,10 +1009,10 @@ frequentierespons (d)
 
 ![spectralreversal](http://i.imgur.com/rPIyuq4.png)
 
-### 65. Beschrijf hoe je met een combinatie van LDF en HDF een bandsperfilter kan maken
+### 67. Beschrijf hoe je met een combinatie van LDF en HDF een bandsperfilter kan maken
 ![bandsper](http://i.imgur.com/9eSioEU.png)
 
-### 66. Beschrijf hoe je een digitale banddoorlaatfilter (band pass) kan maken vanuit een bandsperfilter.
+### 68. Beschrijf hoe je een digitale banddoorlaatfilter (band pass) kan maken vanuit een bandsperfilter.
 vertrekkend vanuit bandsperfilter en daarop spectrale inversie of spectrale reversal toepassen levert een banddoorlaatfilter op.
 
 
