@@ -166,7 +166,7 @@ Maximum ruis => 0,5 LSB => 39,216 * 0,5 = 19,608 mV
 Ruis (standaarddeviatie) => 0,29 LSB => 11,3725mV </br>
 **Ruisvermogen => σ² => 11,3725mV² => 129,333 mW**
 
-####Ben niet zeker, ik heb een mail gestuurd naar Patje
+#### Ben niet zeker, ik heb een mail gestuurd naar Patje
 
 
 ### 6. Leg het principe (algoritme) uit hoe je een digitale ruisgeneratie kan bekomen die een Gauscurve benadert. Geef ook aan voor welke toepassing(en) je deze digitale ruisgeneratie kan gebruiken
@@ -335,37 +335,37 @@ In de analoge Wiskunde zijn een integraal en een afgeleide het "omgekeerde" van 
 ### 10.1 Wat is een linear systeem, geef enkele voorbeelden en eigenschappen (Extra vraag van Brecht C)
 Een linear systeem is een systeem dat aan bepaalde voorwaarde moet voldoen. 
 
-#####Homogeniteit:
+##### Homogeniteit:
 1.	Verandering in amplitude in het ingangssignaal veroorzaakt een overeenkomstige verandering in amplitude van het uitgangssignaal. Bijvoorbeeld de relatie tussen de spanning over een weerstand en de stroom door de weerstand. Als het één een factor 5 stijgt, stijgt het ander ook een factor 5. Een voorbeeld van een niet homogeen systeem is de verhouding tussen de spanning over een weerstand en het vermogen dat gedissipeerd wordt in de weerstand. Als het ene met 5 stijgt, stijgt het andere met een factor 25.
 
-#####Addiviteit:
+##### Addiviteit:
 1.	Signalen opgeteld aan de ingang produceren signalen opgeteld aan de uitgang.
 2.	Formule vorm: X1[n]+ X2[n]=> Y1[n]+ Y2[n]
 3.	Verschillende aangelegde signalen gaan door het system zonder interactie met elkaar. Bijvoorbeeld een telefoongesprek met achtergrond geluid. Indien je het gesprek afzonderlijk zou door zenden en het achtergrond geluid zou klinkt dit eigenlijk hetzelfde als samen. De signalen zijn niet in elkaar gemengd!
 
-#####Shift invariantie (Geen Wiskundige eis, wel een DSP eis): 
+##### Shift invariantie (Geen Wiskundige eis, wel een DSP eis): 
 1.	Een verschuiving van hetingangssignaal resulteert in een identieke verandering in het uitgangssignaal. Dit betekend dus dat het systeem niet veranderd in de tijd. 
 2.	If X[n]=>Y[n] then X[n+s]=>Y[n+s] for any input signal and any constant s. Dit betekend dus als je eens signaal (array)  later nog eens terug komt dat deze dezelfde uitgang zal genereren. 
 
 Deze voorwaarden zijn vrij wiskundig, je kunt het ook op een andere manier bekijken. Meer intuitief gericht, wij engineers vinden dat leuker, dan die Wiskunde :) !
 
 
-#####Static linearity
+##### Static linearity
 Hoe varieert een signaal als het niet veranderd (statisch, zoals DC spanning). Bij een linear systeem is de uitgang gelijk aan de ingang vermenigvuldig met een constante. Bijvoorbeeld weerstand => stroom ifv spanning. Bij een niet linear systeem kun je dit niet doen, zoals bijvoorbeeld de stroom ifv spanning bij een diode. Er zit daar geen constant verband in! 
 
 Wiskundige uitgelegd, indien de verhouding een eerste graadsvergelijking is => linear </br>
 Anders => niet linear (exponentiële, logartimtes, tweedegraadsvergelijking, derdegraadsvergelijking, ...
 
-#####Sinusoidal fidelity
+##### Sinusoidal fidelity
 Als de ingang bij een linear systeem sinusoidaal is, moet de uitang dit ook zijn! Dit betekend dus als er storing op je uitgang hebt en hierdoor je uitgang niet meer sinusoidaal is je een niet linear systeem hebt. Bijvoorbeeld bij clipping in een versterkerschakling (saturatie).
 
-####Eigenschappen
+#### Eigenschappen
 Lineare systemen bevaten ook bepaalde eigenschappen die handig kunnen zijn om te weten, zodanig je deze in je voordeel kunt gebruiken!
 
-#####Commutativiteit
+##### Commutativiteit
 Indien je twee lineare systemen hebt maakt het niet uit in welke volgorde deze systemen staan, deze uitgang zal dezelfde zijn.
 
-#####Vermenigvuldigen
+##### Vermenigvuldigen
 Je mag een signaal in een linear systemen vermenigvuldingen met een constante, het uigangssignaal zal nog steeds linear zijn. </br>
 Je mag echter geen signaal vermenigvuldigen met een andere varieert signaal, indien je dit doet is het uitgangssignaal niet meer linear. Dit komt omdat het signaal niet meer voldoet aan de static linearity voorwaarde!
 
@@ -567,6 +567,8 @@ Frequentiedomein: </br>
   - Kun je onderverdelen in 65 verschillende cosinussen (1ste is DC, dan 64 cosinussen met steeds hogere frequentie)
 - Imaginair (sinussen): Van 0 tot 64 (65 sampels) -> Amplitude waarden van DFT basisfunctie (sinus)
   - Kun je onderverdelen in 65 verschillende sinussen (1ste en laatste zijn nul, de rest steeds verhoging van frequentie)
+  - De 1ste is nul omdat een DC spanning geen imaginair gedeelte heeft!
+  - De laatste is nul omdat er steeds gesampled wordt op een nuldoorgang! (Resultaat: elke sample is gelijk aan nul)
 
 ![DFT](http://i.imgur.com/FSfOxf4.png)  
 
@@ -991,19 +993,15 @@ aliasing, etc.
 ### 63. Welke parameters in het frequentiedomein geven weer hoe goed een filter is in het frequentiedomein? Noem deze en verklaar deze beknopt.
 * Om dicht bij elkaar gelegen frequenties te scheiden, de filter moet een **snelle roll-off** hebben, zoals geïllustreerd in (a) en (b).
 
-* Om de frequenties zo goed mogelijk door te laten in de
-doorlaatband van de filter, mag er **geen rimpel aanwezig** zijn in deze
-**doorlaatband** zie (c) en (d). 
+* Om de frequenties zo goed mogelijk door te laten in de doorlaatband van de filter, mag er **geen rimpel aanwezig** zijn in deze **doorlaatband** zie (c) en (d). 
 
-* Ten slotte, om adequaat de frequenties in de stopband te blokkeren,
-moet de **stopband een sterke demping** hebben. Dit is weergegeven
-in (e) en (f).
+* Ten slotte, om adequaat de frequenties in de stopband te blokkeren, moet de **stopband een sterke demping** hebben. Dit is weergegeven in (e) en (f).
 
-![freqparameters](http://i.imgur.com/trazlQ4.png)
+![freqparameters](http://i.imgur.com/vm0BQS5.png)
 
 ### 64. Waarom is de faseparameter van minder belang bij frequentiedomeintoepassingen?
 * Ten eerste, de fase is niet belangrijk in de meeste frequentiedomein toepassingen
-..* Bijvoorbeeld, de fase van een audiosignaal is nagenoeg volledig willekeurig en bevat weinig nuttige gegevens. 
+  * Bijvoorbeeld, de fase van een audiosignaal is nagenoeg volledig willekeurig en bevat weinig nuttige gegevens. 
 * Ten tweede, als de fase van belang is, is het zeer gemakkelijk om digitale filters te bouwen met een perfecte fase respons, dwz alle frequenties door een bandfilter sturen met een nul faseverschuiving. Als je dit vergelijkt met analoge filters, zal je merken dat deze afschuwelijk zijn in dit opzicht.
 
 ### 65. Stel dat je een frequentieresponse voor een filter hebt opgebouwd met 80 punten. Wat moet je doen opdat je hierop een FFT kan uitvoeren?
@@ -1014,31 +1012,26 @@ Ppvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde null
 ### 66. Beschrijf hoe je een digitale HD-filter kan opbouwen vanuit LD-filter
 **Spectrale inversie**
 1. Teken veranderen van iedere sample in de filterkernel (zie c)
-2. Eenheidspuls δ[n] bijtellen in het midden van de symmetrie.
+2. In het midden van de symmetrie (25) => + 1
+3. Gevolg: Doorlaatband wordt stopband (low pass wordt high pass, high pass wordt low pass, band pass wordt band reject ...)
 
-![spectralinversion](http://i.imgur.com/QCZgVVO.png)
+![spectralinversion](http://i.imgur.com/ArWJMh0.png)
+
+##### Werking:
+-  Door alle samples te inverteren verkrijg je een aftrekking => + (- 5) => - 5
+-  Indien je een low pass filter aftrekt van iets dat alles doorlaat verkrijg je een high pass
+-  De impulsresponsie van iets dat alle doorlaat is gewoon op sample 0 gelijk aan 1 en voor de rest allemaal nul.
+-  Omdat we al onze samples met M/2 hebben opgeschoven moeten we dus sample M/2 verhogen met 1.
+
+![spectralinversion2](http://i.imgur.com/3HFcxmx.png)
 
 **Spectrale omkering (spectral reversal)**
-TODO fantsoenlijke uitleg. Ik snap dat er gespiegeld van links naar rechts maar ik snap niet hoe je aan de tijdsdomein komt (Arne)
-
-(a) LDF-kernel en (b) overeenstemmende frequentierespons
-HDF-kernel (c ) wordt gevormd door het teken te veranderen
-van iedere sample van (a) => levert een frequentierespons (d)
-waarbij ieder punt is gedraaid van links naar rechts (0 wordt 0,5)
-Als de afsnijfrequente van LDF is 0,15 => afsnijfrequentie van
-HDF is 0,35
-Veranderen van het teken van ieder sample komt overeen met
-de filterkernel te vermenigvuldigen met 0,5 => heeft als effect
-dat het frequentiedomein verschoven wordt met 0,5
-Kijk naar (b) en beschouw de negatieve frequenties tussen -0,5
-en 0 (spiegelbeeld van (b) met 0 als scharnierpunt)
-Schuif deze negatieve frequenties op met 0,5 => verschijnt
-frequentierespons (d)
+Je kunt ook een andere manier gebruiken (TOD0)
 
 ![spectralreversal](http://i.imgur.com/rPIyuq4.png)
 
 ### 67. Beschrijf hoe je met een combinatie van LDF en HDF een bandsperfilter kan maken
-Door de filterkernels samen te tellen wordt een bandsperfilter gemaakt.
+Door de filterkernels samen te tellen wordt een bandsperfilter gemaakt (spectrale omkering) 
 
 ![bandsper](http://i.imgur.com/9eSioEU.png)
 
