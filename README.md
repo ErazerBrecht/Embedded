@@ -829,7 +829,22 @@ plot(output, 'r')
 Spreekt voor zich...
 
 ### 45. Vergelijk een FIR-filter met een IIR-filter. Wat zijn de voornaamste verschilpunten?
-![firvsiir](http://i.imgur.com/0frYSwy.png)
+
+| FIR  | IIR |
+| ------------- | ------------- |
+| Gebruikt enkel de vorige waarden  | Gebruikt ook al berekende waarden  |
+| Geen terugkoppeling => stabiel | Wel een terugkoppeling => kan instabiel zijn  |
+| Veel coëfficiënten (trager, moeilijker realtime) | Minder coëfficiënten voor dezelfde orde (sneller) |
+| Lineaire faseresponsie | Niet lineare faseresponsie (groepsvertraging niet constant) |
+
+
+**Vb: Moving average filter** </br>
+
+FIR: Zoals we gewend zijn </br>
+Output[X] = Input[X] + Input[X - 1] + Input[X - 2] + Input[X - 3] + Input[X - 4] + Input[X - 5] + Input[X - 6] + Input[X - 7] / 8
+
+IIR: Terugkoppeling </br>
+Output[X] = Output[X-1] + (Input[X] / 8) - (Input[X - 7] / 8)
 
 ### 46. Hoe wordt de transfertkarakteristiek van een digitaal systeem beschreven?
 * Transferkarakteristiek van een analoog systeem wordt door differentiaalvergelijkingen beschreven.
