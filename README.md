@@ -1016,12 +1016,12 @@ frequentierespons (d)
 ### 68. Beschrijf hoe je een digitale banddoorlaatfilter (band pass) kan maken vanuit een bandsperfilter.
 vertrekkend vanuit bandsperfilter en daarop spectrale inversie of spectrale reversal toepassen levert een banddoorlaatfilter op.
 
-### 67. Wat zijn de kenmerken van windowed-sinc filters? (gebruik – nadeel – voordeel)
+### 69. Wat zijn de kenmerken van windowed-sinc filters? (gebruik – nadeel – voordeel)
 * Gebruik: scheiden van een band van frequenties van elkaar, Zijn erg stabiel en leveren goede tot zeer goede prestaties
 * Nadeel : slechte prestaties in het tijdsdomein: overmatige rimpel en overschrijding van de staprespons
 * Zijn eenvoudig te programmeren indien ze uitgevoerd worden met een standaard convolutie maar zijn langzaam in uitvoering. Met FFT verbeteren deze filters drastisch in rekensnelheid
 
-### 68. Wat is de strategie van Windowed-sinc?
+### 70. Wat is de strategie van Windowed-sinc?
 Fig(a) Frequentierespons van ideale LDF
 * Alle f’s < fc worden doorgelaten met eenheidsamplitude
 * Alle f’s > fc worden geblokkeerd
@@ -1062,12 +1062,12 @@ Ze worden beide gebruikt om de situatie die we in de vorige vraag gecreeërd heb
 
 ![windows](http://i.imgur.com/ajQzPqo.png)
 
-### 70. Waarom wordt bij een windowed-sinc filter het afsnijpunt bepaald op het halve amplitudepunt in plaats van bij het -3dB punt?
+### 71. Waarom wordt bij een windowed-sinc filter het afsnijpunt bepaald op het halve amplitudepunt in plaats van bij het -3dB punt?
 * Waarom? Omdat de window-sinc frequentieresponse symmetrisch ligt tussen de doorlaatband en stopband
   * Vb. Hamming-window heeft een doorlaatrimpel van 0,2% en een
 identieke stopbandrimpel van 0,2% 
 
-### 71. Een signaal is gesampled met een frequentie van 16 kHz. Uit dit signaal wil men een frequentieband filteren met frequenties tussen 0 Hz en 800 Hz. Men wenst een volledige onderdrukking voor frequenties die hoger zijn dan 1 kHz.
+### 72. Een signaal is gesampled met een frequentie van 16 kHz. Uit dit signaal wil men een frequentieband filteren met frequenties tussen 0 Hz en 800 Hz. Men wenst een volledige onderdrukking voor frequenties die hoger zijn dan 1 kHz.
 **Gevraagd:** bereken het aantal punten dat deze windowed-sinc kernel nodig heeft om deze filter te realiseren
 
 De afnijfrequentie is 1000hz na normalisatie komt dit op: 1000hz/16000hz = 0,0625
@@ -1078,7 +1078,7 @@ We hebben dus 321 punten nodig om deze filter te realiseren.
 
 TODO brecht kijkt da is na want ik zen ni zeker
 
-### 72. Stel dat je een signaal hebt dat is gedigitaliseerd met een samplefrequentie van 8 kHz en dat je frequenties rond 1 kHz wil isoleren met een band tussen 940 Hz en 1060 Hz. Beschrijf hoe je deze filter moet opbouwen.
+### 73. Stel dat je een signaal hebt dat is gedigitaliseerd met een samplefrequentie van 8 kHz en dat je frequenties rond 1 kHz wil isoleren met een band tussen 940 Hz en 1060 Hz. Beschrijf hoe je deze filter moet opbouwen.
 
 * De band dat we willen isoleren is 120Hz (BW) na normalisatie (120 / 8000 = 0.015)
 * Genormaliseerde afsnijfrequenties (940 / 8000 = 0.1175 en 1060 / 8000 = 0.1325)
