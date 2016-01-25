@@ -569,24 +569,42 @@ Frequentiedomein: </br>
 
 ![DFT](http://i.imgur.com/FSfOxf4.png)  
 
-NOOT: </br> 
-- De optelling van alle cosinusen => Re X[] => Reëel
-- De optelling van alle sonussen => Im X[] => Imaginair
-
 ![IDK5](http://i.imgur.com/cwm6OcE.png)
 
 ### 27. Welk zijn de DFT-basisfuncties? Geef deze en benoem de verschillende delen hierin.
 ![IDK6](http://i.imgur.com/rLa8xYv.png)
 
-k = Zie afbeedling hierboven (met al die sinussen / cossinussen). Indien je frequentie domein uit 17 sampels bestaat heb je 9 verschillende cosinussen. k begint bij 0 (DC) en wordt dan verhoogd met stappen van 1 tot en met 8 (32 / 2) / 2). 
+k = Zie afbeelding hierboven (met al die sinussen / cossinussen). Indien je tijdsdomein uit 16 sampels bestaat heb je 9 verschillende cosinussen. k begint bij 0 (DC) en wordt dan verhoogd met stappen van 1 tot en met 8 (16 / 2). Zelfde geldt voor sinus!
 
-i = Sample. Elke cosinus / sinus bestaat uit x aantal sampels! Dit is i, in het geval hierboven gaat i dus van 0 tot 16!
+i = Sample. i is het sample nummer van het tijdsdomein, in het geval hierboven gaat i dus van 0 tot 15!
 
-N = Totaal aantal sampels, in het geval hierboven dus 32!
+N = Totaal aantal sampels, in het geval hierboven dus 16!
 
 ### 28. Gegeven volgende vergelijking voor de synthesevergelijking:
 
-In words, any N point signal, x[i], can be created by adding N/2% 1 cosine waves and N/2% 1 sine waves. The amplitudes of the cosine and sine waves are held in the arrays Im X¯[k] and Re X¯[k], respectively. The synthesis equation multiplies these amplitudes by the basis functions to create a set of scaled sine and cosine waves. Adding the scaled sine and cosine waves produces the time domain signal, x[i].
+Elk signaal met N aantal punten (tijdsdomein) kan gecreeërd worden met N / 2 + 1 aantal cosinusen en N / 2 + 1 aantal sinussen. De amplitudes van deze sinusoïdale signalen worden opgeslaan in Re X[] (cosinus) & Im X[] (sinus).
+
+Je kunt het tijdsdomein terug verkrijgen met deze synthesevergelijking toe te passen! Het is belangrijk dat je de geschaalde waarden van Re X[] en Im X[] gebruikt!
+
+Deze geschaalde waarden kun je verkrijgen door volgende formule:
+
+![Scaled](http://i.imgur.com/fkRshP8.png)
+
+De array's met een streepje boven zijn de geschaalde waardes!
+
+Voorbeeld:
+![Exercise](http://i.imgur.com/pPvWU4F.png)
+
+In dit voorbeeld is er enkel een reëel gedeelte (enkel cosinussen dus). Zoals hierboven verteld moet je eerst de geschaalde waarden berekenen van Re X[]. Hierna kun je met de gegeven formule dus de punten van het tijdsdomein herberekenen (inverse DFT)
+
+X[0] = Re X[0] * cos(2 * pi * 0 * 0 / 32) + Re X[0] * cos(2 * pi * 1 * 0 / 32) + Re X[0] * cos(2 * pi * 2 * 0 / 32) + ...</br>
+X[0] = 1 * 1 + 1 * 1 + 1 * 1 + ... </br>
+X[0] = 32 </br>
+
+X[1] = Re X[1]cos(2pi\*0 * 1 / 32) + Re X[1]cos(2pi\*1 * 1 /32) + ... +  Re X[1]cos(2pi\*15 * 1 / 32) +  Re X[1]cos(2pi\*16 * 1 / 32)</br>
+X[1] = 2 + 1,96 + ...+ (-1.96) + (-2) </br>
+X[1] = 0 </br>
+
 
 ### 29. Een DFT kan bepaald worden op drie verschillende manieren. Welke zijn deze manieren en beschrijf deze beknopt.
 - Simultane vergelijkingen </br>
