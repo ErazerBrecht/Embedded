@@ -682,7 +682,9 @@ y = read('testASCII.txt', 10, 3)
 **Probleem:**</br>
 Tekst wordt ook beschouwd als data! Indien je dit niet wilt dat je begintekst meegenomen wordt als data (zoals bijvoorbeeld commentaar):
 
-> fscanMat('data naam')
+```
+y = fscanMat('testASCII.txt')
+```
 
 Tekst tussen getallen / na de getallen wordt niet verwijderd!
 
@@ -691,9 +693,9 @@ Tekst tussen getallen / na de getallen wordt niet verwijderd!
 [y, f, bit] = wavread('test.wav')
 ```
 
-y = Variabele waar data in wordt geplaatst (sampels)
-f = De sample rate van deze bepaalde .wav file
-bit = Het aantal bits per sample van deze bepaalde .wav file
+-  y = Variabele waar data in wordt geplaatst (sampels)
+-  f = De sample rate van deze bepaalde .wav file
+-  bit = Het aantal bits per sample van deze bepaalde .wav file
 
 De variable zijn niet bedoeld om zaken in te stellen, maar om zaken te weten te komen van de .wav file! </br>
 Als voorbeeld: hier kun je de sample rate niet instellen!
