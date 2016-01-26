@@ -680,7 +680,7 @@ y = read('testASCII.txt', 10, 3)
 - 3 kolomen (spatie)
 
 **Probleem:**</br>
-Tekst wordt ook beschouwd als data! Indien je dit niet wilt dat je begintekst meegenomen wordt als data (zoals bijvoorbeeld commentaar):
+Tekst wordt ook beschouwd als data! Indien je niet wilt dat je begintekst meegenomen wordt als data (zoals bijvoorbeeld commentaar):
 
 ```
 y = fscanMat('testASCII.txt')
@@ -719,18 +719,17 @@ Uitleg: *sin10_Hz* is je lokale variable, je slaat deze op in de binary file ond
 
 ### 37. Wat zijn de verschillen tussen offline signal processing en online signal processing?
 ##### Offline: 
-- Alle data is reeds aanwezig en beschikbaar voor de dataprocessing
-- Je hebt alle data beschikbaar vanaf het begin tot het einde van de meting.
-- Tijdens het analyseren van de data heb je op ieder moment, vanaf het begin tot het einde van het proces, toegang tot alle samples die reeds in het verleden aan bod zijn geweest of nog moeten verwerkt worden.
-- Met bovenstaande gegevens in acht genomen kan je dus heel verschillende algoritmen opbouwen dan bij online signal processing
+- Tijdens het analyseren van de data heb je op ieder moment, vanaf het begin tot het einde van het proces, toegang tot **alle** samples die reeds in het verleden aan bod zijn geweest of nog moeten verwerkt worden (toekomst).
+- Makelijkere algoritmes => Versnellen van geluid => sampels sneller afspelen (sample frequentie verhogen)
 
 ##### Online:
 
 * Een bepaalde sample wordt ingelezen en dan onmiddellijk verwerkt.
 * De dataprocessing van een op dat moment beschikbare sample moet beëindigd zijn vooraleer de volgende sample wordt ingelezen.
-* Het inlezen van de samples en de dataprocessing gebeurt cyclisch met constante intervallen.  Zulke intervalperioden zijn afhankelijk van het proces en kunnen seconden duren maar ook in de orde van ms of µs.
+* Het inlezen van de samples en de dataprocessing gebeurt cyclisch met constante intervallen. Zulke intervalperioden zijn afhankelijk van het proces en kunnen seconden duren maar ook in de orde van ms of µs.
 * Samples die reeds verwerkt zijn en de huidige sample zijn enkel beschikbaar voor signaalverwerking
 * We kunnen niet in de toekomst kijken vermits we (nog) niet weten welke samplewaarde aanwezig zal zijn wanneer de volgende sample wordt verwerkt.
+* Moeilijkere algoritmes => Je bent tijdsgebonden (verwerking moet sneller), geen sampels in toekomst (hoe muziek versnellen?), ...
 
 ### 38. Hoe kan je een rijvector met een kolomvector samenstellen? Geef hierbij een voorbeeld.
 We doen dit door gebruik te maken van de apostrof (afkappingsteken), Zie foto
@@ -755,8 +754,8 @@ Elke sample maal je maximum sample spanning (10V) delen door het bereik in bits 
 
 ### 40. Wat is de pricipiële werking van een moving average filter?
 - Iedere sample in het uitgangssignaal is het resultaat van het bepalen van het gemiddelde van een aantal samples aan de ingang. 
-Het neemt M samples van de input tegelijk en neemt het gemiddelde van die M-samples en levert een enkel uitgangspunt. Het 'venster' aan de ingang schijft steeds op hierdoor de term 'moving'
-- Bij het bepalen van het gemiddelde (avarage) realtime (online) worden enkel de berekeningen in het verleden en de huidige berekening in rekening gebracht. Bij offline kunnen we ook de sampels in de toekomst gebruiken...
+Het neemt M samples van de input tegelijk en neemt het gemiddelde van die M-samples en levert een enkel uitgangspunt. Het 'venster' aan de ingang schuift steeds op hierdoor de term 'moving'
+- Bij het bepalen van het gemiddelde (average) realtime (online) worden enkel de berekeningen in het verleden en de huidige berekening in rekening gebracht. Bij offline kunnen we ook de sampels in de toekomst gebruiken...
 
 Voorbeeld:
 - Venster grote van 3 sampels
@@ -767,7 +766,7 @@ Voorbeeld:
 - Uitgang [3] = (3 + 6 + 21) / 3 = 10
 - Uitgang [4] = (6 + 21 + 6) / 3 = 11
 - Uitgang [5] = (21 + 6 + 3) / 3 = 10
-- Uitgang [6] = (6 + 3 + 3) / 3 = 12
+- Uitgang [6] = (6 + 3 + 3) / 3 = 4
 - Uitgang [7] = (3 + 3 + 0) / 3 = 2
 
 De filter is optimaal voor het verwijderen van rando m ruis terwijl een scherpe stap-response behouden blijft. 
