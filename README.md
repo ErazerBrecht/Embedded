@@ -1007,12 +1007,13 @@ aliasing, etc.
 * Ten tweede, als de fase van belang is, is het zeer gemakkelijk om digitale filters te bouwen met een perfecte fase respons, dwz alle frequenties door een bandfilter sturen met een nul faseverschuiving. Als je dit vergelijkt met analoge filters, zal je merken dat deze afschuwelijk zijn in dit opzicht.
 
 ### 65. Stel dat je een frequentieresponse voor een filter hebt opgebouwd met 80 punten. Wat moet je doen opdat je hierop een FFT kan uitvoeren?
-Omdat de FFT werkt alleen met signalen die een macht van twee zijn => 48 nullen toevoegen aan het signaal zodat je een lengte van 128 samples bekomt.
+Omdat de FFT alleen werkt met signalen die een macht van twee zijn => 48 nullen toevoegen aan het signaal zodat je een lengte van 128 samples bekomt.
 
-Ppvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde nullen verdwijnen gewoon in de convolutie, en hebben geen invloed op de uitkomst.
+Opvulling met nullen verandert niets aan de impulsresponsie. De toegevoegde nullen verdwijnen gewoon in de convolutie, en hebben geen invloed op de uitkomst.
 
 ### 66. Beschrijf hoe je een digitale HD-filter kan opbouwen vanuit LD-filter
 **Spectrale inversie**
+
 1. Teken veranderen van iedere sample in de filterkernel (zie c)
 2. In het midden van de symmetrie (25) => + 1
 3. Gevolg: Doorlaatband wordt stopband (low pass wordt high pass, high pass wordt low pass, band pass wordt band reject ...)
@@ -1032,7 +1033,7 @@ Je kunt ook een andere manier gebruiken. Door om te beurt het teken om te draaie
 
 Je neemt dus je oorspronkelijke filterkernel, sample [0] = - sample [0], sample [1] = sample 1, sample [2] = - sample [2], ...
 
-Het frequentiedomein dat je verkrijgt is de spiegeling van het oorsronkelijke frequentiedomein met een offset naar rechts met evenveel waarden als je frequentiedomein. (Zonder deze offset zijn al je samples op negatieve indexen)
+Het frequentiedomein dat je verkrijgt is de spiegeling van het oorspronkelijke frequentiedomein rond de y-as met een offset naar rechts met evenveel waarden als je frequentiedomein. (Zonder deze offset zijn al je samples op negatieve indexen)
 
 ![spectralreversal](http://i.imgur.com/rPIyuq4.png)
 
