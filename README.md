@@ -601,12 +601,13 @@ Voorbeeld:
 
 In dit voorbeeld is er enkel een reëel gedeelte (enkel cosinussen dus). Zoals hierboven verteld moet je eerst de geschaalde waarden berekenen van Re X[]. Hierna kun je met de gegeven formule dus de punten van het tijdsdomein herberekenen (inverse DFT)
 
-X[0] = Re X[0] * cos(2 * pi * 0 * 0 / 32) + Re X[0] * cos(2 * pi * 1 * 0 / 32) + Re X[0] * cos(2 * pi * 2 * 0 / 32) + ...</br>
-X[0] = 1 * 1 + 1 * 1 + 1 * 1 + ... </br>
+X[0] = Re X[0] * cos(2 * pi * 0 * 0 / 32) + Re X[1] * cos(2 * pi * 1 * 0 / 32) + Re X[2] * cos(2 * pi * 2 * 0 / 32) + ...</br>
+X[0] = 1 * 1 + 1 * 2 + 1 * 2 + ... + 1 * 1 </br>
+X[0] = 1 + 15 * 2 + 1 </br>
 X[0] = 32 </br>
 
-X[1] = Re X[1]cos(2pi\*0 * 1 / 32) + Re X[1]cos(2pi\*1 * 1 /32) + ... +  Re X[1]cos(2pi\*15 * 1 / 32) +  Re X[1]cos(2pi\*16 * 1 / 32)</br>
-X[1] = 2 + 1,96 + ...+ (-1.96) + (-2) </br>
+X[1] = Re X[0]cos(2pi\*0 * 1 / 32) + Re X[1]cos(2pi\*1 * 1 /32) + ... +  Re X[15]cos(2pi\*15 * 1 / 32) +  Re X[16]cos(2pi\*16 * 1 / 32)</br>
+X[1] = 1 + 1,96 + ...+ (-1.96) + (-1) </br>
 X[1] = 0 </br>
 
 
